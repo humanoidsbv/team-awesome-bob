@@ -1,0 +1,34 @@
+{
+  "name": "team-awesome-bob",
+  "version": "1.0.0",
+  "description": "Front End Crash Course Team Awesome",
+  "main": "script.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humanoidsbv/team-awesome-bob.git"
+  },
+  "keywords": [
+    "Front",
+    "End",
+    "Crash",
+    "Course",
+    "Team",
+    "Awesome",
+    "Bob",
+    "Humanoids"
+  ],
+  "author": "Bob Verheij",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/humanoidsbv/team-awesome-bob/issues"
+  },
+  "homepage": "https://github.com/humanoidsbv/team-awesome-bob#readme",
+  "dependencies": {
+    "next": "^10.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
