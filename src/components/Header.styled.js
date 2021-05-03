@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Header = styled.header`
   position: fixed;
   top:0;
@@ -21,11 +22,18 @@ export const Header = styled.header`
     color: white;
   }
 
-  > img { 
-    margin-top: 10px;
-    margin-bottom: 10px;
-    transform: rotate(45deg);
-    height: auto;
+  > div {
+    position: absolute;
+    right: 5%;
+    top: 0;
+    height: inherit;
+    align-items: center;
+    display: flex}
+
+
+  img { 
+    transform: rotate(${props => props.isOpen ? "45deg" : "0"}); 
+    height: 40%;
   }
 
 `;

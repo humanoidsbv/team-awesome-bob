@@ -7,11 +7,12 @@ export const NavBox = styled.nav`
     background-color: #4f88ef;
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: ${props => props.isOpen ? "flex" : "none"};
     flex-direction: column;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: flex-start;
-    align-content: center;
+    margin:auto;
+    overflow: scroll;
 
     > p {
         width: 50vw;
