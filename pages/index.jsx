@@ -5,9 +5,7 @@ import { NavBox } from "../src/components/NavBox";
 
 function HomePage() {
   return (
-    <>
       <Header/>
-    </>
   );
 }
 
