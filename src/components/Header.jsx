@@ -3,7 +3,6 @@ import * as Styled from "./Header.styled";
 import NavBox from "./NavBox";
 
 function Header() {
-
     const [isOpen, setIsOpen] = useState(false);
     const handleClick = () => setIsOpen(!isOpen);
 

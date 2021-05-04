@@ -1,7 +1,6 @@
 import * as Styled from "./NavBox.styled"
 
 function NavBox({isOpen}) {
-  
   return (
     <Styled.NavBox isOpen = {isOpen}>
       <p>Timesheets</p>

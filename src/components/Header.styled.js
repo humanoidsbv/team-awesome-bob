@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
-
   align-content: center;
   background-color: #4f88ef;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
@@ -13,7 +12,7 @@ export const Header = styled.header`
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 1;
+  z-index: 2;
 
   > h1 {
     font-family: Bello-Script, sans-serif;

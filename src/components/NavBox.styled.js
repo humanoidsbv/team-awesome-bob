@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 export const NavBox = styled.nav`
-    
     align-items: center;
     background-image: linear-gradient(to bottom, #4f88ef, white 300%);
     display: flex;
@@ -9,12 +8,11 @@ export const NavBox = styled.nav`
     height: 100vh;
     justify-content: flex-start;
     margin:auto;
-    overflow: scroll;
     position: fixed;
     transform: ${props => props.isOpen ? "translateY(0%)" : "translateY(-100%)"};
     transition: transform ${props => props.isOpen ? "0.2s ease-out" : "0.1s ease-in"};
     width: 100vw;
-    z-index: 0;
+    z-index: 1;
 
     > p {
         color: white;
