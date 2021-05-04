@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
-
 export const Header = styled.header`
-  position: fixed;
-  top:0;
-  left:0;
-  background-color: #4f88ef;
-  display: flex;
-  justify-content: center;
+
   align-content: center;
-  height: 50px;
-  width: 100vw;
-  margin-bottom: 20px;
+  background-color: #4f88ef;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  left: 0;
+  margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
 
   > h1 {
     font-family: Bello-Script, sans-serif;
@@ -28,12 +29,12 @@ export const Header = styled.header`
     top: 0;
     height: inherit;
     align-items: center;
-    display: flex}
-
-
-  img { 
-    transform: rotate(${props => props.isOpen ? "45deg" : "0"}); 
-    height: 40%;
+    display: flex;
   }
 
+  img {
+    transform: rotate(${(props) => (props.isOpen ? "45deg" : "0")});
+    height: 40%;
+    transition: transform 0.2s ${(props) => props.isOpen ? "ease-in" : "ease-out"};
+  }
 `;

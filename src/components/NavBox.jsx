@@ -1,30 +1,16 @@
-import * as s from "./NavBox.styled"
+import * as Styled from "./NavBox.styled"
 
-export function NavBox({isOpen}) {
+function NavBox({isOpen}) {
   
   return (
-    <s.NavBox isOpen = {isOpen}>
+    <Styled.NavBox isOpen = {isOpen}>
       <p>Timesheets</p>
       <p>Team Members</p> 
       <p>Projects</p> 
       <p>Clients</p>
-      <p>Documents</p>
-      <p>Timesheets</p>
-      <p>Team Members</p> 
-      <p>Projects</p> 
-      <p>Clients</p>
-      <p>Documents</p>
-      <p>Timesheets</p>
-      <p>Team Members</p> 
-      <p>Projects</p> 
-      <p>Clients</p>
-      <p>Documents</p>
-      <p>Timesheets</p>
-      <p>Team Members</p> 
-      <p>Projects</p> 
-      <p>Clients</p>
-      <p>Documents</p>
-      
-    </s.NavBox>
+      <p>Documents</p>     
+    </Styled.NavBox>
   );
 }
+
+export default NavBox;

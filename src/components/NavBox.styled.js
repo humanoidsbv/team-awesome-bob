@@ -2,25 +2,27 @@ import styled from "styled-components"
 
 export const NavBox = styled.nav`
     
-    position: fixed;
-    z-index: -100;
-    background-color: #4f88ef;
-    width: 100vw;
-    height: 100vh;
-    display: ${props => props.isOpen ? "flex" : "none"};
-    flex-direction: column;
     align-items: center;
+    background-image: linear-gradient(to bottom, #4f88ef, white 300%);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
     justify-content: flex-start;
     margin:auto;
     overflow: scroll;
+    position: fixed;
+    transform: ${props => props.isOpen ? "translateY(0%)" : "translateY(-100%)"};
+    transition: transform ${props => props.isOpen ? "0.2s ease-out" : "0.1s ease-in"};
+    width: 100vw;
+    z-index: 0;
 
     > p {
-        width: 50vw;
+        color: white;
+        font-size: 24px;
         margin: 15px;
         padding: 5px;
-        font-size: 24px;
         text-align: center;
-        color: white;
+        width: 50vw;
         :first-child{
             margin-top: 100px;
         }

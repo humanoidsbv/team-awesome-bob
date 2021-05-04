@@ -1,11 +1,13 @@
-import * as s from "./NewEntryButton.styled"
+import * as Styled from "./NewEntryButton.styled"
 
-export function ButtonSection() {
+function NewEntryButton() {
 
     return (<>
-        <s.NewEntryButton>
-            Test</s.NewEntryButton>
+        <Styled.NewEntryButton>
+            Test</Styled.NewEntryButton>
             </>
     ) 
 
 }
+
+export default NewEntryButton;

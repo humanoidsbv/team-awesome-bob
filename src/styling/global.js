@@ -14,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
     src: url("fonts/proxima-nova-bold.woff");
 }
 
+@font-face {
+    font-family: Bello Script;
+    src: url("fonts/Bello-Script.ttf");
+}
 
 body{
     font-family: Proxima Nova;

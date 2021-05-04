@@ -1,12 +1,13 @@
 import Header from "../src/components/Header";
-import { ButtonSection } from "../src/components/NewEntryButton";
-import { TimeEntry } from "../src/components/TimeEntry";
-import { NavBox } from "../src/components/NavBox";
+import NewEntryButton from "../src/components/NewEntryButton";
+import TimeEntries from "../src/components/TimeEntries";
 
 function HomePage() {
   return (
     <>
-      <Header/>
+      <Header />
+      <NewEntryButton />
+      <TimeEntries />
     </>
   );
 }
