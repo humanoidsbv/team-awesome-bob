@@ -17,10 +17,8 @@ export const NewEntryButton = styled.button`
 
   > img {
     opacity: 0.8;
-  }
-  > a{
-    align-self: center;
-    margin: 0 15px;
+    margin-right: 10px;
+    margin-left: -10px;
   }
   
   :first-of-type {

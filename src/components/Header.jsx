@@ -14,7 +14,7 @@ function Header() {
           <img src="assets/plus-icon.svg" onClick={handleClick} />
         </div>
       </Styled.Header>
-      <MenuNavigation isOpen={isOpen}></MenuNavigation>
+      <MenuNavigation isOpen={isOpen}/>
     </>
   );
 }

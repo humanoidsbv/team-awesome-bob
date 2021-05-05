@@ -1,11 +1,10 @@
 import * as Styled from "./NewEntryButton.styled"
 
 function NewEntryButton() {
-    return (<>
+    return (
         <Styled.NewEntryButton>
-        <img src="assets/plus-icon.svg"/> <a>New time entry</a>
+        <img src="assets/plus-icon.svg"/> New Time Entry
             </Styled.NewEntryButton>
-            </>
     ) 
 
 }

@@ -15,7 +15,7 @@ export const Header = styled.header`
   z-index: 2;
 
   > h1 {
-    font-family: Bello-Script, sans-serif;
+    font-family: Bello Script, sans-serif;
     font-weight: 400;
     font-size: 26px;
     line-height: 20px;

@@ -6,14 +6,14 @@ function TimeTable(props) {
   return (
     <>
       <TimeTableDate isToday>
-        <TimeTableDate>
-          <p>29-07-2018</p>
-          <TimeEntry firstChild lastChild>
-            <p>Port of Rotterdam</p>
-            <p>09:00 - 18:00</p>
-          </TimeEntry>
-        </TimeTableDate>
+        <p>29-07-2018</p>
+        <TimeEntry firstChild lastChild>
+          <p>Port of Rotterdam</p>
+          <p>09:00 - 18:00</p>
+        </TimeEntry>
+      </TimeTableDate>
 
+      <TimeTableDate>
         <p>30-07-2018</p>
         <TimeEntry firstChild>
           <p>Port of Rotterdam</p>

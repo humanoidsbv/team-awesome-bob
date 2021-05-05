@@ -1,5 +1,4 @@
 import * as Styled from "./TimeEntry.styled";
-import ColorSign from "./ColorSign";
 
 function TimeEntry(props) {
   return (
