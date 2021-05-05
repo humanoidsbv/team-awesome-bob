@@ -13,7 +13,6 @@ export const TimeEntry = styled.div`
   max-width: 90%;
   padding: 10px 4%;
   transition: background-color 0.2s ease-in;
-
   border-left-width: 4px;
   border-bottom-width: 0;
 
@@ -22,6 +21,7 @@ export const TimeEntry = styled.div`
   }
   ${(props) =>
     props.firstChild ? "border-top-left-radius: 5px; border-top-right-radius: 5px;" : ""};
+
   ${(props) =>
     props.lastChild
       ? "margin-bottom: 30px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; border-bottom-width: 1px;"

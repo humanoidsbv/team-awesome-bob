@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { TimeEntry } from "./TimeEntry.styled";
 import { theme } from "../styling/theme";
 

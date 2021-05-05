@@ -6,7 +6,7 @@ import TimeTableDate from "./TimeTableDate";
 function TimeTable() {
   return (
     <>
-      <TimeTableDate isToday>
+      <TimeTableDate>
         <p>29-07-2018</p>
         <TimeEntry firstChild lastChild>
           <p>Port of Rotterdam</p>
@@ -14,7 +14,7 @@ function TimeTable() {
         </TimeEntry>
       </TimeTableDate>
 
-      <TimeTableDate>
+      <TimeTableDate isToday>
         <p>30-07-2018</p>
         <TimeEntry firstChild>
           <p>Port of Rotterdam</p>
