@@ -7,8 +7,8 @@ import * as Styled from "./Header.styled";
 import MenuNavigation from "./MenuNavigation";
 
 function Header(): React.ReactElement {
-  const [isOpen, setIsOpen] = useState<Boolean>(false);
-  const handleClick = () => setIsOpen(!isOpen);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const handleClick = (): void => setIsOpen(!isOpen);
 
   return (
     <>

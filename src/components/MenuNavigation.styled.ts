@@ -22,7 +22,7 @@ export const MenuNavigation = styled.nav`
     margin: 15px;
     padding: 5px;
     text-align: center;
-    width: 50vw;
+    width: 70vw;
     :first-child {
       margin-top: 100px;
     }

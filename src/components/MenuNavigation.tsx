@@ -3,7 +3,11 @@ import React from "react";
 
 import * as Styled from "./MenuNavigation.styled";
 
-function MenuNavigation({ isOpen }) {
+interface NavProps {
+  isOpen: boolean;
+}
+
+function MenuNavigation({ isOpen }: NavProps) {
   return (
     <Styled.MenuNavigation isOpen={isOpen}>
       <p>Timesheets</p>
