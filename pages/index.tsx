@@ -1,13 +1,14 @@
+import React from "react";
 import Header from "../src/components/Header";
 import NewEntryButton from "../src/components/NewEntryButton";
-import TimeEntries from "../src/components/TimeEntries";
+import TimeTable from "../src/components/TimeTable";
 
 function HomePage() {
   return (
     <>
       <Header />
       <NewEntryButton />
-      <TimeEntries />
+      <TimeTable />
     </>
   );
 }
