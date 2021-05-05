@@ -34,6 +34,6 @@ export const Header = styled.header`
   img {
     transform: rotate(${(props) => (props.isOpen ? "45deg" : "0")});
     height: 40%;
-    transition: transform 0.2s ${(props) => props.isOpen ? "ease-in" : "ease-out"};
+    transition: transform 0.2s ${(props) => (props.isOpen ? "ease-in" : "ease-out")};
   }
 `;

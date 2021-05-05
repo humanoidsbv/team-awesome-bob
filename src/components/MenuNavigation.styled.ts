@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
+import { theme } from "../styling/theme";
+
 export const MenuNavigation = styled.nav`
   align-items: center;
-  background-image: linear-gradient(to bottom, #4f88ef, white 300%);
+  background-image: linear-gradient(to bottom, ${theme.teamAwesomeBlue}, white 300%);
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: flex-start;
   margin: auto;
   position: fixed;
-  transform: ${(props) =>
-    props.isOpen ? "translateY(0%)" : "translateY(-100%)"};
-  transition: transform
-    ${(props) => (props.isOpen ? "0.2s ease-out" : "0.1s ease-in")};
+  transform: ${(props) => (props.isOpen ? "translateY(0%)" : "translateY(-100%)")};
+  transition: transform ${(props) => (props.isOpen ? "0.2s ease-out" : "0.1s ease-in")};
   width: 100vw;
   z-index: 1;
 

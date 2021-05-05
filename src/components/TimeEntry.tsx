@@ -1,9 +1,11 @@
+import React from "react";
+
 import * as Styled from "./TimeEntry.styled";
 
 function TimeEntry(props) {
   return (
     <Styled.TimeEntry firstChild={props.firstChild} lastChild={props.lastChild}>
-      {props.children} 
+      {props.children}
     </Styled.TimeEntry>
   );
 }

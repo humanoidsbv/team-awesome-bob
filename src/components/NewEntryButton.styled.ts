@@ -20,12 +20,11 @@ export const NewEntryButton = styled.button`
     margin-right: 10px;
     margin-left: -10px;
   }
-  
+
   :first-of-type {
     margin-top: 75px;
   }
-  :last-of-type { 
+  :last-of-type {
     margin-bottom: 20px;
   }
-
 `;

@@ -5,5 +5,5 @@ export const TimeTableDate = styled.div`
     opacity: 0.4;
     margin: 10px 5vw;
     font-size: 16px;
-  }  
+  }
 `;

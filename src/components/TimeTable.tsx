@@ -1,8 +1,9 @@
-import * as Styled from "./TimeEntry.styled";
+import React from "react";
+
 import TimeEntry from "./TimeEntry";
 import TimeTableDate from "./TimeTableDate";
 
-function TimeTable(props) {
+function TimeTable() {
   return (
     <>
       <TimeTableDate isToday>
