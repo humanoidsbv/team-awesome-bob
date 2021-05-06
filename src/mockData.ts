@@ -1,5 +1,5 @@
 export const mockData = {
-  timeentries: [
+  timeEntries: [
     {
       client: "Port of Rotterdam",
       id: 0.8524250995148186,
@@ -19,7 +19,7 @@ export const mockData = {
       stopTimestamp: "2019-09-24T18:00:00.000Z",
     },
     {
-      client: "Hike One",
+      client: "Team Awesome",
       id: 1.8524250995148186,
       startTimestamp: "2019-09-25T16:00:00.000Z",
       stopTimestamp: "2019-09-25T18:00:00.000Z",

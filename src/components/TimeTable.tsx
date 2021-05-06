@@ -13,7 +13,7 @@ function TimeTable() {
 
   let previousDate = new Date();
 
-  const allEntries = mockData.timeentries.map((timeEntry) => {
+  const allEntries = mockData.timeEntries.map((timeEntry, index) => {
     const startDateTime = new Date(timeEntry.startTimestamp);
     const endDateTime = new Date(timeEntry.stopTimestamp);
 
@@ -26,27 +26,38 @@ function TimeTable() {
       minute: "2-digit",
     });
 
+    const prevStartDateTime = new Date(
+      mockData.timeEntries[index - 1]?.startTimestamp,
+    ).toDateString();
+    const nextStartDateTime = new Date(
+      mockData.timeEntries[index + 1]?.startTimestamp,
+    ).toDateString();
+
+    const isFirstChild = !(prevStartDateTime === startDateTime.toDateString());
+    const isLastChild = !(nextStartDateTime === startDateTime.toDateString());
+
     const timeRegistration = `${startTime} - ${endTime}`;
     const durationAsNumber = endDateTime.getTime() - startDateTime.getTime();
     const duration = new Date(durationAsNumber).toISOString().substr(11, 5);
     const { client } = timeEntry;
 
-    if (
-      startDateTime.getFullYear() === previousDate.getFullYear() &&
-      startDateTime.getMonth() === previousDate.getMonth() &&
-      startDateTime.getDay() === previousDate.getDay()
-    ) {
-      return <TimeEntry client={client} timeRegistration={timeRegistration} duration={duration} />;
+    if (startDateTime.toDateString() === previousDate.toDateString()) {
+      return (
+        <TimeEntry
+          firstChild={isFirstChild}
+          lastChild={isLastChild}
+          client={client}
+          timeRegistration={timeRegistration}
+          duration={duration}
+        />
+      );
     }
 
     const showDate = startDateTime.toLocaleDateString("nl-NL", dateDisplay);
     previousDate = startDateTime;
 
-    const entriesOnDate = mockData.timeentries.filter(
-      (entry) =>
-        new Date(entry.startTimestamp).getFullYear() === startDateTime.getFullYear() &&
-        new Date(entry.startTimestamp).getMonth() === startDateTime.getMonth() &&
-        new Date(entry.startTimestamp).getDay() === startDateTime.getDay(),
+    const entriesOnDate = mockData.timeEntries.filter(
+      (entry) => new Date(entry.startTimestamp).toDateString() === startDateTime.toDateString(),
     );
 
     const totalTime = entriesOnDate.reduce((acc, cur) => {
@@ -61,7 +72,13 @@ function TimeTable() {
           <p> {showDate} </p>
           <p> {totalHours} </p>
         </DateRegistry>
-        <TimeEntry client={client} timeRegistration={timeRegistration} duration={duration} />
+        <TimeEntry
+          firstChild={isFirstChild}
+          lastChild={isLastChild}
+          client={client}
+          timeRegistration={timeRegistration}
+          duration={duration}
+        />
       </>
     );
   });
