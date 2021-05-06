@@ -27,4 +27,8 @@ export const NewEntryButton = styled.button`
   :last-of-type {
     margin-bottom: 20px;
   }
+
+  :focus {
+    opacity: 0.8;
+  }
 `;

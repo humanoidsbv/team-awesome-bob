@@ -16,14 +16,36 @@ export const TimeEntry = styled.div`
   border-left-width: 4px;
   border-bottom-width: 0;
 
+  margin-bottom: ${(props) => (props.lastChild ? "15px" : "")};
+
+  border-top-left-radius: ${(props) => (props.firstChild ? "5px" : "")};
+  border-top-right-radius: ${(props) => (props.firstChild ? "5px" : "")};
+  border-bottom-left-radius: ${(props) => (props.lastChild ? "5px" : "")};
+  border-bottom-right-radius: ${(props) => (props.lastChild ? "5px" : "")};
+
+  border-bottom-width: ${(props) => (props.lastChild ? "1px" : "")};
+
+  > p {
+    ${(props) => (props.client === "Team Awesome" ? "color: red;" : "color: black;")};
+  }
+
+  div {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+
+    p {
+      margin: 10% 0;
+      text-align: right;
+
+      :last-child {
+        font-size: 14px;
+        opacity: 0.6;
+      }
+    }
+  }
+
   :hover {
     background-color: #4f88ef10;
   }
-  ${(props) =>
-    props.firstChild ? "border-top-left-radius: 5px; border-top-right-radius: 5px;" : ""};
-
-  ${(props) =>
-    props.lastChild
-      ? "margin-bottom: 30px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; border-bottom-width: 1px;"
-      : ""};
 `;
