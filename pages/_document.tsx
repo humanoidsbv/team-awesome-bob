@@ -2,9 +2,8 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from "react";
 import Document from "next/document";
-import { ThemeProvider, ServerStyleSheet } from "styled-components";
+import { ServerStyleSheet } from "styled-components";
 import GlobalStyle from "../src/styling/global";
-import { theme } from "../src/styling/theme";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -17,9 +16,7 @@ export default class MyDocument extends Document {
             sheet.collectStyles(
               <>
                 <GlobalStyle />
-                <ThemeProvider theme={theme}>
-                  <App {...props} />
-                </ThemeProvider>
+                <App {...props} />
               </>,
             ),
         });

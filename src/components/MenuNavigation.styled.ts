@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
-import { theme } from "../styling/theme";
-
 export const MenuNavigation = styled.nav`
   align-items: center;
-  background-image: linear-gradient(to bottom, ${theme.teamAwesomeBlue}, white 300%);
+  background-image: linear-gradient(
+    to bottom,
+    ${(props) => props.theme.teamAwesomeBlue},
+    white 300%
+  );
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -22,7 +24,7 @@ export const MenuNavigation = styled.nav`
     margin: 15px;
     padding: 5px;
     text-align: center;
-    width: 70vw;
+    width: 50vw;
     :first-child {
       margin-top: 100px;
     }

@@ -16,7 +16,14 @@ export const TimeEntry = styled.div`
   border-left-width: 4px;
   border-bottom-width: 0;
 
-  margin-bottom: -1px;
+  margin-bottom: ${(props) => (props.lastChild ? "15px" : "")};
+
+  border-top-left-radius: ${(props) => (props.firstChild ? "5px" : "")};
+  border-top-right-radius: ${(props) => (props.firstChild ? "5px" : "")};
+  border-bottom-left-radius: ${(props) => (props.lastChild ? "5px" : "")};
+  border-bottom-right-radius: ${(props) => (props.lastChild ? "5px" : "")};
+
+  border-bottom-width: ${(props) => (props.lastChild ? "1px" : "")};
 
   > p {
     ${(props) => (props.client === "Team Awesome" ? "color: red;" : "color: black;")};
@@ -41,11 +48,4 @@ export const TimeEntry = styled.div`
   :hover {
     background-color: #4f88ef10;
   }
-
-  ${(props) =>
-    props.firstChild ? "border-top-left-radius: 5px; border-top-right-radius: 5px;" : ""}
-  ${(props) =>
-    props.lastChild
-      ? "margin-bottom: 15px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; border-bottom-width: 1px;"
-      : ""}
 `;
