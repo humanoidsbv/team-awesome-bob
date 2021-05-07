@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Front End Crash Course Team Awesome",
   "scripts": {
-    "dev": "next",
+    "dev": "next & npm run json-server",
     "build": "next build",
+    "json-server": "json-server --watch db.json --port 3004",
     "start": "next start"
   },
   "repository": {
@@ -29,7 +30,9 @@
   "homepage": "https://github.com/humanoidsbv/team-awesome-bob#readme",
   "dependencies": {
     "@humanoids/prettier-config": "0.0.3",
+    "json-server": "^0.16.3",
     "next": "^10.2.0",
+    "node-fetch": "^2.6.1",
     "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

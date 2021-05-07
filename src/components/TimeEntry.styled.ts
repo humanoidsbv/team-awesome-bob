@@ -27,6 +27,8 @@ export const TimeEntry = styled.div`
 
   > p {
     ${(props) => (props.client === "Team Awesome" ? "color: red;" : "color: black;")};
+    text-align: left;
+    background-color: rgba(100, 100, 100, 0.2);
   }
 
   div {
