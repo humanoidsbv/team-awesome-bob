@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { mockData } from "../mockData";
+import { getTimeEntries } from "../services/getTimeEntries";
+import { deleteTimeEntries } from "../services/deleteTimeEntries";
 
 import TimeEntry from "./TimeEntry";
 import DateRegistry from "./DateRegistry";
@@ -9,13 +10,27 @@ import DateRegistry from "./DateRegistry";
 import * as Styled from "./TimeTable.styled";
 
 function TimeTable() {
+  const [timeEntries, setTimeEntries] = useState([]);
   const dateDisplay = { day: "numeric", month: "long", year: "numeric" };
+
+  async function fetchTimeEntries() {
+    setTimeEntries(await getTimeEntries());
+  }
+
+  useEffect(() => {
+    fetchTimeEntries();
+  }, []);
+
+  async function deleteTimeEntry(_id: number) {
+    await deleteTimeEntries(_id);
+    fetchTimeEntries();
+  }
 
   let previousDate = new Date();
 
-  const allEntries = mockData.timeEntries.map((timeEntry, index) => {
-    const startDateTime = new Date(timeEntry.startTimestamp);
-    const endDateTime = new Date(timeEntry.stopTimestamp);
+  const allEntries = timeEntries.map((timeEntry, index) => {
+    const startDateTime = new Date(timeEntry.startTime);
+    const endDateTime = new Date(timeEntry.endTime);
 
     const startTime = startDateTime.toLocaleTimeString("nl-NL", {
       hour: "2-digit",
@@ -26,12 +41,14 @@ function TimeTable() {
       minute: "2-digit",
     });
 
-    const prevStartDateTime = new Date(
-      mockData.timeEntries[index - 1]?.startTimestamp,
-    ).toDateString();
-    const nextStartDateTime = new Date(
-      mockData.timeEntries[index + 1]?.startTimestamp,
-    ).toDateString();
+    if (timeEntry.client === 1) {
+      timeEntry.client = "Humanoids";
+    } else {
+      timeEntry.client = "Port of Rotterdam";
+    }
+
+    const prevStartDateTime = new Date(timeEntries[index - 1]?.startTime).toDateString();
+    const nextStartDateTime = new Date(timeEntries[index + 1]?.startTime).toDateString();
 
     const isFirstChild = !(prevStartDateTime === startDateTime.toDateString());
     const isLastChild = !(nextStartDateTime === startDateTime.toDateString());
@@ -44,6 +61,8 @@ function TimeTable() {
     if (startDateTime.toDateString() === previousDate.toDateString()) {
       return (
         <TimeEntry
+          deleteTimeEntry={deleteTimeEntry}
+          id={timeEntry.id}
           firstChild={isFirstChild}
           lastChild={isLastChild}
           client={client}
@@ -56,12 +75,12 @@ function TimeTable() {
     const showDate = startDateTime.toLocaleDateString("nl-NL", dateDisplay);
     previousDate = startDateTime;
 
-    const entriesOnDate = mockData.timeEntries.filter(
-      (entry) => new Date(entry.startTimestamp).toDateString() === startDateTime.toDateString(),
+    const entriesOnDate = timeEntries.filter(
+      (entry) => new Date(entry.startTime).toDateString() === startDateTime.toDateString(),
     );
 
     const totalTime = entriesOnDate.reduce((acc, cur) => {
-      return acc + (new Date(cur.stopTimestamp).getTime() - new Date(cur.startTimestamp).getTime());
+      return acc + (new Date(cur.endTime).getTime() - new Date(cur.startTime).getTime());
     }, 0);
 
     const totalHours = new Date(totalTime).toISOString().substr(11, 5);
@@ -73,6 +92,8 @@ function TimeTable() {
           <p> {totalHours} </p>
         </DateRegistry>
         <TimeEntry
+          deleteTimeEntry={deleteTimeEntry}
+          id={timeEntry.id}
           firstChild={isFirstChild}
           lastChild={isLastChild}
           client={client}

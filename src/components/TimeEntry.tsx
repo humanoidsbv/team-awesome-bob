@@ -3,6 +3,8 @@ import React from "react";
 
 import * as Styled from "./TimeEntry.styled";
 
+import DeleteButton from "./DeleteButton";
+
 interface TimeEntryProps {
   client?: string;
   firstChild?: boolean;
@@ -11,6 +13,8 @@ interface TimeEntryProps {
   timeRegistration: string;
   duration: string;
   children?: React.ReactElement | React.ReactElement[];
+  id: number;
+  deleteTimeEntry: any;
 }
 
 function TimeEntry({
@@ -21,6 +25,8 @@ function TimeEntry({
   timeRegistration,
   duration,
   children,
+  id,
+  deleteTimeEntry,
 }: TimeEntryProps): React.ReactElement {
   return (
     <Styled.TimeEntry
@@ -29,7 +35,10 @@ function TimeEntry({
       lastChild={lastChild}
       isToday={isToday}
     >
-      <p>{client}</p>
+      <div>
+        <p>{client}</p>
+        <DeleteButton deleteTimeEntry={deleteTimeEntry} id={id} />
+      </div>
       <div>
         <p>{timeRegistration}</p>
         <p>{duration}</p>

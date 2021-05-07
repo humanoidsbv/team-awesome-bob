@@ -26,7 +26,9 @@ export const TimeEntry = styled.div`
   border-bottom-width: ${(props) => (props.lastChild ? "1px" : "")};
 
   > p {
-    ${(props) => (props.client === "Team Awesome" ? "color: red;" : "color: black;")};
+    background-color: rgba(100, 100, 100, 0.2);
+    color: ${(props) => (props.client === "Team Awesome" ? "red;" : "black;")};
+    text-align: left;
   }
 
   div {
