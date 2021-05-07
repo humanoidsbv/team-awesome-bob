@@ -11,9 +11,10 @@ export const NewEntryButton = styled.button`
   font-weight: 500;
   height: 36px;
   margin-left: 5vw;
+  margin-right: auto;
   margin-top: 5px;
   text-align: center;
-  width: 90vw;
+  width: 90%;
 
   > img {
     opacity: 0.8;
