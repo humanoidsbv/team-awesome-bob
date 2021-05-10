@@ -22,13 +22,6 @@ export const NewEntryButton = styled.button`
     margin-left: -10px;
   }
 
-  :first-of-type {
-    margin-top: 75px;
-  }
-  :last-of-type {
-    margin-bottom: 20px;
-  }
-
   :focus {
     opacity: 0.8;
   }

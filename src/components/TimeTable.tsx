@@ -1,25 +1,21 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import React, { useEffect, useState } from "react";
 
-import { getTimeEntries } from "../services/getTimeEntries";
+import React from "react";
+
 import { deleteTimeEntries } from "../services/deleteTimeEntries";
 
-import TimeEntry from "./TimeEntry";
-import DateRegistry from "./DateRegistry";
-
 import * as Styled from "./TimeTable.styled";
+import * as Type from "../types/timeEntry";
 
-function TimeTable() {
-  const [timeEntries, setTimeEntries] = useState([]);
+import DateRegistry from "./DateRegistry";
+import TimeEntry from "./TimeEntry";
+
+interface TimeTableProps {
+  timeEntries: Type.timeEntry[];
+  fetchTimeEntries: Function;
+}
+function TimeTable({ timeEntries, fetchTimeEntries }: TimeTableProps) {
   const dateDisplay = { day: "numeric", month: "long", year: "numeric" };
-
-  async function fetchTimeEntries() {
-    setTimeEntries(await getTimeEntries());
-  }
-
-  useEffect(() => {
-    fetchTimeEntries();
-  }, []);
 
   async function deleteTimeEntry(_id: number) {
     await deleteTimeEntries(_id);
@@ -40,12 +36,6 @@ function TimeTable() {
       hour: "2-digit",
       minute: "2-digit",
     });
-
-    if (timeEntry.client === 1) {
-      timeEntry.client = "Humanoids";
-    } else {
-      timeEntry.client = "Port of Rotterdam";
-    }
 
     const prevStartDateTime = new Date(timeEntries[index - 1]?.startTime).toDateString();
     const nextStartDateTime = new Date(timeEntries[index + 1]?.startTime).toDateString();

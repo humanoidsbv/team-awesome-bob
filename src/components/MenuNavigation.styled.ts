@@ -13,6 +13,7 @@ export const MenuNavigation = styled.nav`
   justify-content: flex-start;
   margin: auto;
   position: fixed;
+  top: 0;
   transform: ${(props) => (props.isOpen ? "translateY(0%)" : "translateY(-100%)")};
   transition: transform ${(props) => (props.isOpen ? "0.2s ease-out" : "0.1s ease-in")};
   width: 100vw;
