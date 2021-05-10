@@ -24,6 +24,8 @@ body{
     font-weight: regular;
     margin: 0;
     padding: 0;
+		margin-top: 75px;
+
 }
 
 * { 
