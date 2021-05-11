@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState } from "react";
 
 import * as Styled from "./NewEntryForm.styled";
@@ -12,11 +10,12 @@ import NewEntryButton from "./NewEntryButton";
 import { addTimeEntries } from "../../services/addTimeEntries";
 
 interface NewEntryFormProps {
-  fetchTimeEntries: Function;
-  isClicked: boolean;
+  timeEntries: Type.timeEntry[];
+  isActive: boolean;
+  handleActive: Function;
 }
 
-function NewEntryForm({ isClicked, fetchTimeEntries }: NewEntryFormProps) {
+function NewEntryForm({ timeEntries, isActive, handleActive }: NewEntryFormProps) {
   const [timeEntryInput, setState] = useState({
     activity: "",
     date: new Date().toISOString().substr(0, 10),
@@ -37,87 +36,78 @@ function NewEntryForm({ isClicked, fetchTimeEntries }: NewEntryFormProps) {
     });
   }
 
-  function convertTimeEntry({ id, employer, activity, date, startTime, endTime }) {
+  function convertTimeEntry({ employer, activity, date, startTime, endTime }) {
     const newTimeEntry: Type.timeEntry = {
       activity,
       client: employer,
       endTime: `${date}T${endTime}:00.000Z`,
-      id,
+      id: timeEntries.length + 1,
       startTime: `${date}T${startTime}:00.000Z`,
     };
     addTimeEntries(JSON.stringify(newTimeEntry));
+    timeEntries.push(newTimeEntry);
     resetAllFields();
   }
 
   const saveTimeEntry = (event) => {
+    handleActive();
     event.preventDefault();
     convertTimeEntry(timeEntryInput);
-    fetchTimeEntries();
   };
 
   const updateTimeEntry = (event) => {
     setState({
       ...timeEntryInput,
-      [event.target.name]: event.target.value,
+      [event.target.id]: event.target.value,
     });
   };
 
   return (
-    <Styled.NewEntryForm isClicked={isClicked} onSubmit={saveTimeEntry}>
+    <Styled.NewEntryForm isActive={isActive} onSubmit={saveTimeEntry}>
       <NewEntryInput>
-        <label htmlFor="Employer"> Employer:</label>
-        <input
-          id="Employer"
-          name="employer"
-          onChange={updateTimeEntry}
-          type=""
-          value={timeEntryInput.employer}
-        />
+        <label htmlFor="employer">
+          Employer:
+          <input id="employer" onChange={updateTimeEntry} value={timeEntryInput.employer} />
+        </label>
       </NewEntryInput>
 
       <NewEntryInput>
-        <label htmlFor="Activity"> Activity:</label>
-        <input
-          id="Activity"
-          name="activity"
-          onChange={updateTimeEntry}
-          type=""
-          value={timeEntryInput.activity}
-        />
+        <label htmlFor="activity">
+          Activity:
+          <input id="activity" onChange={updateTimeEntry} value={timeEntryInput.activity} />
+        </label>
       </NewEntryInput>
 
       <NewEntryInput>
-        <label htmlFor="Date"> Date:</label>
-        <input
-          id="Date"
-          name="date"
-          onChange={updateTimeEntry}
-          type="date"
-          value={timeEntryInput.date}
-        />
+        <label htmlFor="date">
+          Date:
+          <input id="date" onChange={updateTimeEntry} type="date" value={timeEntryInput.date} />
+        </label>
       </NewEntryInput>
 
       <div>
         <NewEntryInput>
-          <label htmlFor="Start Time"> Start Time:</label>
-          <input
-            id="Start Time"
-            name="startTime"
-            onChange={updateTimeEntry}
-            type="time"
-            value={timeEntryInput.startTime}
-          />
+          <label htmlFor="startTime">
+            Start Time:
+            <input
+              id="startTime"
+              onChange={updateTimeEntry}
+              type="time"
+              value={timeEntryInput.startTime}
+            />
+          </label>
         </NewEntryInput>
 
         <NewEntryInput>
-          <label htmlFor="End Time"> End Time:</label>
-          <input
-            id="End Time"
-            name="endTime"
-            onChange={updateTimeEntry}
-            type="time"
-            value={timeEntryInput.endTime}
-          />
+          <label htmlFor="endTime">
+            End Time:
+            <input
+              id="endTime"
+              onChange={updateTimeEntry}
+              type="time"
+              value={timeEntryInput.endTime}
+            />
+          </label>
         </NewEntryInput>
       </div>
       <NewEntryButton>Add</NewEntryButton>

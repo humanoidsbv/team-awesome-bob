@@ -4,7 +4,7 @@ import React from "react";
 import * as Styled from "./NewEntryButton.styled";
 
 interface NewEntryButtonProps {
-  children: any;
+  children: React.ReactNode;
 }
 function NewEntryButton({ children }: NewEntryButtonProps) {
   return <Styled.NewEntryButton>{children}</Styled.NewEntryButton>;

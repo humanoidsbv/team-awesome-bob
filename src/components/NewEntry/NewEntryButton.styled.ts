@@ -10,7 +10,7 @@ export const NewEntryButton = styled.button`
   font-size: 14px;
   font-weight: 500;
   height: 36px;
-  margin-left: 5vw;
+  margin-left: 5%;
   margin-right: auto;
   margin-top: 5px;
   text-align: center;

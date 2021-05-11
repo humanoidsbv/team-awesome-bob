@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
+
 import { ThemeProvider } from "styled-components";
-import Header from "../src/components/Header";
-import { NewEntryButton } from "../src/components/NewEntry/NewEntryButton.styled";
-import NewEntryForm from "../src/components/NewEntry/NewEntryForm";
-import TimeTable from "../src/components/TimeTable";
-import { theme } from "../src/styling/theme";
+
 import { getTimeEntries } from "../src/services/getTimeEntries";
 
+import { NewEntryButton } from "../src/components/NewEntry/NewEntryButton.styled";
+
+import Header from "../src/components/Header";
+import NewEntryForm from "../src/components/NewEntry/NewEntryForm";
+import TimeTable from "../src/components/TimeTable";
+
+import { theme } from "../src/styling/theme";
+
 function HomePage() {
-  const [isClicked, setIsClicked] = useState<boolean>(false);
-  const handleClick = (): void => setIsClicked(!isClicked);
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const handleActive = (): void => setIsActive(!isActive);
 
   const [timeEntries, setTimeEntries] = useState([]);
 
@@ -24,14 +29,14 @@ function HomePage() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
-      {!isClicked && (
-        <NewEntryButton isClicked={isClicked} onClick={handleClick}>
+      {!isActive && (
+        <NewEntryButton isActive={isActive} onClick={handleActive}>
           <img src="assets/plus-icon.svg" alt="" />
           New Time Entry
         </NewEntryButton>
       )}
-      <NewEntryForm isClicked={isClicked} fetchTimeEntries={fetchTimeEntries} />
-      <TimeTable timeEntries={timeEntries} fetchTimeEntries={fetchTimeEntries} />
+      <NewEntryForm timeEntries={timeEntries} isActive={isActive} handleActive={handleActive} />
+      <TimeTable timeEntries={timeEntries} setTimeEntries={setTimeEntries} />
     </ThemeProvider>
   );
 }

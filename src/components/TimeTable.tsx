@@ -12,17 +12,19 @@ import TimeEntry from "./TimeEntry";
 
 interface TimeTableProps {
   timeEntries: Type.timeEntry[];
-  fetchTimeEntries: Function;
+  setTimeEntries: Function;
 }
-function TimeTable({ timeEntries, fetchTimeEntries }: TimeTableProps) {
+
+function TimeTable({ timeEntries, setTimeEntries }: TimeTableProps) {
   const dateDisplay = { day: "numeric", month: "long", year: "numeric" };
 
   async function deleteTimeEntry(_id: number) {
+    const newTimeEntries = timeEntries.filter((entry) => entry.id !== _id);
+    setTimeEntries(newTimeEntries);
     await deleteTimeEntries(_id);
-    fetchTimeEntries();
   }
 
-  let previousDate = new Date();
+  let previousDate = null;
 
   const allEntries = timeEntries.map((timeEntry, index) => {
     const startDateTime = new Date(timeEntry.startTime);
@@ -37,7 +39,8 @@ function TimeTable({ timeEntries, fetchTimeEntries }: TimeTableProps) {
       minute: "2-digit",
     });
 
-    const prevStartDateTime = new Date(timeEntries[index - 1]?.startTime).toDateString();
+    let prevStartDateTime = null;
+    prevStartDateTime = new Date(timeEntries[index - 1]?.startTime).toDateString();
     const nextStartDateTime = new Date(timeEntries[index + 1]?.startTime).toDateString();
 
     const isFirstChild = !(prevStartDateTime === startDateTime.toDateString());
@@ -48,9 +51,10 @@ function TimeTable({ timeEntries, fetchTimeEntries }: TimeTableProps) {
     const duration = new Date(durationAsNumber).toISOString().substr(11, 5);
     const { client } = timeEntry;
 
-    if (startDateTime.toDateString() === previousDate.toDateString()) {
+    if (startDateTime.toDateString() === previousDate?.toDateString() && previousDate !== null) {
       return (
         <TimeEntry
+          key={timeEntry.id}
           deleteTimeEntry={deleteTimeEntry}
           id={timeEntry.id}
           firstChild={isFirstChild}
@@ -76,7 +80,7 @@ function TimeTable({ timeEntries, fetchTimeEntries }: TimeTableProps) {
     const totalHours = new Date(totalTime).toISOString().substr(11, 5);
 
     return (
-      <>
+      <div key={timeEntry.id}>
         <DateRegistry>
           <p> {showDate} </p>
           <p> {totalHours} </p>
@@ -90,7 +94,7 @@ function TimeTable({ timeEntries, fetchTimeEntries }: TimeTableProps) {
           timeRegistration={timeRegistration}
           duration={duration}
         />
-      </>
+      </div>
     );
   });
 

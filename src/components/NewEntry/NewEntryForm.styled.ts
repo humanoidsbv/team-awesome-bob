@@ -4,7 +4,7 @@ export const NewEntryForm = styled.form`
   align-items: flex-start;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 5px;
-  display: ${(props) => (props.isClicked ? "flex" : "none")};
+  display: ${(props) => (props.isActive ? "flex" : "none")};
   flex-flow: column wrap;
   justify-content: center;
   margin: 0 auto;
@@ -20,8 +20,8 @@ export const NewEntryForm = styled.form`
 
     > * {
       margin: 0;
-      width: 45%;
-      > input {
+      width: 48%;
+      input {
         width: 100%;
       }
     }
