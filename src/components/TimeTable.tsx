@@ -1,21 +1,20 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 
-import React from "react";
+import React, { useContext } from "react";
 
 import { deleteTimeEntries } from "../services/deleteTimeEntries";
 
 import * as Styled from "./TimeTable.styled";
-import * as Type from "../types/timeEntry";
 
 import DateRegistry from "./DateRegistry";
 import TimeEntry from "./TimeEntry";
 
-interface TimeTableProps {
-  timeEntries: Type.timeEntry[];
-  setTimeEntries: Function;
-}
+import { StoreContext } from "../stores/ContextLoader";
 
-function TimeTable({ timeEntries, setTimeEntries }: TimeTableProps) {
+function TimeTable() {
+  const store = useContext(StoreContext);
+  const [timeEntries, setTimeEntries] = store.timeEntriesUseState;
+
   const dateDisplay = { day: "numeric", month: "long", year: "numeric" };
 
   async function deleteTimeEntry(_id: number) {
@@ -26,7 +25,7 @@ function TimeTable({ timeEntries, setTimeEntries }: TimeTableProps) {
 
   let previousDate = null;
 
-  const allEntries = timeEntries.map((timeEntry, index) => {
+  const allEntries = timeEntries?.map((timeEntry, index) => {
     const startDateTime = new Date(timeEntry.startTime);
     const endDateTime = new Date(timeEntry.endTime);
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { ThemeProvider } from "styled-components";
 
@@ -11,12 +11,14 @@ import NewEntryForm from "../src/components/NewEntry/NewEntryForm";
 import TimeTable from "../src/components/TimeTable";
 
 import { theme } from "../src/styling/theme";
+import { StoreContext } from "../src/stores/ContextLoader";
 
 function HomePage() {
   const [isActive, setIsActive] = useState<boolean>(false);
   const handleActive = (): void => setIsActive(!isActive);
 
-  const [timeEntries, setTimeEntries] = useState([]);
+  const store = useContext(StoreContext);
+  const [timeEntries, setTimeEntries] = store.timeEntriesUseState;
 
   async function fetchTimeEntries() {
     setTimeEntries(await getTimeEntries());
@@ -35,8 +37,8 @@ function HomePage() {
           New Time Entry
         </NewEntryButton>
       )}
-      <NewEntryForm timeEntries={timeEntries} isActive={isActive} handleActive={handleActive} />
-      <TimeTable timeEntries={timeEntries} setTimeEntries={setTimeEntries} />
+      <NewEntryForm isActive={isActive} handleActive={handleActive} />
+      <TimeTable />
     </ThemeProvider>
   );
 }
