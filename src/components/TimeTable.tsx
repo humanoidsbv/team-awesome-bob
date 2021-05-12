@@ -1,32 +1,30 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import React, { useEffect, useState } from "react";
 
-import { getTimeEntries } from "../services/getTimeEntries";
+import React from "react";
+
 import { deleteTimeEntries } from "../services/deleteTimeEntries";
 
-import TimeEntry from "./TimeEntry";
-import DateRegistry from "./DateRegistry";
-
 import * as Styled from "./TimeTable.styled";
+import * as Type from "../types/timeEntry";
 
-function TimeTable() {
-  const [timeEntries, setTimeEntries] = useState([]);
+import DateRegistry from "./DateRegistry";
+import TimeEntry from "./TimeEntry";
+
+interface TimeTableProps {
+  timeEntries: Type.timeEntry[];
+  setTimeEntries: Function;
+}
+
+function TimeTable({ timeEntries, setTimeEntries }: TimeTableProps) {
   const dateDisplay = { day: "numeric", month: "long", year: "numeric" };
 
-  async function fetchTimeEntries() {
-    setTimeEntries(await getTimeEntries());
-  }
-
-  useEffect(() => {
-    fetchTimeEntries();
-  }, []);
-
   async function deleteTimeEntry(_id: number) {
+    const newTimeEntries = timeEntries.filter((entry) => entry.id !== _id);
+    setTimeEntries(newTimeEntries);
     await deleteTimeEntries(_id);
-    fetchTimeEntries();
   }
 
-  let previousDate = new Date();
+  let previousDate = null;
 
   const allEntries = timeEntries.map((timeEntry, index) => {
     const startDateTime = new Date(timeEntry.startTime);
@@ -41,13 +39,8 @@ function TimeTable() {
       minute: "2-digit",
     });
 
-    if (timeEntry.client === 1) {
-      timeEntry.client = "Humanoids";
-    } else {
-      timeEntry.client = "Port of Rotterdam";
-    }
-
-    const prevStartDateTime = new Date(timeEntries[index - 1]?.startTime).toDateString();
+    let prevStartDateTime = null;
+    prevStartDateTime = new Date(timeEntries[index - 1]?.startTime).toDateString();
     const nextStartDateTime = new Date(timeEntries[index + 1]?.startTime).toDateString();
 
     const isFirstChild = !(prevStartDateTime === startDateTime.toDateString());
@@ -58,9 +51,10 @@ function TimeTable() {
     const duration = new Date(durationAsNumber).toISOString().substr(11, 5);
     const { client } = timeEntry;
 
-    if (startDateTime.toDateString() === previousDate.toDateString()) {
+    if (startDateTime.toDateString() === previousDate?.toDateString() && previousDate !== null) {
       return (
         <TimeEntry
+          key={timeEntry.id}
           deleteTimeEntry={deleteTimeEntry}
           id={timeEntry.id}
           firstChild={isFirstChild}
@@ -86,7 +80,7 @@ function TimeTable() {
     const totalHours = new Date(totalTime).toISOString().substr(11, 5);
 
     return (
-      <>
+      <div key={timeEntry.id}>
         <DateRegistry>
           <p> {showDate} </p>
           <p> {totalHours} </p>
@@ -100,7 +94,7 @@ function TimeTable() {
           timeRegistration={timeRegistration}
           duration={duration}
         />
-      </>
+      </div>
     );
   });
 

@@ -1,67 +1,11 @@
 {
   "time-entries": [
     {
-      "client": 1,
-      "endTime": "2020-03-12T17:30:00.000Z",
-      "id": 3,
-      "startTime": "2020-03-12T09:30:00.000Z",
-      "activity": "Development"
-    },
-    {
-      "client": 2,
-      "endTime": "2020-03-13T09:30:00.000Z",
-      "id": 5,
-      "startTime": "2020-03-13T07:30:00.000Z",
-      "activity": "Design"
-    },
-    {
-      "client": 1,
-      "endTime": "2020-03-13T17:30:00.000Z",
-      "id": 6,
-      "startTime": "2020-03-13T09:30:00.000Z",
-      "activity": "Development"
-    },
-    {
-      "client": 1,
-      "endTime": "2020-03-14T16:30:00.000Z",
-      "id": 7,
-      "startTime": "2020-03-14T09:30:00.000Z",
-      "activity": "Testing"
-    },
-    {
-      "client": 2,
-      "endTime": "2020-03-15T09:30:00.000Z",
-      "id": 8,
-      "startTime": "2020-03-15T07:30:00.000Z",
-      "activity": "Design"
-    },
-    {
-      "client": 1,
-      "endTime": "2020-03-16T17:30:00.000Z",
-      "id": 9,
-      "startTime": "2020-03-16T09:30:00.000Z",
-      "activity": "Development"
-    },
-    {
-      "client": 1,
-      "endTime": "2020-03-16T16:30:00.000Z",
-      "id": 10,
-      "startTime": "2020-03-16T09:30:00.000Z",
-      "activity": "Testing"
-    },
-    {
-      "client": 2,
-      "endTime": "2020-03-17T09:30:00.000Z",
-      "id": 11,
-      "startTime": "2020-03-17T07:30:00.000Z",
-      "activity": "Design"
-    },
-    {
-      "client": 1,
-      "endTime": "2020-03-17T17:30:00.000Z",
-      "id": 12,
-      "startTime": "2020-03-17T09:30:00.000Z",
-      "activity": "Development"
+      "activity": "",
+      "client": "Humanoids",
+      "endTime": "2021-05-11T17:00:00.000Z",
+      "id": 1,
+      "startTime": "2021-05-11T08:00:00.000Z"
     }
   ]
 }

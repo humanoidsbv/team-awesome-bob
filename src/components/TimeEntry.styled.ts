@@ -28,7 +28,6 @@ export const TimeEntry = styled.div`
   > p {
     background-color: rgba(100, 100, 100, 0.2);
     color: ${(props) => (props.client === "Team Awesome" ? "red;" : "black;")};
-    text-align: left;
   }
 
   div {
@@ -38,11 +37,11 @@ export const TimeEntry = styled.div`
 
     p {
       margin: 10% 0;
-      text-align: right;
 
       :last-child {
         font-size: 14px;
         opacity: 0.6;
+        text-align: right;
       }
     }
   }
