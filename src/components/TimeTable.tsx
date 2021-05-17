@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-
 import React, { useContext } from "react";
 
 import { deleteTimeEntries } from "../services/deleteTimeEntries";
@@ -13,7 +11,7 @@ import { StoreContext } from "../stores/ContextLoader";
 
 function TimeTable() {
   const store = useContext(StoreContext);
-  const [timeEntries, setTimeEntries] = store.timeEntriesUseState;
+  const [timeEntries, setTimeEntries] = store.timeEntries;
 
   const dateDisplay = { day: "numeric", month: "long", year: "numeric" };
 
@@ -70,8 +68,8 @@ function TimeTable() {
       <div key={timeEntry.id}>
         {!soloTimeEntry && (
           <DateRegistry>
-            <p> {showDate} </p>
-            <p> {totalHours} </p>
+            <p>{showDate}</p>
+            <p>{totalHours}</p>
           </DateRegistry>
         )}
         <TimeEntry
