@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useContext } from "react";
 
 import * as Styled from "./NewEntryForm.styled";
 
@@ -9,13 +9,14 @@ import NewEntryButton from "./NewEntryButton";
 
 import { addTimeEntries } from "../../services/addTimeEntries";
 
+import { StoreContext } from "../../stores/ContextLoader";
+
 interface NewEntryFormProps {
-  timeEntries: Type.timeEntry[];
   isActive: boolean;
   handleActive: Function;
 }
 
-function NewEntryForm({ timeEntries, isActive, handleActive }: NewEntryFormProps) {
+function NewEntryForm({ isActive, handleActive }: NewEntryFormProps) {
   const [timeEntryInput, setState] = useState({
     activity: "",
     date: new Date().toISOString().substr(0, 10),
@@ -35,6 +36,8 @@ function NewEntryForm({ timeEntries, isActive, handleActive }: NewEntryFormProps
       startTime: "08:00",
     });
   }
+  const store = useContext(StoreContext);
+  const [timeEntries, setTimeEntries] = store.timeEntriesUseState;
 
   function convertTimeEntry({ employer, activity, date, startTime, endTime }) {
     const newTimeEntry: Type.timeEntry = {
@@ -62,19 +65,41 @@ function NewEntryForm({ timeEntries, isActive, handleActive }: NewEntryFormProps
     });
   };
 
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const [isValid, setIsValid] = useState(false);
+  const handleBlur = () => {
+    setIsValid(formRef.current?.checkValidity());
+  };
+
   return (
-    <Styled.NewEntryForm isActive={isActive} onSubmit={saveTimeEntry}>
+    <Styled.NewEntryForm
+      isActive={isActive}
+      onChange={handleBlur}
+      onSubmit={saveTimeEntry}
+      ref={formRef}
+    >
       <NewEntryInput>
         <label htmlFor="employer">
           Employer:
-          <input id="employer" onChange={updateTimeEntry} value={timeEntryInput.employer} />
+          <input
+            id="employer"
+            required
+            onChange={updateTimeEntry}
+            value={timeEntryInput.employer}
+          />
         </label>
       </NewEntryInput>
 
       <NewEntryInput>
         <label htmlFor="activity">
           Activity:
-          <input id="activity" onChange={updateTimeEntry} value={timeEntryInput.activity} />
+          <input
+            id="activity"
+            required
+            onChange={updateTimeEntry}
+            value={timeEntryInput.activity}
+          />
         </label>
       </NewEntryInput>
 
@@ -110,7 +135,9 @@ function NewEntryForm({ timeEntries, isActive, handleActive }: NewEntryFormProps
           </label>
         </NewEntryInput>
       </div>
-      <NewEntryButton>Add</NewEntryButton>
+      <NewEntryButton isValid={isValid}>
+        {isValid ? "Add" : "Please fill in required fields"}
+      </NewEntryButton>
     </Styled.NewEntryForm>
   );
 }

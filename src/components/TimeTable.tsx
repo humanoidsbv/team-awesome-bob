@@ -1,21 +1,20 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 
-import React from "react";
+import React, { useContext } from "react";
 
 import { deleteTimeEntries } from "../services/deleteTimeEntries";
 
 import * as Styled from "./TimeTable.styled";
-import * as Type from "../types/timeEntry";
 
 import DateRegistry from "./DateRegistry";
 import TimeEntry from "./TimeEntry";
 
-interface TimeTableProps {
-  timeEntries: Type.timeEntry[];
-  setTimeEntries: Function;
-}
+import { StoreContext } from "../stores/ContextLoader";
 
-function TimeTable({ timeEntries, setTimeEntries }: TimeTableProps) {
+function TimeTable() {
+  const store = useContext(StoreContext);
+  const [timeEntries, setTimeEntries] = store.timeEntriesUseState;
+
   const dateDisplay = { day: "numeric", month: "long", year: "numeric" };
 
   async function deleteTimeEntry(_id: number) {
@@ -26,7 +25,7 @@ function TimeTable({ timeEntries, setTimeEntries }: TimeTableProps) {
 
   let previousDate = null;
 
-  const allEntries = timeEntries.map((timeEntry, index) => {
+  const allEntries = timeEntries?.map((timeEntry, index) => {
     const startDateTime = new Date(timeEntry.startTime);
     const endDateTime = new Date(timeEntry.endTime);
 
@@ -51,20 +50,8 @@ function TimeTable({ timeEntries, setTimeEntries }: TimeTableProps) {
     const duration = new Date(durationAsNumber).toISOString().substr(11, 5);
     const { client } = timeEntry;
 
-    if (startDateTime.toDateString() === previousDate?.toDateString() && previousDate !== null) {
-      return (
-        <TimeEntry
-          key={timeEntry.id}
-          deleteTimeEntry={deleteTimeEntry}
-          id={timeEntry.id}
-          firstChild={isFirstChild}
-          lastChild={isLastChild}
-          client={client}
-          timeRegistration={timeRegistration}
-          duration={duration}
-        />
-      );
-    }
+    const soloTimeEntry =
+      startDateTime.toDateString() === previousDate?.toDateString() && previousDate !== null;
 
     const showDate = startDateTime.toLocaleDateString("nl-NL", dateDisplay);
     previousDate = startDateTime;
@@ -81,10 +68,12 @@ function TimeTable({ timeEntries, setTimeEntries }: TimeTableProps) {
 
     return (
       <div key={timeEntry.id}>
-        <DateRegistry>
-          <p> {showDate} </p>
-          <p> {totalHours} </p>
-        </DateRegistry>
+        {!soloTimeEntry && (
+          <DateRegistry>
+            <p> {showDate} </p>
+            <p> {totalHours} </p>
+          </DateRegistry>
+        )}
         <TimeEntry
           deleteTimeEntry={deleteTimeEntry}
           id={timeEntry.id}

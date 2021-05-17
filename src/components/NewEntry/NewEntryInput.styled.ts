@@ -16,12 +16,19 @@ export const NewEntryInput = styled.div`
       display: block;
       background-color: rgba(255, 255, 255, 0.6);
       border: 0;
+      border-radius: 4px;
+      outline: none;
       font-family: Proxima Nova;
       color: gray;
       height: 30px;
       margin: 10px 0;
       padding: 0 10px;
       width: 90%;
+    }
+    input:focus {
+      outline: none;
+      border: solid 1px rgba(0, 0, 0, 0.5);
+      border-radius: 4px;
     }
   }
 `;

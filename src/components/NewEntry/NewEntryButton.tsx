@@ -4,10 +4,11 @@ import React from "react";
 import * as Styled from "./NewEntryButton.styled";
 
 interface NewEntryButtonProps {
-  children: React.ReactNode;
+  children;
+  isValid: boolean;
 }
-function NewEntryButton({ children }: NewEntryButtonProps) {
-  return <Styled.NewEntryButton>{children}</Styled.NewEntryButton>;
+function NewEntryButton({ children, isValid }: NewEntryButtonProps) {
+  return <Styled.NewEntryButton disabled={!isValid}>{children}</Styled.NewEntryButton>;
 }
 
 export default NewEntryButton;
