@@ -10,24 +10,31 @@ export const TimeEntry = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 90%;
-  padding: 10px 4%;
+  padding: 10px 20px;
   transition: background-color 0.2s ease-in;
+
   border-left-width: 4px;
   border-bottom-width: 0;
 
+  @media screen and (max-width: 480px) {
+    max-width: 90%;
+  }
+
+  @media screen and (min-width: 480px) {
+    width: clamp(450px, 90%, 1200px);
+  }
+
   margin-bottom: ${(props) => (props.lastChild ? "15px" : "")};
 
-  border-top-left-radius: ${(props) => (props.firstChild ? "5px" : "")};
-  border-top-right-radius: ${(props) => (props.firstChild ? "5px" : "")};
   border-bottom-left-radius: ${(props) => (props.lastChild ? "5px" : "")};
   border-bottom-right-radius: ${(props) => (props.lastChild ? "5px" : "")};
+  border-top-left-radius: ${(props) => (props.firstChild ? "5px" : "")};
+  border-top-right-radius: ${(props) => (props.firstChild ? "5px" : "")};
 
   border-bottom-width: ${(props) => (props.lastChild ? "1px" : "")};
 
   > p {
     background-color: rgba(100, 100, 100, 0.2);
-    color: ${(props) => (props.client === "Team Awesome" ? "red;" : "black;")};
   }
 
   div {

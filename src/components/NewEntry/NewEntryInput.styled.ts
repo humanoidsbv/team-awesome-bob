@@ -1,34 +1,48 @@
 import styled from "styled-components";
 
 export const NewEntryInput = styled.div`
-  width: 100%;
-  margin-left: 5%;
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    margin: 0 auto;
+  }
+  @media screen and (min-width: 1024px) {
+    margin: 5px;
+  }
 
   label {
-    display: inline-block;
+    color: grey;
+    display: block;
     font-size: 12px;
-    font-variant-caps: all-small-caps;
+    margin: 0 auto;
+    opacity: 0.8;
     text-align: left;
-    width: 100%;
-    margin-top: 10px;
+    text-transform: uppercase;
+    width: 90%;
 
     input {
-      display: block;
-      background-color: rgba(255, 255, 255, 0.6);
-      border: 0;
+      background-image: linear-gradient(to bottom, white, #f2f4f7);
       border-radius: 4px;
-      outline: none;
+      border: solid 1px ${(props) => (props.isValid ? `rgba(200, 200, 200, 1)` : `red`)};
+      display: block;
       font-family: Proxima Nova;
-      color: gray;
-      height: 30px;
-      margin: 10px 0;
-      padding: 0 10px;
-      width: 90%;
+      font-size: 14px;
+      height: 36px;
+      margin: 15px 0 15px 0;
+      opacity: 1;
+      outline: none;
+      padding: 0 15px;
+      width: 100%;
+
+      @media screen and (min-width: 1024px) {
+        min-width: ${(props) => props.type === "date" && "130px"};
+        min-width: ${(props) => props.type === "text" && "245px"};
+        min-width: ${(props) => props.type === "time" && "80px"};
+      }
     }
     input:focus {
-      outline: none;
-      border: solid 1px rgba(0, 0, 0, 0.5);
       border-radius: 4px;
+      border: solid 1px ${(props) => (props.isValid ? `rgba(0, 0, 0, 0.5)` : `red`)};
+      outline: none;
     }
   }
 `;

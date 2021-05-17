@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 import React from "react";
 
 import * as Styled from "./TimeEntry.styled";
@@ -27,7 +26,7 @@ function TimeEntry({
   children,
   id,
   deleteTimeEntry,
-}: TimeEntryProps): React.ReactElement {
+}: TimeEntryProps) {
   return (
     <Styled.TimeEntry
       client={client}

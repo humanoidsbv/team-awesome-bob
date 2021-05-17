@@ -18,7 +18,7 @@ function HomePage() {
   const handleActive = (): void => setIsActive(!isActive);
 
   const store = useContext(StoreContext);
-  const [timeEntries, setTimeEntries] = store.timeEntriesUseState;
+  const [, setTimeEntries] = store.timeEntries;
 
   async function fetchTimeEntries() {
     setTimeEntries(await getTimeEntries());
