@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TimeEntry = styled.div`
   align-items: center;
   background-color: white;
-  border-color: rgba(222, 222, 222, 0.3);
+  border-color: ${({ theme }) => theme.borderGrey};
   border-left-color: #4f88ef;
   border-style: solid;
   border-width: 1px;

@@ -15,20 +15,28 @@ function TeamMember({ teamMember }: TeamMemberProps) {
   };
 
   return (
-    <Styled.TeamMember isCollapsed={isCollapsed}>
-      <Styled.TeamMemberInformation>
-        <p>{teamMember.name}</p>
-        <p>{teamMember.role}</p>
+    <Styled.TeamMember>
+      <Styled.TeamMemberInformation isCollapsed={isCollapsed}>
+        <img
+          src={`${teamMember.profilePicture ? teamMember.profilePicture : "/assets/default.jpeg"}`}
+          alt=""
+        />
+        <div>
+          <p>{teamMember.name}</p>
+          <p>{teamMember.role}</p>
+        </div>
         <button type="button" onClick={handleClick} />
       </Styled.TeamMemberInformation>
       {isCollapsed && (
         <>
-          <div>
+          <Styled.TeamMemberMidHeader>
             <p>{`Detailed information about ${teamMember.name}`}</p>
-          </div>
+          </Styled.TeamMemberMidHeader>
           <Styled.TeamMemberDetails>
             <p>{teamMember.currentEmployer}</p>
+            <p>Current employer</p>
             <p>{teamMember.startingDate}</p>
+            <p>Starting date</p>
           </Styled.TeamMemberDetails>
         </>
       )}

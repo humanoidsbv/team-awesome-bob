@@ -14,6 +14,7 @@ export interface TeamMember {
   role: string;
   currentEmployer: string;
   startingDate: string;
+  profilePicture: string;
 }
 
 export type ValidityEvent =

@@ -1,36 +1,36 @@
 /* eslint-disable react/require-default-props */
 import React, { useState } from "react";
 
-import * as Styled from "./NewEntryInput.styled";
+import * as Styled from "./NewTeamMemberInput.styled";
 
 import * as Types from "../../types/types";
 
-interface NewEntryFormProps {
+interface NewTeamMemberInputProps {
   id: string;
   type: string;
   labelValue: string;
   inputValue: string;
-  updateTimeEntry?: (event: Types.ValidityEvent) => void;
+  updateTeamMember?: (event: Types.ValidityEvent) => void;
   isRequired?: boolean;
 }
 
-function NewEntryInput({
+function NewTeamMemberInput({
   id,
   type,
   labelValue,
   inputValue,
-  updateTimeEntry,
+  updateTeamMember,
   isRequired,
-}: NewEntryFormProps) {
+}: NewTeamMemberInputProps) {
   const [isValid, setIsValid] = useState(true);
 
   const handleValidity = (event) => {
-    updateTimeEntry(event);
+    updateTeamMember(event);
     setIsValid(event.target.checkValidity());
   };
 
   return (
-    <Styled.NewEntryInput isValid={isValid} type={type}>
+    <Styled.NewTeamMemberInput isValid={isValid} type={type}>
       <label htmlFor={id}>
         {labelValue}
         <input
@@ -43,8 +43,8 @@ function NewEntryInput({
           value={inputValue}
         />
       </label>
-    </Styled.NewEntryInput>
+    </Styled.NewTeamMemberInput>
   );
 }
 
-export default NewEntryInput;
+export default NewTeamMemberInput;

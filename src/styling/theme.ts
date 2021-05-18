@@ -3,4 +3,5 @@ export const theme = {
   teamAwesomeGreen: "#39b54a",
   formGrey: "#f5f8fa",
   desktopBreakPoint: "1200px",
+  borderGrey: "#e6eaee",
 };

@@ -31,6 +31,10 @@ body{
   box-sizing: border-box;
 }
 
+p{
+	font-size: 1rem;
+}
+
 a{
 	color: white;
 	text-decoration: 0;

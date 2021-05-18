@@ -10,9 +10,16 @@
     {
       "activity": "asdf",
       "client": "asdf",
-      "endTime": "2021-05-03T17:00:00.000Z",
+      "endTime": "2021-05-18T17:00:00.000Z",
       "id": 2,
-      "startTime": "2021-05-03T08:00:00.000Z"
+      "startTime": "2021-05-18T08:00:00.000Z"
+    },
+    {
+      "activity": "asdf",
+      "client": "sd",
+      "endTime": "2021-05-18T17:00:00.000Z",
+      "id": 3,
+      "startTime": "2021-05-18T08:00:00.000Z"
     }
   ],
   "team-members": [
@@ -21,14 +28,23 @@
       "name": "Bob",
       "role": "Back End Developer",
       "currentEmployer": "Team Awesome",
-      "startingDate": "test"
+      "startingDate": "January 2021",
+      "profilePicture": "assets/bob.jpeg"
     },
     {
       "id": 2,
       "name": "Amijs",
       "role": "Front End Developer",
       "currentEmployer": "Team Awesome",
-      "startingDate": "test"
+      "startingDate": "April 2021",
+      "profilePicture": "assets/amijs.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "New Guy",
+      "role": "Unicorn",
+      "currentEmployer": "Team Awesome",
+      "startingDate": "April 2021"
     }
   ]
 }
