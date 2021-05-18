@@ -3,10 +3,12 @@ import styled from "styled-components";
 export const DateRegistry = styled.div`
   display: flex;
   justify-content: space-between;
-
+  margin: 0 auto;
+  width: clamp(0px, 90%, 1200px);
   > p {
     font-size: 14px;
-    margin: 30px 5% 10px 5%;
+    margin: 10px 0;
     opacity: 0.5;
+    padding-top: 20px;
   }
 `;

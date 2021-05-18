@@ -2,7 +2,7 @@ import React, { useState, useRef, useContext } from "react";
 
 import * as Styled from "./NewEntryForm.styled";
 
-import * as Type from "../../types/timeEntry";
+import * as Type from "../../types/types";
 
 import NewEntryInput from "./NewEntryInput";
 import NewEntryButton from "./NewEntryButton";
@@ -16,8 +16,12 @@ interface NewEntryFormProps {
   handleActive: Function;
 }
 
-function NewEntryForm({ isActive, handleActive }: NewEntryFormProps) {
-  const [timeEntryInput, setState] = useState({
+const NewEntryForm: React.FC<NewEntryFormProps> = ({ isActive, handleActive }) => {
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const [timeEntryInput, setTimeEntryInput] = useState({
     activity: "",
     date: new Date().toISOString().substr(0, 10),
     employer: "",
@@ -27,7 +31,7 @@ function NewEntryForm({ isActive, handleActive }: NewEntryFormProps) {
   });
 
   function resetAllFields() {
-    setState({
+    setTimeEntryInput({
       activity: "",
       date: new Date().toISOString().substr(0, 10),
       employer: "",
@@ -35,9 +39,10 @@ function NewEntryForm({ isActive, handleActive }: NewEntryFormProps) {
       id: null,
       startTime: "08:00",
     });
+    setIsFormValid(false);
   }
   const store = useContext(StoreContext);
-  const [timeEntries, setTimeEntries] = store.timeEntriesUseState;
+  const [timeEntries] = store.timeEntries;
 
   function convertTimeEntry({ employer, activity, date, startTime, endTime }) {
     const newTimeEntry: Type.timeEntry = {
@@ -59,87 +64,63 @@ function NewEntryForm({ isActive, handleActive }: NewEntryFormProps) {
   };
 
   const updateTimeEntry = (event) => {
-    setState({
+    setTimeEntryInput({
       ...timeEntryInput,
       [event.target.id]: event.target.value,
     });
-  };
-
-  const formRef = useRef<HTMLFormElement>(null);
-
-  const [isValid, setIsValid] = useState(false);
-  const handleBlur = () => {
-    setIsValid(formRef.current?.checkValidity());
+    setIsFormValid(formRef.current?.checkValidity());
   };
 
   return (
-    <Styled.NewEntryForm
-      isActive={isActive}
-      onChange={handleBlur}
-      onSubmit={saveTimeEntry}
-      ref={formRef}
-    >
-      <NewEntryInput>
-        <label htmlFor="employer">
-          Employer:
-          <input
-            id="employer"
-            required
-            onChange={updateTimeEntry}
-            value={timeEntryInput.employer}
-          />
-        </label>
-      </NewEntryInput>
+    <Styled.NewEntryForm isActive={isActive} onSubmit={saveTimeEntry} ref={formRef}>
+      <NewEntryInput
+        id="employer"
+        type="text"
+        inputValue={timeEntryInput.employer}
+        labelValue="Employer"
+        updateTimeEntry={updateTimeEntry}
+        isRequired
+      />
 
-      <NewEntryInput>
-        <label htmlFor="activity">
-          Activity:
-          <input
-            id="activity"
-            required
-            onChange={updateTimeEntry}
-            value={timeEntryInput.activity}
-          />
-        </label>
-      </NewEntryInput>
+      <NewEntryInput
+        id="activity"
+        type="text"
+        inputValue={timeEntryInput.activity}
+        labelValue="Activity"
+        updateTimeEntry={updateTimeEntry}
+        isRequired
+      />
 
-      <NewEntryInput>
-        <label htmlFor="date">
-          Date:
-          <input id="date" onChange={updateTimeEntry} type="date" value={timeEntryInput.date} />
-        </label>
-      </NewEntryInput>
+      <NewEntryInput
+        id="date"
+        type="date"
+        inputValue={timeEntryInput.date}
+        labelValue="Date"
+        updateTimeEntry={updateTimeEntry}
+      />
 
       <div>
-        <NewEntryInput>
-          <label htmlFor="startTime">
-            Start Time:
-            <input
-              id="startTime"
-              onChange={updateTimeEntry}
-              type="time"
-              value={timeEntryInput.startTime}
-            />
-          </label>
-        </NewEntryInput>
+        <NewEntryInput
+          id="startTime"
+          type="time"
+          inputValue={timeEntryInput.startTime}
+          labelValue="From"
+          updateTimeEntry={updateTimeEntry}
+        />
 
-        <NewEntryInput>
-          <label htmlFor="endTime">
-            End Time:
-            <input
-              id="endTime"
-              onChange={updateTimeEntry}
-              type="time"
-              value={timeEntryInput.endTime}
-            />
-          </label>
-        </NewEntryInput>
+        <NewEntryInput
+          id="endTime"
+          type="time"
+          inputValue={timeEntryInput.endTime}
+          labelValue="To"
+          updateTimeEntry={updateTimeEntry}
+        />
       </div>
-      <NewEntryButton isValid={isValid}>
-        {isValid ? "Add" : "Please fill in required fields"}
+      <NewEntryButton isValid={isFormValid}>
+        {isFormValid ? "Add" : "Please fill in required fields"}
       </NewEntryButton>
     </Styled.NewEntryForm>
   );
-}
+};
 
 export default NewEntryForm;

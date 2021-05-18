@@ -15,25 +15,30 @@ export const Header = styled.header`
   z-index: 2;
 
   > h1 {
-    font-family: Bello Script, sans-serif;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 20px;
+    @media screen and (min-width: 800px) {
+      display: none;
+    }
     color: white;
+    font-family: Bello Script, sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 20px;
   }
 
   > div {
+    @media screen and (min-width: 800px) {
+      display: none;
+    }
+    align-items: center;
+    display: flex;
+    height: inherit;
     position: absolute;
     right: 5%;
     top: 0;
-    height: inherit;
-    align-items: center;
-    display: flex;
-  }
-
-  img {
-    transform: rotate(${(props) => (props.isOpen ? "45deg" : "0")});
-    height: 40%;
-    transition: transform 0.2s ${(props) => (props.isOpen ? "ease-in" : "ease-out")};
+    img {
+      height: 40%;
+      transform: rotate(${(props) => (props.isOpen ? "45deg" : "0")});
+      transition: transform 0.2s ${(props) => (props.isOpen ? "ease-in" : "ease-out")};
+    }
   }
 `;
