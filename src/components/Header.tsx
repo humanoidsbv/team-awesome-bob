@@ -12,9 +12,9 @@ function Header(): React.ReactElement {
     <>
       <Styled.Header isOpen={isOpen}>
         <h1>team awesome</h1>
-        <div>
-          <img src="assets/plus-icon.svg" onClick={handleClick} alt="" />
-        </div>
+        <button type="button" onClick={handleClick}>
+          <img src="assets/plus-icon.svg" alt="" />
+        </button>
       </Styled.Header>
       <MenuNavigation isOpen={isOpen} />
     </>

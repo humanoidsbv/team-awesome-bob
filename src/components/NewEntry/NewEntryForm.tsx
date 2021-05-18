@@ -7,7 +7,7 @@ import * as Type from "../../types/types";
 import NewEntryInput from "./NewEntryInput";
 import NewEntryButton from "./NewEntryButton";
 
-import { addTimeEntries } from "../../services/addTimeEntries";
+import { addTimeEntries } from "../../services/timeEntries/addTimeEntries";
 
 import { StoreContext } from "../../stores/ContextLoader";
 
@@ -16,7 +16,7 @@ interface NewEntryFormProps {
   handleActive: Function;
 }
 
-const NewEntryForm: React.FC<NewEntryFormProps> = ({ isActive, handleActive }) => {
+const NewEntryForm = ({ isActive, handleActive }: NewEntryFormProps) => {
   const [isFormValid, setIsFormValid] = useState(false);
 
   const formRef = useRef<HTMLFormElement>(null);
@@ -45,7 +45,7 @@ const NewEntryForm: React.FC<NewEntryFormProps> = ({ isActive, handleActive }) =
   const [timeEntries] = store.timeEntries;
 
   function convertTimeEntry({ employer, activity, date, startTime, endTime }) {
-    const newTimeEntry: Type.timeEntry = {
+    const newTimeEntry: Type.TimeEntry = {
       activity,
       client: employer,
       endTime: `${date}T${endTime}:00.000Z`,

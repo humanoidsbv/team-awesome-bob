@@ -10,7 +10,7 @@ interface NewEntryFormProps {
   type: string;
   labelValue: string;
   inputValue: string;
-  updateTimeEntry: (event: Types.validityEvent) => void;
+  updateTimeEntry: (event: Types.ValidityEvent) => void;
   isRequired?: boolean;
 }
 

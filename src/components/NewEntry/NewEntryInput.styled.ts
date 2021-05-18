@@ -1,13 +1,8 @@
 import styled from "styled-components";
 
 export const NewEntryInput = styled.div`
-  @media screen and (max-width: 1024px) {
-    width: 100%;
-    margin: 0 auto;
-  }
-  @media screen and (min-width: 1024px) {
-    margin: 5px;
-  }
+  width: 100%;
+  margin: 0 auto;
 
   label {
     color: grey;
@@ -33,10 +28,16 @@ export const NewEntryInput = styled.div`
       padding: 0 15px;
       width: 100%;
 
-      @media screen and (min-width: 1024px) {
-        min-width: ${(props) => props.type === "date" && "130px"};
-        min-width: ${(props) => props.type === "text" && "245px"};
-        min-width: ${(props) => props.type === "time" && "80px"};
+      @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
+        input[type="date"] {
+          width: 120px;
+        }
+        input[type="text"] {
+          width: 200px;
+        }
+        input[type="time"] {
+          width: 80px;
+        }
       }
     }
     input:focus {
@@ -44,5 +45,10 @@ export const NewEntryInput = styled.div`
       border: solid 1px ${(props) => (props.isValid ? `rgba(0, 0, 0, 0.5)` : `red`)};
       outline: none;
     }
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
+    width: initial;
+    margin: 5px;
   }
 `;

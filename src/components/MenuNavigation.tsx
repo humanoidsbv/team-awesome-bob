@@ -1,4 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+
+import Link from "next/link";
 
 import * as Styled from "./MenuNavigation.styled";
 
@@ -9,11 +12,15 @@ interface NavProps {
 function MenuNavigation({ isOpen }: NavProps) {
   return (
     <Styled.MenuNavigation isOpen={isOpen}>
-      <p>Timesheets</p>
-      <p>Team Members</p>
-      <p>Projects</p>
-      <p>Clients</p>
-      <p>Documents</p>
+      <Link href="/">
+        <a>Timesheets</a>
+      </Link>
+      <Link href="/team-members">
+        <a>Team Members</a>
+      </Link>
+      <a>Projects</a>
+      <a>Clients</a>
+      <a>Documents</a>
     </Styled.MenuNavigation>
   );
 }

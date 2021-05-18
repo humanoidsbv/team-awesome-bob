@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface timeEntry {
+export interface TimeEntry {
   id: number;
   client: string;
   activity: string;
@@ -8,6 +8,14 @@ export interface timeEntry {
   endTime: string;
 }
 
-export type validityEvent =
+export interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  currentEmployer: string;
+  startingDate: string;
+}
+
+export type ValidityEvent =
   | React.ChangeEvent<HTMLInputElement>
   | React.FocusEvent<HTMLInputElement>;
