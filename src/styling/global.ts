@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     src: url("fonts/Bello-Script.ttf");
 }
 
-body{
+body {
     font-family: Proxima Nova;
     font-weight: regular;
     margin: 0;
@@ -31,11 +31,11 @@ body{
   box-sizing: border-box;
 }
 
-p{
+p {
 	font-size: 1rem;
 }
 
-a{
+a {
 	color: white;
 	text-decoration: 0;
 }

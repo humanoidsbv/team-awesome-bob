@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NewEntryButton = styled.button`
-  background-color: ${({ theme }) => theme.teamAwesomeGreen};
+  background-color: ${({ theme }) => theme.activeButtonGreen};
   border-radius: 4px;
   border: solid 1px #249533;
   color: white;
@@ -32,7 +32,7 @@ export const NewEntryButton = styled.button`
     border: solid 1px rgba(100, 100, 100);
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
+  @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
     display: none;
   }
 `;

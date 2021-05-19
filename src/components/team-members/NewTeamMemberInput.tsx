@@ -3,16 +3,16 @@ import React, { useState } from "react";
 
 import * as Styled from "./NewTeamMemberInput.styled";
 
-import * as Types from "../../types/types";
-
 interface NewTeamMemberInputProps {
   id: string;
   type: string;
   labelValue: string;
   inputValue: string;
   inputSize?: string;
-  updateTeamMember?: (event: Types.ValidityEvent) => void;
   isRequired?: boolean;
+  onChange: any;
+  hasLabel?: boolean;
+  socialIcon?: string;
 }
 
 function NewTeamMemberInput({
@@ -21,37 +21,48 @@ function NewTeamMemberInput({
   labelValue,
   inputValue,
   inputSize,
-  updateTeamMember,
+  onChange,
   isRequired,
+  socialIcon,
+  hasLabel = true,
 }: NewTeamMemberInputProps) {
   const [isValid, setIsValid] = useState(true);
 
   return (
-    <Styled.NewTeamMemberInput isValid={isValid} type={type} inputSize={inputSize}>
-      <label htmlFor={id}>
-        {labelValue}
-        {type === "textarea" ? (
-          <textarea
-            id={id}
-            value={inputValue}
-            required={isRequired}
-            minLength={100}
-            onBlur={(event) => setIsValid(event.target.checkValidity())}
-            onChange={updateTeamMember}
-          />
-        ) : (
+    <Styled.NewTeamMemberInput
+      socialIcon={socialIcon}
+      hasLabel={hasLabel}
+      isValid={isValid}
+      type={type}
+      inputSize={inputSize}
+      htmlFor={id}
+    >
+      {hasLabel && `${labelValue}`}
+
+      {type === "textarea" ? (
+        <textarea
+          id={id}
+          value={inputValue}
+          required={isRequired}
+          minLength={100}
+          onBlur={(event) => setIsValid(event.target.checkValidity())}
+          onChange={onChange}
+        />
+      ) : (
+        <div className="social">
+          {socialIcon && <img src={socialIcon} alt="" />}
           <input
             autoComplete="off"
             required={isRequired}
             id={id}
             minLength={2}
             onBlur={(event) => setIsValid(event.target.checkValidity())}
-            onChange={updateTeamMember}
+            onChange={onChange}
             type={type}
             value={inputValue}
           />
-        )}
-      </label>
+        </div>
+      )}
     </Styled.NewTeamMemberInput>
   );
 }

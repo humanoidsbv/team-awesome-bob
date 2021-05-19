@@ -2,12 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 
 import { ThemeProvider } from "styled-components";
 
-import { getTimeEntries } from "../src/services/timeEntries/getTimeEntries";
+import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
 
-import { NewEntryButton } from "../src/components/NewEntry/NewEntryButton.styled";
+import { NewEntryButton } from "../src/components/new-entry/NewEntryButton.styled";
 
 import Header from "../src/components/Header";
-import NewEntryForm from "../src/components/NewEntry/NewEntryForm";
+import NewEntryForm from "../src/components/new-entry/NewEntryForm";
 import TimeTable from "../src/components/TimeTable";
 
 import { theme } from "../src/styling/theme";

@@ -4,7 +4,7 @@ export const DateRegistry = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  width: clamp(0px, 90%, ${({ theme }) => theme.desktopBreakPoint});
+  width: clamp(0px, 90%, ${({ theme }) => theme.desktopBreakpoint});
   > p {
     font-size: 14px;
     margin: 10px 0;

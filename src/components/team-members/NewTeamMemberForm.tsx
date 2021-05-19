@@ -1,15 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef, useContext } from "react";
 
-import { ST } from "next/dist/next-server/lib/utils";
 import * as Styled from "./NewTeamMemberForm.styled";
 
 import { StoreContext } from "../../stores/ContextLoader";
 
-import { addTeamMembers } from "../../services/teamMembers/addTeamMembers";
+import { addTeamMembers } from "../../services/team-members/addTeamMembers";
 
 import NewTeamMemberInput from "./NewTeamMemberInput";
-import NewEntryButton from "../NewEntry/NewEntryButton";
+import NewEntryButton from "../new-entry/NewEntryButton";
 
 function NewTeamMemberForm() {
   const [isActive, setIsActive] = useState(true);
@@ -26,14 +25,14 @@ function NewTeamMemberForm() {
     id: null,
     firstName: "",
     lastName: "",
-    email: "",
+    emailAddress: "",
     bio: "",
     address: "",
-    zipCode: "",
-    city: "",
+    postalCode: "",
+    locality: "",
     role: "",
-    socialTwitter: "",
-    socialFacebook: "",
+    socialTwitter: "Twitter",
+    socialFacebook: "Facebook",
     currentEmployer: "",
     startingDate: "",
     profilePicture: "",
@@ -44,14 +43,14 @@ function NewTeamMemberForm() {
       id: null,
       firstName: "",
       lastName: "",
-      email: "",
+      emailAddress: "",
       bio: "",
       address: "",
-      zipCode: "",
-      city: "",
+      postalCode: "",
+      locality: "",
       role: "",
-      socialTwitter: "",
-      socialFacebook: "",
+      socialTwitter: "Twitter",
+      socialFacebook: "Facebook",
       currentEmployer: "",
       startingDate: "",
       profilePicture: "",
@@ -76,13 +75,20 @@ function NewTeamMemberForm() {
   };
 
   return (
-    <Styled.NewTeamMembersDesktopForm>
+    <Styled.NewTeamMembersDesktopForm isActive={isActive} onSubmit={saveTeamMember} ref={formRef}>
       <NewEntryButton isValid={isFormValid}>
         {isFormValid ? "Add" : "Please fill in required fields"}
       </NewEntryButton>
-      <Styled.NewTeamMemberForm isActive={isActive} onSubmit={saveTeamMember} ref={formRef}>
-        <Styled.NewTeamMemberAvatarColumn>test</Styled.NewTeamMemberAvatarColumn>
-
+      <Styled.Tab>
+        <p>Personal Details</p>
+        <p>Work Details</p>
+      </Styled.Tab>
+      <Styled.NewTeamMemberForm>
+        <Styled.NewTeamMemberAvatarColumn>
+          <img src="/assets/default.jpeg" alt="" />
+          <button type="button">Edit Avatar</button>
+        </Styled.NewTeamMemberAvatarColumn>
+        <Styled.NewTeamMembersDivider />
         <Styled.NewTeamMemberPersonaliaColumn>
           <Styled.NewTeamMemberDoubleFields>
             <NewTeamMemberInput
@@ -92,78 +98,83 @@ function NewTeamMemberForm() {
               inputValue={teamMemberInput.firstName}
               labelValue="First Name"
               isRequired
-              updateTeamMember={updateTeamMember}
+              onChange={updateTeamMember}
             />
             <NewTeamMemberInput
+              onChange={updateTeamMember}
               id="lastName"
               type="text"
               inputValue={teamMemberInput.lastName}
               labelValue="Last Name"
               isRequired
-              updateTeamMember={updateTeamMember}
             />
           </Styled.NewTeamMemberDoubleFields>
           <NewTeamMemberInput
-            id="email"
+            id="emailAddress"
             type="text"
-            inputValue={teamMemberInput.email}
+            inputValue={teamMemberInput.emailAddress}
             labelValue="Email Address"
             isRequired
-            updateTeamMember={updateTeamMember}
+            onChange={updateTeamMember}
           />
           <NewTeamMemberInput
             id="bio"
             type="textarea"
             inputValue={teamMemberInput.bio}
             labelValue="Bio"
-            updateTeamMember={updateTeamMember}
+            onChange={updateTeamMember}
           />
         </Styled.NewTeamMemberPersonaliaColumn>
         <Styled.NewTeamMembersDivider />
-        <Styled.NewTeamMemberSocialColumn>
+        <Styled.NewTeamMemberPersonaliaColumn>
           <NewTeamMemberInput
             id="address"
             type="text"
             inputValue={teamMemberInput.address}
             labelValue="Address"
             isRequired
-            updateTeamMember={updateTeamMember}
+            onChange={updateTeamMember}
           />
           <Styled.NewTeamMemberDoubleFields>
             <NewTeamMemberInput
-              id="zipCode"
+              id="postalCode"
               type="text"
-              inputValue={teamMemberInput.zipCode}
-              labelValue="zipCode"
+              inputValue={teamMemberInput.postalCode}
+              labelValue="Postal Code"
               isRequired
-              updateTeamMember={updateTeamMember}
+              onChange={updateTeamMember}
             />
             <NewTeamMemberInput
-              id="city"
+              id="locality"
               type="text"
-              inputValue={teamMemberInput.city}
-              labelValue="City"
+              inputValue={teamMemberInput.locality}
+              labelValue="Locality"
               isRequired
-              updateTeamMember={updateTeamMember}
+              onChange={updateTeamMember}
             />
           </Styled.NewTeamMemberDoubleFields>
-          <NewTeamMemberInput
-            id="socialFacebook"
-            type="text"
-            inputValue={teamMemberInput.socialFacebook}
-            labelValue="Facebook"
-            isRequired
-            updateTeamMember={updateTeamMember}
-          />
-          <NewTeamMemberInput
-            id="socialTwitter"
-            type="text"
-            inputValue={teamMemberInput.socialTwitter}
-            labelValue="Twitter"
-            isRequired
-            updateTeamMember={updateTeamMember}
-          />
-        </Styled.NewTeamMemberSocialColumn>
+          <Styled.SocialMedia>
+            <NewTeamMemberInput
+              id="socialFacebook"
+              type="text"
+              inputValue={teamMemberInput.socialFacebook}
+              labelValue="Social Media"
+              isRequired
+              socialIcon="assets/facebook.png"
+              onChange={updateTeamMember}
+            />
+            <NewTeamMemberInput
+              id="socialTwitter"
+              type="text"
+              inputValue={teamMemberInput.socialTwitter}
+              labelValue=""
+              isRequired
+              hasLabel={false}
+              socialIcon="assets/twitter.jpeg"
+              onChange={updateTeamMember}
+            />
+          </Styled.SocialMedia>
+        </Styled.NewTeamMemberPersonaliaColumn>
       </Styled.NewTeamMemberForm>
     </Styled.NewTeamMembersDesktopForm>
   );

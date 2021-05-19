@@ -19,7 +19,7 @@ export const TimeEntry = styled.div`
   max-width: 90%;
 
   @media screen and (min-width: 480px) {
-    width: clamp(450px, 90%, ${({ theme }) => theme.desktopBreakPoint});
+    width: clamp(450px, 90%, ${({ theme }) => theme.desktopBreakpoint});
   }
 
   margin-bottom: ${(props) => (props.lastChild ? "15px" : "")};

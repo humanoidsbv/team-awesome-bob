@@ -11,7 +11,7 @@ export const MenuNavigation = styled.nav`
   width: 100vw;
   z-index: 1;
 
-  @media screen and (max-width: ${({ theme }) => theme.desktopBreakPoint}) {
+  @media screen and (max-width: ${({ theme }) => theme.desktopBreakpoint}) {
     background-image: linear-gradient(
       to bottom,
       ${({ theme }) => theme.teamAwesomeBlue},
@@ -37,7 +37,7 @@ export const MenuNavigation = styled.nav`
     }
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
+  @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
     background-image: 0;
     flex-direction: row;
     height: 50px;

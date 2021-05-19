@@ -10,6 +10,7 @@ interface TeamMemberProps {
 
 function TeamMember({ teamMember }: TeamMemberProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+
   const handleClick = () => {
     setIsCollapsed(!isCollapsed);
   };

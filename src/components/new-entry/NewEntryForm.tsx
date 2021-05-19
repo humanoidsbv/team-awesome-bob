@@ -7,7 +7,7 @@ import * as Type from "../../types/types";
 import NewEntryInput from "./NewEntryInput";
 import NewEntryButton from "./NewEntryButton";
 
-import { addTimeEntries } from "../../services/timeEntries/addTimeEntries";
+import { addTimeEntries } from "../../services/time-entries/addTimeEntries";
 
 import { StoreContext } from "../../stores/ContextLoader";
 

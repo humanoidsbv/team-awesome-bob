@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { deleteTimeEntries } from "../services/timeEntries/deleteTimeEntries";
+import { deleteTimeEntries } from "../services/time-entries/deleteTimeEntries";
 
 import * as Styled from "./TimeTable.styled";
 

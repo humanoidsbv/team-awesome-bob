@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const TeamMemberList = styled.div`
-  width: 90%;
-  margin: 0 auto;
   display: flex;
   flex-flow: column wrap;
+  margin: 0 auto;
+  width: clamp(0px, 90%, ${({ theme }) => theme.desktopBreakpoint});
 `;

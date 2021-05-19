@@ -22,7 +22,7 @@ export const NewEntryForm = styled.form`
     display: flex;
     justify-content: space-between;
     width: 90%;
-    @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
+    @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
       width: 250px;
     }
     margin: 0 auto;
@@ -35,13 +35,13 @@ export const NewEntryForm = styled.form`
     }
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
+  @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
     display: flex;
     align-items: center;
     flex-flow: row wrap;
     justify-content: flex-start;
     padding: 10px 20px;
-    width: clamp(450px, 90%, ${({ theme }) => theme.desktopBreakPoint});
+    width: clamp(450px, 90%, ${({ theme }) => theme.desktopBreakpoint});
 
     > * {
       margin: 5px;

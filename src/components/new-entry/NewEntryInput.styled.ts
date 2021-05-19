@@ -28,7 +28,7 @@ export const NewEntryInput = styled.div`
       padding: 0 15px;
       width: 100%;
 
-      @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
+      @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
         input[type="date"] {
           width: 120px;
         }
@@ -47,8 +47,7 @@ export const NewEntryInput = styled.div`
     }
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
+  @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
     width: initial;
-    margin: 5px;
   }
 `;

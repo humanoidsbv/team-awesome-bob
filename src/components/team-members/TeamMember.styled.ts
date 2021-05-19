@@ -11,8 +11,8 @@ export const TeamMember = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  margin: 10px 0;
   width: 100%;
+  margin: 10px auto;
   border-left-width: 4px;
   min-height: 80px;
 

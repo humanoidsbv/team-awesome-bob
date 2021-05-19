@@ -1,7 +1,7 @@
 export const theme = {
-  teamAwesomeBlue: "#4f88ef",
-  teamAwesomeGreen: "#39b54a",
-  formGrey: "#f5f8fa",
-  desktopBreakPoint: "1200px",
   borderGrey: "#e6eaee",
+  desktopBreakpoint: "1200px",
+  formGrey: "#f5f8fa",
+  teamAwesomeBlue: "#4f88ef",
+  activeButtonGreen: "#39b54a",
 };
