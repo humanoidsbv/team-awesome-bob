@@ -10,8 +10,16 @@ export interface TimeEntry {
 
 export interface TeamMember {
   id: number;
-  name: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  bio: string;
+  address: string;
+  zipCode: string;
+  city: string;
   role: string;
+  socialTwitter: string;
+  socialFacebook: string;
   currentEmployer: string;
   startingDate: string;
   profilePicture: string;
@@ -19,4 +27,5 @@ export interface TeamMember {
 
 export type ValidityEvent =
   | React.ChangeEvent<HTMLInputElement>
+  | React.ChangeEvent<HTMLTextAreaElement>
   | React.FocusEvent<HTMLInputElement>;

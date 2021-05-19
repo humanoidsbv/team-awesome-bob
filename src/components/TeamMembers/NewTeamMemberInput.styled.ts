@@ -2,17 +2,36 @@ import styled from "styled-components";
 
 export const NewTeamMemberInput = styled.div`
   width: 100%;
-  margin: 0 auto;
-
+  padding: 10px;
   label {
     color: grey;
-    display: block;
     font-size: 12px;
-    margin: 0 auto;
     opacity: 0.8;
     text-align: left;
     text-transform: uppercase;
     width: 90%;
+
+    textarea {
+      opacity: 1;
+      color: black;
+      display: block;
+      font-size: 14px;
+      text-align: left;
+
+      max-height: 150px;
+      resize: none;
+      border-color: rgb(200, 200, 200);
+      background-image: linear-gradient(to bottom, white, #f2f4f7);
+      border-radius: 4px;
+
+      font-family: Proxima Nova;
+      width: 100%;
+
+      :focus {
+        border-color: grey;
+        outline: 0;
+      }
+    }
 
     input {
       background-image: linear-gradient(to bottom, white, #f2f4f7);
@@ -22,24 +41,11 @@ export const NewTeamMemberInput = styled.div`
       font-family: Proxima Nova;
       font-size: 14px;
       height: 36px;
-      margin: 15px 0 15px 0;
       opacity: 1;
       outline: none;
-      padding: 0 15px;
       width: 100%;
-
-      @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
-        input[type="date"] {
-          width: 120px;
-        }
-        input[type="text"] {
-          width: 200px;
-        }
-        input[type="time"] {
-          width: 80px;
-        }
-      }
     }
+
     input:focus {
       border-radius: 4px;
       border: solid 1px ${(props) => (props.isValid ? `rgba(0, 0, 0, 0.5)` : `red`)};
@@ -48,7 +54,13 @@ export const NewTeamMemberInput = styled.div`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
-    width: initial;
-    margin: 5px;
+    input {
+      margin-top: 10px;
+      background-image: 0;
+      background-color: transparent;
+    }
+    textarea {
+      margin-top: 10px;
+    }
   }
 `;

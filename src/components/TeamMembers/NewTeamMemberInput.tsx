@@ -10,6 +10,7 @@ interface NewTeamMemberInputProps {
   type: string;
   labelValue: string;
   inputValue: string;
+  inputSize?: string;
   updateTeamMember?: (event: Types.ValidityEvent) => void;
   isRequired?: boolean;
 }
@@ -19,29 +20,37 @@ function NewTeamMemberInput({
   type,
   labelValue,
   inputValue,
+  inputSize,
   updateTeamMember,
   isRequired,
 }: NewTeamMemberInputProps) {
   const [isValid, setIsValid] = useState(true);
 
-  const handleValidity = (event) => {
-    updateTeamMember(event);
-    setIsValid(event.target.checkValidity());
-  };
-
   return (
-    <Styled.NewTeamMemberInput isValid={isValid} type={type}>
+    <Styled.NewTeamMemberInput isValid={isValid} type={type} inputSize={inputSize}>
       <label htmlFor={id}>
         {labelValue}
-        <input
-          autoComplete="off"
-          required={isRequired}
-          id={id}
-          onChange={handleValidity}
-          onBlur={handleValidity}
-          type={type}
-          value={inputValue}
-        />
+        {type === "textarea" ? (
+          <textarea
+            id={id}
+            value={inputValue}
+            required={isRequired}
+            minLength={100}
+            onBlur={(event) => setIsValid(event.target.checkValidity())}
+            onChange={updateTeamMember}
+          />
+        ) : (
+          <input
+            autoComplete="off"
+            required={isRequired}
+            id={id}
+            minLength={2}
+            onBlur={(event) => setIsValid(event.target.checkValidity())}
+            onChange={updateTeamMember}
+            type={type}
+            value={inputValue}
+          />
+        )}
       </label>
     </Styled.NewTeamMemberInput>
   );

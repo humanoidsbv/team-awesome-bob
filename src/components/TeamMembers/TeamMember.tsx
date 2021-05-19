@@ -22,7 +22,7 @@ function TeamMember({ teamMember }: TeamMemberProps) {
           alt=""
         />
         <div>
-          <p>{teamMember.name}</p>
+          <p>{`${teamMember.firstName} ${teamMember.lastName}`}</p>
           <p>{teamMember.role}</p>
         </div>
         <button type="button" onClick={handleClick} />
@@ -30,7 +30,7 @@ function TeamMember({ teamMember }: TeamMemberProps) {
       {isCollapsed && (
         <>
           <Styled.TeamMemberMidHeader>
-            <p>{`Detailed information about ${teamMember.name}`}</p>
+            <p>{`Detailed information about ${teamMember.firstName}`}</p>
           </Styled.TeamMemberMidHeader>
           <Styled.TeamMemberDetails>
             <p>{teamMember.currentEmployer}</p>
