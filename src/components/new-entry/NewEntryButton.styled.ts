@@ -14,7 +14,7 @@ export const NewEntryButton = styled.button`
   outline: 0;
   text-align: center;
   text-align: center;
-  margin: 0 auto;
+  margin: 10px auto;
   width: 90%;
 
   transition: background-color 0.3s ease-out;
@@ -33,6 +33,10 @@ export const NewEntryButton = styled.button`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
-    display: none;
+    display: block;
+    margin-left: auto;
+    margin: 5px;
+    padding: 0;
+    width: 50%;
   }
 `;

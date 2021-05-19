@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
-export const NewTeamMemberInput = styled.label`
+export const InputField = styled.label`
   color: grey;
   display: flex;
   flex-direction: column;
   font-size: 12px;
-  margin: 10px;
+  margin-bottom: 10px;
   text-align: left;
   text-transform: uppercase;
+  width: 100%;
 
   ${(props) => (props.type === "textarea" ? "height: 100%;" : "")};
 

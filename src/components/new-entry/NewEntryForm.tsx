@@ -4,7 +4,7 @@ import * as Styled from "./NewEntryForm.styled";
 
 import * as Type from "../../types/types";
 
-import NewEntryInput from "./NewEntryInput";
+import InputField from "../InputField";
 import NewEntryButton from "./NewEntryButton";
 
 import { addTimeEntries } from "../../services/time-entries/addTimeEntries";
@@ -73,49 +73,49 @@ const NewEntryForm = ({ isActive, handleActive }: NewEntryFormProps) => {
 
   return (
     <Styled.NewEntryForm isActive={isActive} onSubmit={saveTimeEntry} ref={formRef}>
-      <NewEntryInput
+      <InputField
         id="employer"
         type="text"
         inputValue={timeEntryInput.employer}
         labelValue="Employer"
-        updateTimeEntry={updateTimeEntry}
         isRequired
+        onChange={updateTimeEntry}
       />
 
-      <NewEntryInput
+      <InputField
         id="activity"
         type="text"
         inputValue={timeEntryInput.activity}
         labelValue="Activity"
-        updateTimeEntry={updateTimeEntry}
+        onChange={updateTimeEntry}
         isRequired
       />
 
-      <NewEntryInput
+      <InputField
         id="date"
         type="date"
         inputValue={timeEntryInput.date}
         labelValue="Date"
-        updateTimeEntry={updateTimeEntry}
+        onChange={updateTimeEntry}
       />
 
-      <div>
-        <NewEntryInput
+      <Styled.DoubleInput>
+        <InputField
           id="startTime"
           type="time"
           inputValue={timeEntryInput.startTime}
           labelValue="From"
-          updateTimeEntry={updateTimeEntry}
+          onChange={updateTimeEntry}
         />
 
-        <NewEntryInput
+        <InputField
           id="endTime"
           type="time"
           inputValue={timeEntryInput.endTime}
           labelValue="To"
-          updateTimeEntry={updateTimeEntry}
+          onChange={updateTimeEntry}
         />
-      </div>
+      </Styled.DoubleInput>
       <NewEntryButton isValid={isFormValid}>
         {isFormValid ? "Add" : "Please fill in required fields"}
       </NewEntryButton>

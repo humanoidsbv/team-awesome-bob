@@ -1,9 +1,9 @@
 /* eslint-disable react/require-default-props */
 import React, { useState } from "react";
 
-import * as Styled from "./NewTeamMemberInput.styled";
+import * as Styled from "./InputField.styled";
 
-interface NewTeamMemberInputProps {
+interface InputFieldProps {
   id: string;
   type: string;
   labelValue: string;
@@ -15,7 +15,7 @@ interface NewTeamMemberInputProps {
   socialIcon?: string;
 }
 
-function NewTeamMemberInput({
+function InputField({
   id,
   type,
   labelValue,
@@ -25,11 +25,11 @@ function NewTeamMemberInput({
   isRequired,
   socialIcon,
   hasLabel = true,
-}: NewTeamMemberInputProps) {
+}: InputFieldProps) {
   const [isValid, setIsValid] = useState(true);
 
   return (
-    <Styled.NewTeamMemberInput
+    <Styled.InputField
       socialIcon={socialIcon}
       hasLabel={hasLabel}
       isValid={isValid}
@@ -63,8 +63,8 @@ function NewTeamMemberInput({
           />
         </div>
       )}
-    </Styled.NewTeamMemberInput>
+    </Styled.InputField>
   );
 }
 
-export default NewTeamMemberInput;
+export default InputField;

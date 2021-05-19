@@ -7,7 +7,7 @@ import { StoreContext } from "../../stores/ContextLoader";
 
 import { addTeamMembers } from "../../services/team-members/addTeamMembers";
 
-import NewTeamMemberInput from "./NewTeamMemberInput";
+import InputField from "../InputField";
 import NewEntryButton from "../new-entry/NewEntryButton";
 
 function NewTeamMemberForm() {
@@ -91,7 +91,7 @@ function NewTeamMemberForm() {
         <Styled.NewTeamMembersDivider />
         <Styled.NewTeamMemberPersonaliaColumn>
           <Styled.NewTeamMemberDoubleFields>
-            <NewTeamMemberInput
+            <InputField
               id="firstName"
               type="text"
               inputSize="small"
@@ -100,7 +100,7 @@ function NewTeamMemberForm() {
               isRequired
               onChange={updateTeamMember}
             />
-            <NewTeamMemberInput
+            <InputField
               onChange={updateTeamMember}
               id="lastName"
               type="text"
@@ -109,7 +109,7 @@ function NewTeamMemberForm() {
               isRequired
             />
           </Styled.NewTeamMemberDoubleFields>
-          <NewTeamMemberInput
+          <InputField
             id="emailAddress"
             type="text"
             inputValue={teamMemberInput.emailAddress}
@@ -117,7 +117,7 @@ function NewTeamMemberForm() {
             isRequired
             onChange={updateTeamMember}
           />
-          <NewTeamMemberInput
+          <InputField
             id="bio"
             type="textarea"
             inputValue={teamMemberInput.bio}
@@ -127,7 +127,7 @@ function NewTeamMemberForm() {
         </Styled.NewTeamMemberPersonaliaColumn>
         <Styled.NewTeamMembersDivider />
         <Styled.NewTeamMemberPersonaliaColumn>
-          <NewTeamMemberInput
+          <InputField
             id="address"
             type="text"
             inputValue={teamMemberInput.address}
@@ -136,7 +136,7 @@ function NewTeamMemberForm() {
             onChange={updateTeamMember}
           />
           <Styled.NewTeamMemberDoubleFields>
-            <NewTeamMemberInput
+            <InputField
               id="postalCode"
               type="text"
               inputValue={teamMemberInput.postalCode}
@@ -144,7 +144,7 @@ function NewTeamMemberForm() {
               isRequired
               onChange={updateTeamMember}
             />
-            <NewTeamMemberInput
+            <InputField
               id="locality"
               type="text"
               inputValue={teamMemberInput.locality}
@@ -154,7 +154,7 @@ function NewTeamMemberForm() {
             />
           </Styled.NewTeamMemberDoubleFields>
           <Styled.SocialMedia>
-            <NewTeamMemberInput
+            <InputField
               id="socialFacebook"
               type="text"
               inputValue={teamMemberInput.socialFacebook}
@@ -163,7 +163,7 @@ function NewTeamMemberForm() {
               socialIcon="assets/facebook.png"
               onChange={updateTeamMember}
             />
-            <NewTeamMemberInput
+            <InputField
               id="socialTwitter"
               type="text"
               inputValue={teamMemberInput.socialTwitter}

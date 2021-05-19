@@ -2,11 +2,8 @@ import styled from "styled-components";
 
 export const NewTeamMembersDesktopForm = styled.form`
   display: ${(props) => (props.isActive ? "block" : "none")};
-  width: clamp(450px, 90%, ${({ theme }) => theme.desktopBreakpoint});
+  width: clamp(0px, 90%, ${({ theme }) => theme.desktopBreakpoint});
   margin: 20px auto;
-  > button {
-    margin: 20px;
-  }
 `;
 
 export const NewTeamMemberForm = styled.div`
@@ -15,10 +12,9 @@ export const NewTeamMemberForm = styled.div`
   border: solid 2px #f2f4f7;
   margin: 0 auto;
   flex-flow: row;
-  border-left: solid 4px ${({ theme }) => theme.teamAwesomeBlue};
   width: 100%;
-
   padding: 10px;
+  padding-top: 20px;
 
   > button {
     margin: 15px auto;
@@ -28,8 +24,10 @@ export const NewTeamMemberForm = styled.div`
     background-color: transparent;
     display: flex;
     justify-content: flex-start;
-    padding: 10px;
+    padding: 20px;
+
     border-top-left-radius: 0;
+    border-left: solid 4px ${({ theme }) => theme.teamAwesomeBlue};
 
     > * {
       margin: 5px;
@@ -87,18 +85,26 @@ export const NewTeamMemberPersonaliaColumn = styled.div`
   display: flex;
   flex-flow: column;
   width: 100%;
-  > :last-child {
-    margin-top: auto;
+  @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
+    > :last-child {
+      margin-top: auto;
+    }
   }
 `;
 export const NewTeamMemberDoubleFields = styled.div`
   display: flex;
   justify-content: space-between;
-  flex-flow: row;
+  flex-flow: column;
   width: 100%;
 
   > label {
     width: 100%;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
+    flex-flow: row;
+    > label {
+      width: calc(50% - 8px);
+    }
   }
 `;
 
@@ -106,6 +112,7 @@ export const NewTeamMembersDivider = styled.div`
   width: 1px;
   background-color: ${({ theme }) => theme.borderGrey};
   height: inherit;
+  margin: 15px 20px;
 `;
 
 export const SocialMedia = styled.div``;
