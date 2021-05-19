@@ -13,7 +13,15 @@ function TimeTable() {
   const store = useContext(StoreContext);
   const [timeEntries, setTimeEntries] = store.timeEntries;
 
-  const dateDisplay = { day: "numeric", month: "long", year: "numeric" };
+  const dateDisplay: {
+    day?: "numeric" | "2-digit";
+    month?: "numeric" | "2-digit" | "long" | "short" | "narrow";
+    year?: "numeric" | "2-digit";
+  } = {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  };
 
   async function deleteTimeEntry(_id: number) {
     const newTimeEntries = timeEntries.filter((entry) => entry.id !== _id);
