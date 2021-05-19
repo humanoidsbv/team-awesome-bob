@@ -15,7 +15,7 @@ export const Header = styled.header`
   z-index: 2;
 
   > h1 {
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
       display: none;
     }
     color: white;
@@ -25,11 +25,14 @@ export const Header = styled.header`
     line-height: 20px;
   }
 
-  > div {
-    @media screen and (min-width: 800px) {
+  > button {
+    @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
       display: none;
     }
     align-items: center;
+    background: 0;
+    outline: 0;
+    border: 0;
     display: flex;
     height: inherit;
     position: absolute;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TimeEntry = styled.div`
   align-items: center;
   background-color: white;
-  border-color: rgba(222, 222, 222, 0.3);
+  border-color: ${({ theme }) => theme.borderGrey};
   border-left-color: #4f88ef;
   border-style: solid;
   border-width: 1px;
@@ -16,20 +16,18 @@ export const TimeEntry = styled.div`
   border-left-width: 4px;
   border-bottom-width: 0;
 
-  @media screen and (max-width: 480px) {
-    max-width: 90%;
-  }
+  max-width: 90%;
 
   @media screen and (min-width: 480px) {
-    width: clamp(450px, 90%, 1200px);
+    width: clamp(450px, 90%, ${({ theme }) => theme.desktopBreakPoint});
   }
 
   margin-bottom: ${(props) => (props.lastChild ? "15px" : "")};
 
-  border-bottom-left-radius: ${(props) => (props.lastChild ? "5px" : "")};
-  border-bottom-right-radius: ${(props) => (props.lastChild ? "5px" : "")};
-  border-top-left-radius: ${(props) => (props.firstChild ? "5px" : "")};
-  border-top-right-radius: ${(props) => (props.firstChild ? "5px" : "")};
+  border-bottom-left-radius: ${(props) => (props.lastChild ? "5px" : "0")};
+  border-bottom-right-radius: ${(props) => (props.lastChild ? "5px" : "0")};
+  border-top-left-radius: ${(props) => (props.firstChild ? "5px" : "0")};
+  border-top-right-radius: ${(props) => (props.firstChild ? "5px" : "0")};
 
   border-bottom-width: ${(props) => (props.lastChild ? "1px" : "")};
 

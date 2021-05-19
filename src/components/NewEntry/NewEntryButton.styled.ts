@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NewEntryButton = styled.button`
-  background-color: #39b54a;
+  background-color: ${({ theme }) => theme.teamAwesomeGreen};
   border-radius: 4px;
   border: solid 1px #249533;
   color: white;
@@ -14,16 +14,8 @@ export const NewEntryButton = styled.button`
   outline: 0;
   text-align: center;
   text-align: center;
-
-  @media screen and (max-width: 1024px) {
-    margin: 0 auto;
-    width: 90%;
-  }
-
-  @media screen and (min-width: 1024px) {
-    margin: 0 auto;
-    width: clamp(450px, 90%, 1200px);
-  }
+  margin: 0 auto;
+  width: 90%;
 
   transition: background-color 0.3s ease-out;
 
@@ -38,5 +30,9 @@ export const NewEntryButton = styled.button`
   :disabled {
     background-color: rgba(100, 100, 100);
     border: solid 1px rgba(100, 100, 100);
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
+    display: none;
   }
 `;

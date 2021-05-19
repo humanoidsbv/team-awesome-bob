@@ -1,18 +1,155 @@
 {
   "time-entries": [
     {
-      "activity": "sdfa",
-      "client": "asdg",
-      "endTime": "2021-05-17T17:00:00.000Z",
-      "id": 3,
-      "startTime": "2021-05-17T08:00:00.000Z"
+      "activity": "Front End Development",
+      "client": "Team Awesome",
+      "endTime": "2021-05-18T17:00:00.000Z",
+      "id": 1,
+      "startTime": "2021-05-18T08:00:00.000Z"
     },
     {
       "activity": "asdf",
       "client": "asdf",
-      "endTime": "2021-05-17T17:00:00.000Z",
+      "endTime": "2021-05-18T17:00:00.000Z",
+      "id": 2,
+      "startTime": "2021-05-18T08:00:00.000Z"
+    },
+    {
+      "activity": "asdf",
+      "client": "sd",
+      "endTime": "2021-05-18T17:00:00.000Z",
+      "id": 3,
+      "startTime": "2021-05-18T08:00:00.000Z"
+    }
+  ],
+  "team-members": [
+    {
+      "id": 1,
+      "firstName": "Bob",
+      "lastName": "Verheij",
+      "email": "bob.verheij@humanoids.nl",
+      "bio": "",
+      "address": "",
+      "zipCode": "",
+      "city": "",
+      "role": "Back End Developer",
+      "socialFacebook": "bobverheij",
+      "socialTwitter": "@bobverheij",
+      "currentEmployer": "Team Awesome",
+      "startingDate": "January 2021",
+      "profilePicture": "assets/bob.jpeg"
+    },
+    {
+      "id": 2,
+      "firstName": "Amijs",
+      "lastName": "Breunesse",
+      "email": "amijs.breunesse@humanoids.nl",
+      "bio": "",
+      "address": "",
+      "zipCode": "",
+      "city": "",
+      "role": "Front End Developer",
+      "socialFacebook": "amijsbreunesse",
+      "socialTwitter": "@amijsbreunesse",
+      "currentEmployer": "Team Awesome",
+      "startingDate": "April 2021",
+      "profilePicture": "assets/amijs.jpeg"
+    },
+    {
+      "id": 3,
+      "firstName": "New Guy",
+      "lastName": "",
+      "email": "bob.verheij@humanoids.nl",
+      "bio": "",
+      "address": "",
+      "zipCode": "",
+      "city": "",
+      "role": "Unicorn",
+      "socialFacebook": "",
+      "socialTwitter": "@",
+      "currentEmployer": "Team Awesome",
+      "startingDate": "??? 2021",
+      "profilePicture": "assets/default.jpeg"
+    },
+    {
       "id": 4,
-      "startTime": "2021-05-17T08:00:00.000Z"
+      "firstName": "a",
+      "lastName": "a",
+      "email": "a",
+      "bio": "",
+      "address": "a",
+      "zipCode": "a",
+      "city": "a",
+      "role": "",
+      "socialTwitter": "a",
+      "socialFacebook": "a",
+      "currentEmployer": "",
+      "startingDate": "",
+      "profilePicture": ""
+    },
+    {
+      "id": 5,
+      "firstName": "fghfghfg",
+      "lastName": "dfgdfgd",
+      "email": "f",
+      "bio": "cbcbc\n\\",
+      "address": "m;k",
+      "zipCode": "lkl",
+      "city": "xvxfb",
+      "role": "",
+      "socialTwitter": "i",
+      "socialFacebook": "ok",
+      "currentEmployer": "",
+      "startingDate": "",
+      "profilePicture": ""
+    },
+    {
+      "id": 6,
+      "firstName": "asdf",
+      "lastName": "asf",
+      "email": "asd",
+      "bio": "",
+      "address": "asd",
+      "zipCode": "asd",
+      "city": "asd",
+      "role": "",
+      "socialTwitter": "asd",
+      "socialFacebook": "asdf",
+      "currentEmployer": "",
+      "startingDate": "",
+      "profilePicture": ""
+    },
+    {
+      "id": 7,
+      "firstName": "asdf",
+      "lastName": "asf",
+      "email": "asd",
+      "bio": "aasfaasdf asdf. asdf asdf",
+      "address": " asdf",
+      "zipCode": "asdf",
+      "city": "asd",
+      "role": "",
+      "socialTwitter": "asdf",
+      "socialFacebook": "asdf",
+      "currentEmployer": "",
+      "startingDate": "",
+      "profilePicture": ""
+    },
+    {
+      "id": 8,
+      "firstName": "asdf",
+      "lastName": "sdfsda",
+      "email": "asdfasdf",
+      "bio": "",
+      "address": "sadfasdf",
+      "zipCode": "asdfas",
+      "city": "sadfadf",
+      "role": "",
+      "socialTwitter": "asdfasdf",
+      "socialFacebook": "asdfasdfds",
+      "currentEmployer": "",
+      "startingDate": "",
+      "profilePicture": ""
     }
   ]
 }

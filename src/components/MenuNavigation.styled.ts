@@ -11,17 +11,17 @@ export const MenuNavigation = styled.nav`
   width: 100vw;
   z-index: 1;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: ${({ theme }) => theme.desktopBreakPoint}) {
     background-image: linear-gradient(
       to bottom,
-      ${(props) => props.theme.teamAwesomeBlue},
+      ${({ theme }) => theme.teamAwesomeBlue},
       white 300%
     );
     transform: ${(props) => (props.isOpen ? "translateY(0%)" : "translateY(-100%)")};
     transition: transform ${(props) => (props.isOpen ? "0.2s ease-out" : "0.1s ease-in")};
   }
 
-  > p {
+  > a {
     color: white;
     font-size: 24px;
     margin: 15px;
@@ -37,23 +37,19 @@ export const MenuNavigation = styled.nav`
     }
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
     background-image: 0;
     flex-direction: row;
     height: 50px;
     justify-content: flex-start;
-    width: auto;
+    width: 50%;
     z-index: 10;
 
-    > p {
+    a {
       font-size: 0.8rem;
       margin: 15px !important;
-      min-width: 100px;
-      width: 100%;
-
-      :first-child {
-        margin: 0;
-      }
+      min-width: 120px;
+      padding: 10px;
     }
   }
 `;

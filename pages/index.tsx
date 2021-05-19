@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 
 import { ThemeProvider } from "styled-components";
 
-import { getTimeEntries } from "../src/services/getTimeEntries";
+import { getTimeEntries } from "../src/services/timeEntries/getTimeEntries";
 
 import { NewEntryButton } from "../src/components/NewEntry/NewEntryButton.styled";
 
@@ -32,7 +32,7 @@ function HomePage() {
     <ThemeProvider theme={theme}>
       <Header />
       {!isActive && (
-        <NewEntryButton isActive={isActive} onClick={handleActive}>
+        <NewEntryButton onClick={handleActive}>
           <img src="assets/plus-icon.svg" alt="" />
           New Time Entry
         </NewEntryButton>
