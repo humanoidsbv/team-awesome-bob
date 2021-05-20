@@ -4,7 +4,11 @@ import * as Styled from "./Header.styled";
 
 import MenuNavigation from "./MenuNavigation";
 
-function Header(): React.ReactElement {
+interface HeaderProps {
+  activePage: string;
+}
+
+function Header({ activePage }: HeaderProps): React.ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleClick = (): void => setIsOpen(!isOpen);
 
@@ -16,7 +20,7 @@ function Header(): React.ReactElement {
           <img src="assets/plus-icon.svg" alt="" />
         </button>
       </Styled.Header>
-      <MenuNavigation isOpen={isOpen} />
+      <MenuNavigation activePage={activePage} isOpen={isOpen} />
     </>
   );
 }
