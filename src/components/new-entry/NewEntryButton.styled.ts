@@ -31,12 +31,4 @@ export const NewEntryButton = styled.button`
     background-color: rgba(100, 100, 100);
     border: solid 1px rgba(100, 100, 100);
   }
-
-  @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
-    display: block;
-    margin-left: auto;
-    margin: 5px;
-    padding: 0;
-    width: 50%;
-  }
 `;
