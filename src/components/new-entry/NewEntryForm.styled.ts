@@ -16,6 +16,7 @@ export const NewEntryForm = styled.form`
   > button {
     width: 100%;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
     display: flex;
     align-items: center;
