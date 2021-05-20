@@ -1,5 +1,8 @@
 export async function getTeamMembers() {
-  const response = await fetch("http://localhost:3004/team-members?_sort=name", {
+  const url = process.env.NEXT_PUBLIC_DB_HOST
+    ? "http://localhost:3004"
+    : "https://my-json-server.typicode.com/humanoidsbv/team-awesome-bob";
+  const response = await fetch(`${url}/team-members?_sort=name`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

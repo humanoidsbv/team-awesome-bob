@@ -1,5 +1,8 @@
 export async function getTimeEntries() {
-  const response = await fetch("http://localhost:3004/time-entries?_sort=startTime", {
+  const url = process.env.NEXT_PUBLIC_DB_HOST
+    ? "http://localhost:3004"
+    : "https://my-json-server.typicode.com/humanoidsbv/team-awesome-bob";
+  const response = await fetch(`${url}/time-entries?_sort=startTime`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

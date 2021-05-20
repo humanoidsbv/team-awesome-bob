@@ -1,5 +1,8 @@
 export async function addTimeEntries(timeEntryJson: string) {
-  await fetch(`http://localhost:3004/time-entries/`, {
+  const url = process.env.NEXT_PUBLIC_DB_HOST
+    ? "http://localhost:3004"
+    : "https://my-json-server.typicode.com/humanoidsbv/team-awesome-bob";
+  await fetch(`${url}/time-entries/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
