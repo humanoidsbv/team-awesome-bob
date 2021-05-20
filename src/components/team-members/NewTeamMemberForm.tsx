@@ -7,7 +7,6 @@ import { StoreContext } from "../../stores/ContextLoader";
 import { addTeamMembers } from "../../services/team-members/addTeamMembers";
 
 import InputField from "../InputField";
-import NewEntryButton from "../new-entry/NewEntryButton";
 
 function NewTeamMemberForm() {
   const [isActive, setIsActive] = useState(true);

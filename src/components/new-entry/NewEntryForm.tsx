@@ -5,7 +5,6 @@ import * as Styled from "./NewEntryForm.styled";
 import * as Type from "../../types/types";
 
 import InputField from "../InputField";
-import NewEntryButton from "./NewEntryButton";
 
 import { addTimeEntries } from "../../services/time-entries/addTimeEntries";
 
