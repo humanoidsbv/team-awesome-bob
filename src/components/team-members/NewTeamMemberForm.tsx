@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef, useContext } from "react";
 
 import * as Styled from "./NewTeamMemberForm.styled";

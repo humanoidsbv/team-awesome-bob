@@ -6,7 +6,8 @@
     "dev": "next & npm run json-server",
     "build": "next build",
     "json-server": "json-server --watch db.json --port 3004",
-    "start": "next start"
+    "start": "next start",
+    "test-eslint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "repository": {
     "type": "git",

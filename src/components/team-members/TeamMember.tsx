@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from "react";
 import * as Styled from "./TeamMember.styled";
 
@@ -26,7 +25,7 @@ function TeamMember({ teamMember }: TeamMemberProps) {
           <p>{`${teamMember.firstName} ${teamMember.lastName}`}</p>
           <p>{teamMember.role}</p>
         </div>
-        <button type="button" onClick={handleClick} />
+        <button type="button" onClick={handleClick} aria-label="toggle-information" />
       </Styled.TeamMemberInformation>
       {isCollapsed && (
         <>
