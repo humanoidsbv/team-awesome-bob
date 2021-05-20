@@ -20,6 +20,20 @@
       "endTime": "2021-05-19T17:00:00.000Z",
       "id": 3,
       "startTime": "2021-05-19T08:00:00.000Z"
+    },
+    {
+      "activity": "aa",
+      "client": "aa",
+      "endTime": "2021-05-20T17:00:00.000Z",
+      "id": 4,
+      "startTime": "2021-05-20T08:00:00.000Z"
+    },
+    {
+      "activity": "asfd",
+      "client": "asdf",
+      "endTime": "2021-05-20T17:00:00.000Z",
+      "id": 5,
+      "startTime": "2021-05-20T08:00:00.000Z"
     }
   ],
   "team-members": [
@@ -70,6 +84,38 @@
       "currentEmployer": "Team Awesome",
       "startingDate": "??? 2021",
       "profilePicture": "assets/default.jpeg"
+    },
+    {
+      "id": 4,
+      "firstName": "asdf",
+      "lastName": "asdf",
+      "emailAddress": "asdf",
+      "bio": "",
+      "address": "asdf",
+      "postalCode": "asdf",
+      "locality": "asdf",
+      "role": "",
+      "socialTwitter": "Twitter",
+      "socialFacebook": "Facebook",
+      "currentEmployer": "",
+      "startingDate": "",
+      "profilePicture": ""
+    },
+    {
+      "id": 5,
+      "firstName": "asdf",
+      "lastName": "asdf",
+      "emailAddress": "asdf",
+      "bio": "",
+      "address": "asdf",
+      "postalCode": "asdf",
+      "locality": "asdf",
+      "role": "",
+      "socialTwitter": "Twitter",
+      "socialFacebook": "Facebook",
+      "currentEmployer": "",
+      "startingDate": "",
+      "profilePicture": ""
     }
   ]
 }

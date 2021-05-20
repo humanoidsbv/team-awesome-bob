@@ -25,7 +25,7 @@ function TeamMembers() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      <Header activePage="teammembers" />
       <NewTeamMemberForm />
       <TeamMemberList />
       {teamMembers?.length === 0 && <p>There are no team members</p>}

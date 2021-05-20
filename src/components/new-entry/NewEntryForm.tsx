@@ -116,9 +116,9 @@ const NewEntryForm = ({ isActive, handleActive }: NewEntryFormProps) => {
           onChange={updateTimeEntry}
         />
       </Styled.DoubleInput>
-      <NewEntryButton isValid={isFormValid}>
+      <Styled.SubmitButton isVisible disabled={!isFormValid}>
         {isFormValid ? "Add" : "Please fill in required fields"}
-      </NewEntryButton>
+      </Styled.SubmitButton>
     </Styled.NewEntryForm>
   );
 };

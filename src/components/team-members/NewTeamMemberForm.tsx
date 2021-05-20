@@ -74,10 +74,11 @@ function NewTeamMemberForm() {
   };
 
   return (
-    <Styled.NewTeamMembersDesktopForm isActive={isActive} onSubmit={saveTeamMember} ref={formRef}>
-      <NewEntryButton isValid={isFormValid}>
+    <Styled.NewTeamMembersDesktopForm onSubmit={saveTeamMember} ref={formRef}>
+      <Styled.SubmitButton isVisible disabled={!isFormValid} type="submit">
         {isFormValid ? "Add" : "Please fill in required fields"}
-      </NewEntryButton>
+      </Styled.SubmitButton>
+      <Styled.CancelButton type="button">cancel</Styled.CancelButton>
       <Styled.Tab>
         <p>Personal Details</p>
         <p>Work Details</p>

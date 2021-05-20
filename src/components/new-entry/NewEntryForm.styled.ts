@@ -14,7 +14,8 @@ export const NewEntryForm = styled.form`
   width: 90%;
 
   > button {
-    width: 100%;
+    width: 80%;
+    margin: 15px auto 5px auto;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
@@ -35,6 +36,22 @@ export const DoubleInput = styled.div`
   justify-content: space-between;
   width: 100%;
   > * {
-    width: calc(50% - 8px);
+    width: calc(50% - 8px) !important;
+  }
+`;
+
+export const SubmitButton = styled.button`
+  display: inline-block;
+  background-color: ${({ theme }) => theme.activeButtonGreen};
+  border: solid 1px #249533;
+  outline: 0;
+  min-height: 36px;
+  border-radius: 4px;
+  color: white;
+  min-width: 60px;
+
+  :disabled {
+    background-color: rgba(100, 100, 100);
+    border: solid 1px rgba(100, 100, 100);
   }
 `;

@@ -5,7 +5,7 @@ export const NewEntryButton = styled.button`
   border-radius: 4px;
   border: solid 1px #249533;
   color: white;
-  display: block;
+  display: ${(props) => (props.isVisible ? "block" : "none")};
   font-family: Proxima Nova;
   font-size: 14px;
   font-weight: 500;
@@ -30,5 +30,8 @@ export const NewEntryButton = styled.button`
   :disabled {
     background-color: rgba(100, 100, 100);
     border: solid 1px rgba(100, 100, 100);
+  }
+  @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
+    display: none;
   }
 `;

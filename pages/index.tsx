@@ -30,9 +30,9 @@ function HomePage() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      <Header activePage="timesheets" />
       {!isActive && (
-        <NewEntryButton onClick={handleActive}>
+        <NewEntryButton isVisible={!isActive} onClick={handleActive}>
           <img src="assets/plus-icon.svg" alt="" />
           New Time Entry
         </NewEntryButton>
