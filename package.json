@@ -7,7 +7,7 @@
     "build": "next build",
     "json-server": "json-server --watch db.json --port 3004",
     "start": "next start",
-    "test-eslint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "test-lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "repository": {
     "type": "git",
