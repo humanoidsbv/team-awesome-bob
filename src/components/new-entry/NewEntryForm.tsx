@@ -41,7 +41,7 @@ const NewEntryForm = ({ isActive, handleActive }: NewEntryFormProps) => {
     setIsFormValid(false);
   }
   const store = useContext(StoreContext);
-  const [timeEntries] = store.timeEntries;
+  const [timeEntries, setTimeEntries] = store.timeEntries;
 
   function convertTimeEntry({ employer, activity, date, startTime, endTime }) {
     const newTimeEntry: Type.TimeEntry = {
@@ -51,8 +51,8 @@ const NewEntryForm = ({ isActive, handleActive }: NewEntryFormProps) => {
       id: timeEntries.length + 1,
       startTime: `${date}T${startTime}:00.000Z`,
     };
-    addTimeEntries(JSON.stringify(newTimeEntry));
-    timeEntries.push(newTimeEntry);
+    addTimeEntries(newTimeEntry);
+    setTimeEntries([...timeEntries, newTimeEntry]);
     resetAllFields();
   }
 

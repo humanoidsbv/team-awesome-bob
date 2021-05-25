@@ -12,47 +12,33 @@ function NewTeamMemberForm() {
   const [isActive, setIsActive] = useState(true);
   const handleActive = () => setIsActive(!isActive);
 
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(true);
 
   const store = useContext(StoreContext);
-  const [teamMembers] = store.teamMembers;
+  const [teamMembers, setTeamMembers] = store.teamMembers;
 
   const formRef = useRef<HTMLFormElement>();
 
-  const [teamMemberInput, setTeamMemberInput] = useState({
+  const mockTeamMember = {
     id: null,
-    firstName: "",
-    lastName: "",
-    emailAddress: "",
+    firstName: "Mock",
+    lastName: "User",
+    emailAddress: "mock.user@email.com",
     bio: "",
-    address: "",
-    postalCode: "",
-    locality: "",
-    role: "",
+    address: "street 1",
+    postalCode: "1111AA",
+    locality: "Netherlands",
+    role: "developer",
     socialTwitter: "Twitter",
     socialFacebook: "Facebook",
     currentEmployer: "",
     startingDate: "",
     profilePicture: "",
-  });
+  };
+  const [teamMemberInput, setTeamMemberInput] = useState(mockTeamMember);
 
   const resetAllFields = () => {
-    setTeamMemberInput({
-      id: null,
-      firstName: "",
-      lastName: "",
-      emailAddress: "",
-      bio: "",
-      address: "",
-      postalCode: "",
-      locality: "",
-      role: "",
-      socialTwitter: "Twitter",
-      socialFacebook: "Facebook",
-      currentEmployer: "",
-      startingDate: "",
-      profilePicture: "",
-    });
+    setTeamMemberInput(mockTeamMember);
     setIsFormValid(false);
   };
 
@@ -67,8 +53,8 @@ function NewTeamMemberForm() {
   const saveTeamMember = (event) => {
     handleActive();
     event.preventDefault();
-    addTeamMembers(JSON.stringify(teamMemberInput));
-    teamMembers.push(teamMemberInput);
+    addTeamMembers(teamMemberInput);
+    setTeamMembers([...teamMembers, teamMemberInput]);
     resetAllFields();
   };
 
@@ -92,85 +78,84 @@ function NewTeamMemberForm() {
           <Styled.NewTeamMemberDoubleFields>
             <InputField
               id="firstName"
-              type="text"
-              inputSize="small"
               inputValue={teamMemberInput.firstName}
-              labelValue="First Name"
               isRequired
+              labelValue="First Name"
               onChange={updateTeamMember}
+              type="text"
             />
             <InputField
-              onChange={updateTeamMember}
               id="lastName"
-              type="text"
               inputValue={teamMemberInput.lastName}
-              labelValue="Last Name"
               isRequired
+              labelValue="Last Name"
+              onChange={updateTeamMember}
+              type="text"
             />
           </Styled.NewTeamMemberDoubleFields>
           <InputField
             id="emailAddress"
-            type="text"
             inputValue={teamMemberInput.emailAddress}
-            labelValue="Email Address"
             isRequired
+            labelValue="Email Address"
             onChange={updateTeamMember}
+            type="text"
           />
           <InputField
             id="bio"
-            type="textarea"
             inputValue={teamMemberInput.bio}
             labelValue="Bio"
             onChange={updateTeamMember}
+            type="textarea"
           />
         </Styled.NewTeamMemberPersonaliaColumn>
         <Styled.NewTeamMembersDivider />
         <Styled.NewTeamMemberPersonaliaColumn>
           <InputField
             id="address"
-            type="text"
             inputValue={teamMemberInput.address}
-            labelValue="Address"
             isRequired
+            labelValue="Address"
             onChange={updateTeamMember}
+            type="text"
           />
           <Styled.NewTeamMemberDoubleFields>
             <InputField
               id="postalCode"
-              type="text"
               inputValue={teamMemberInput.postalCode}
-              labelValue="Postal Code"
               isRequired
+              labelValue="Postal Code"
               onChange={updateTeamMember}
+              type="text"
             />
             <InputField
               id="locality"
-              type="text"
               inputValue={teamMemberInput.locality}
-              labelValue="Locality"
               isRequired
+              labelValue="Locality"
               onChange={updateTeamMember}
+              type="text"
             />
           </Styled.NewTeamMemberDoubleFields>
           <Styled.SocialMedia>
             <InputField
               id="socialFacebook"
-              type="text"
               inputValue={teamMemberInput.socialFacebook}
-              labelValue="Social Media"
               isRequired
-              socialIcon="assets/facebook.png"
+              labelValue="Social Media"
               onChange={updateTeamMember}
+              socialIcon="assets/facebook.png"
+              type="text"
             />
             <InputField
-              id="socialTwitter"
-              type="text"
-              inputValue={teamMemberInput.socialTwitter}
-              labelValue=""
-              isRequired
               hasLabel={false}
-              socialIcon="assets/twitter.jpeg"
+              id="socialTwitter"
+              inputValue={teamMemberInput.socialTwitter}
+              isRequired
+              labelValue=""
               onChange={updateTeamMember}
+              socialIcon="assets/twitter.jpeg"
+              type="text"
             />
           </Styled.SocialMedia>
         </Styled.NewTeamMemberPersonaliaColumn>

@@ -25,6 +25,11 @@ export interface TeamMember {
   startingDate: string;
 }
 
+export interface FilterOptions {
+  locality: string;
+  name: string;
+}
+
 export type ValidityEvent =
   | React.ChangeEvent<HTMLInputElement>
   | React.ChangeEvent<HTMLTextAreaElement>

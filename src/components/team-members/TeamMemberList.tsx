@@ -9,12 +9,18 @@ import { StoreContext } from "../../stores/ContextLoader";
 function TeamMemberList() {
   const store = useContext(StoreContext);
   const [teamMembers] = store.teamMembers;
+  const [filterOptions] = store.filterOptions;
 
-  const allMembers = teamMembers?.map((teamMember) => {
-    return <TeamMember key={teamMember.id} teamMember={teamMember} />;
-  });
-
-  return <Styled.TeamMemberList>{allMembers}</Styled.TeamMemberList>;
+  return (
+    <Styled.TeamMemberList>
+      {teamMembers
+        ?.sort((a, b) => (a.lastName > b.lastName ? 1 : -1))
+        .filter((teamMember) => teamMember.locality.includes(filterOptions?.locality))
+        .map((teamMember) => (
+          <TeamMember key={teamMember.id} teamMember={teamMember} />
+        ))}
+    </Styled.TeamMemberList>
+  );
 }
 
 export default TeamMemberList;

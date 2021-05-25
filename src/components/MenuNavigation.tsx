@@ -9,7 +9,6 @@ interface NavProps {
   isOpen: boolean;
   activePage: string;
 }
-
 function MenuNavigation({ isOpen, activePage }: NavProps) {
   return (
     <Styled.MenuNavigation isOpen={isOpen}>

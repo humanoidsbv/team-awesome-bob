@@ -10,6 +10,7 @@ import TeamMemberList from "../src/components/team-members/TeamMemberList";
 import { StoreContext } from "../src/stores/ContextLoader";
 import { getTeamMembers } from "../src/services/team-members/getTeamMembers";
 import NewTeamMemberForm from "../src/components/team-members/NewTeamMemberForm";
+import FilterBar from "../src/components/filter/FilterBar";
 
 function TeamMembers() {
   const store = useContext(StoreContext);
@@ -26,6 +27,11 @@ function TeamMembers() {
   return (
     <ThemeProvider theme={theme}>
       <Header activePage="teammembers" />
+      <FilterBar
+        content={teamMembers}
+        count={teamMembers?.length}
+        activePage="Team Members"
+      ></FilterBar>
       <NewTeamMemberForm />
       <TeamMemberList />
       {teamMembers?.length === 0 && <p>There are no team members</p>}

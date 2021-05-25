@@ -8,7 +8,6 @@ export const Header = styled.header`
   height: 50px;
   justify-content: center;
   left: 0;
-  margin-bottom: 20px;
   position: fixed;
   top: 0;
   width: 100vw;
