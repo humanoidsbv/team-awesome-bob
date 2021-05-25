@@ -4,15 +4,17 @@ export const InputField = styled.label`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 12px;
+  font-size: 0.9rem;
   text-align: left;
   text-transform: uppercase;
+  margin: 0;
+  margin-left: 15px;
 
   input {
     background-image: linear-gradient(to bottom, white, #f2f4f7);
     border-color: rgb(200, 200, 200);
     border-radius: 4px;
-    border: solid 1px ${(props) => (props.isValid ? `rgba(200, 200, 200, 1)` : `red`)};
+    border: solid 1px rgba(200, 200, 200, 1);
     color: black;
     display: block;
     font-family: Proxima Nova;
@@ -24,8 +26,6 @@ export const InputField = styled.label`
     text-align: left;
     width: 200px;
     margin-left: 15px;
-
-    ${(props) => !props.hasLabel && "margin-top: 0;"};
   }
 
   > div {
@@ -39,22 +39,19 @@ export const InputField = styled.label`
     border-radius: 4px 0px 0px 4px;
     border-right: 0;
     margin-top: 10px;
-    ${(props) => !props.hasLabel && "margin-top: 0;"};
   }
 
   input {
     height: 36px;
     padding-left: 10px;
-    border: solid 1px ${(props) => (props.isValid ? `rgb(200, 200, 200)` : `red`)};
-    ${(props) => props.socialIcon && "border-left: 0; border-radius: 0 4px 4px 0;"};
+    border: solid 1px rgba(200, 200, 200, 1);
   }
 
   input:focus {
     border-radius: 4px;
     border: solid 1px;
-    ${(props) => props.socialIcon && "border-left: 0; border-radius: 0 4px 4px 0;"};
     outline: none;
-    border-color: ${(props) => (props.isValid ? `rgba(0, 0, 0, 0.5)` : `red`)};
+    border-color: rgba(0, 0, 0, 0.5);
   }
 
   @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {

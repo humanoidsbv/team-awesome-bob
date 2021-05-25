@@ -19,11 +19,19 @@ export const Select = styled.select`
   width: 100%;
   height: 35px;
   background: white;
-  color: gray;
-  padding-left: 5px;
+  padding: 0 5px;
   font-size: 14px;
   border: none;
+  margin: 0;
   margin-left: 15px;
+  border: solid 1px rgba(200, 200, 200, 1);
+  border-radius: 4px;
+  :focus {
+    border-radius: 4px;
+    border: solid 1px;
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.5);
+  }
 `;
 
 export const Option = styled.option`

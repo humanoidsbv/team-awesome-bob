@@ -21,7 +21,7 @@ function FilterDropDown({ id, labelValue, teamMembers, handleChange }: FilterDro
     <Styled.FilterDropDown>
       <Styled.Label htmlFor={id}>{labelValue}</Styled.Label>
       <Styled.Select id={id} onChange={handleChange} onBlur={handleChange}>
-        <Styled.Option />
+        <Styled.Option value={""}>...</Styled.Option>
         {localitiesArray.map((locality, index) => (
           <Styled.Option key={index} id={id} value={locality}>
             {locality}

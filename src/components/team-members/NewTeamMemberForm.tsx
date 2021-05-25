@@ -12,7 +12,7 @@ function NewTeamMemberForm() {
   const [isActive, setIsActive] = useState(true);
   const handleActive = () => setIsActive(!isActive);
 
-  const [isFormValid, setIsFormValid] = useState(true);
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const store = useContext(StoreContext);
   const [teamMembers, setTeamMembers] = store.teamMembers;
@@ -21,14 +21,14 @@ function NewTeamMemberForm() {
 
   const mockTeamMember = {
     id: null,
-    firstName: "Mock",
-    lastName: "User",
-    emailAddress: "mock.user@email.com",
+    firstName: "",
+    lastName: "",
+    emailAddress: "",
     bio: "",
-    address: "street 1",
-    postalCode: "1111AA",
-    locality: "Netherlands",
-    role: "developer",
+    address: "",
+    postalCode: "",
+    locality: "",
+    role: "",
     socialTwitter: "Twitter",
     socialFacebook: "Facebook",
     currentEmployer: "",
