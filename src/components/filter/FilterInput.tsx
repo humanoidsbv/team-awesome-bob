@@ -1,5 +1,5 @@
 /* eslint-disable react/require-default-props */
-import React, { useState } from "react";
+import React from "react";
 
 import * as Styled from "./FilterInput.styled";
 
@@ -7,7 +7,6 @@ interface FilterInputProps {
   id: string;
   type: string;
   labelValue: string;
-  inputValue: string;
   onChange: any;
   hasLabel?: boolean;
 }

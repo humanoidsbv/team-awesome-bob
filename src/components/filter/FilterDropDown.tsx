@@ -5,7 +5,6 @@ import * as Styled from "./FilterDropDown.styled";
 
 interface FilterDropDownProps {
   id: string;
-  inputValue: string;
   labelValue: string;
   teamMembers: Type.TeamMember[];
   handleChange: Function;
@@ -21,9 +20,9 @@ function FilterDropDown({ id, labelValue, teamMembers, handleChange }: FilterDro
     <Styled.FilterDropDown>
       <Styled.Label htmlFor={id}>{labelValue}</Styled.Label>
       <Styled.Select id={id} onChange={handleChange} onBlur={handleChange}>
-        <Styled.Option value={""}>...</Styled.Option>
-        {localitiesArray.map((locality, index) => (
-          <Styled.Option key={index} id={id} value={locality}>
+        <Styled.Option value="">...</Styled.Option>
+        {localitiesArray.map((locality) => (
+          <Styled.Option key={locality} id={id} value={locality}>
             {locality}
           </Styled.Option>
         ))}

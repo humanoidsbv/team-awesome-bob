@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import FilterInput from "./FilterInput";
 
 import { StoreContext } from "../../stores/ContextLoader";
@@ -17,7 +17,6 @@ function FilterBar({ content, count, activePage }: FilterBarProps) {
   const [filterOptions, setFilterOptions] = store.teamMemberFilter;
 
   const handleChange = (event) => {
-    console.log(event.target.id, event.target.value);
     setFilterOptions({
       ...filterOptions,
       [event.target.id]: event.target.value,
@@ -29,21 +28,17 @@ function FilterBar({ content, count, activePage }: FilterBarProps) {
       <Styled.FilterBarContent>
         <Styled.PageTitle>{activePage}</Styled.PageTitle>
         <Styled.FilterDivider />
-        <Styled.TeamMemberCount> {count} entries</Styled.TeamMemberCount>
+        <Styled.TeamMemberCount>
+          {count}
+          entries
+        </Styled.TeamMemberCount>
         <FilterDropDown
           id="locality"
-          inputValue=""
-          labelValue={"Locality"}
+          labelValue="Locality"
           teamMembers={content}
           handleChange={handleChange}
-        ></FilterDropDown>
-        <FilterInput
-          id="firstName"
-          type="select"
-          inputValue={"Search"}
-          labelValue="Name"
-          onChange={handleChange}
         />
+        <FilterInput id="firstName" type="select" labelValue="Name" onChange={handleChange} />
       </Styled.FilterBarContent>
     </Styled.FilterBar>
   );

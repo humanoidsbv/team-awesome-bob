@@ -20,7 +20,7 @@ function TeamMemberList() {
         )
         .filter((teamMember) =>
           teamMember.firstName
-            .concat(" " + teamMember.lastName)
+            .concat(` ${teamMember.lastName}`)
             .toLowerCase()
             .includes(teamMemberFilter?.firstName ? teamMemberFilter.firstName.toLowerCase() : ""),
         )
