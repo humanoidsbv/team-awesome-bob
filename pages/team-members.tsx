@@ -27,11 +27,7 @@ function TeamMembers() {
   return (
     <ThemeProvider theme={theme}>
       <Header activePage="teammembers" />
-      <FilterBar
-        content={teamMembers}
-        count={teamMembers?.length}
-        activePage="Team Members"
-      ></FilterBar>
+      <FilterBar content={teamMembers} count={teamMembers?.length} activePage="Team Members" />
       <NewTeamMemberForm />
       <TeamMemberList />
       {teamMembers?.length === 0 && <p>There are no team members</p>}
