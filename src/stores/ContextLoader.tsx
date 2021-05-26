@@ -9,6 +9,7 @@ interface StoreProvicerProps {
 interface StoreContextProps {
   timeEntries: [Type.TimeEntry[], React.Dispatch<React.SetStateAction<Type.TimeEntry[]>>];
   teamMembers: [Type.TeamMember[], React.Dispatch<React.SetStateAction<Type.TeamMember[]>>];
+  timeEntryFilter: [Type.TimeEntry, React.Dispatch<React.SetStateAction<Type.TimeEntry>>];
   teamMemberFilter: [Type.TeamMember, React.Dispatch<React.SetStateAction<Type.TeamMember>>];
 }
 
@@ -19,6 +20,7 @@ export function StoreProvider({ children }: StoreProvicerProps) {
     timeEntries: useState<Type.TimeEntry[]>(),
     teamMembers: useState<Type.TeamMember[]>(),
     teamMemberFilter: useState<Type.TeamMember>(),
+    timeEntryFilter: useState<Type.TimeEntry>(),
   };
   return <StoreContext.Provider value={context}>{children}</StoreContext.Provider>;
 }
