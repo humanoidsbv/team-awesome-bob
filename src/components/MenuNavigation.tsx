@@ -7,20 +7,27 @@ import * as Styled from "./MenuNavigation.styled";
 
 interface NavProps {
   isOpen: boolean;
+  activePage: string;
 }
 
-function MenuNavigation({ isOpen }: NavProps) {
+function MenuNavigation({ isOpen, activePage }: NavProps) {
   return (
     <Styled.MenuNavigation isOpen={isOpen}>
-      <Link href="/">
-        <a>Timesheets</a>
+      <Link href="/" passHref>
+        <Styled.MenuItem activePage={activePage === "timesheets"}>Timesheets</Styled.MenuItem>
       </Link>
-      <Link href="/team-members">
-        <a>Team Members</a>
+      <Link href="/team-members" passHref>
+        <Styled.MenuItem activePage={activePage === "teammembers"}>TeamMembers</Styled.MenuItem>
       </Link>
-      <a>Projects</a>
-      <a>Clients</a>
-      <a>Documents</a>
+      <Link href="#" passHref>
+        <Styled.MenuItem activePage={activePage === "projects"}>Projects</Styled.MenuItem>
+      </Link>
+      <Link href="#" passHref>
+        <Styled.MenuItem activePage={activePage === "clients"}>Clients</Styled.MenuItem>
+      </Link>
+      <Link href="#" passHref>
+        <Styled.MenuItem activePage={activePage === "documents"}>Documents</Styled.MenuItem>
+      </Link>
     </Styled.MenuNavigation>
   );
 }

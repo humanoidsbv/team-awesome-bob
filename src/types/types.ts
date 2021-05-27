@@ -1,28 +1,28 @@
 import React from "react";
 
 export interface TimeEntry {
-  id: number;
-  client: string;
   activity: string;
-  startTime: string;
+  client: string;
   endTime: string;
+  id: number;
+  startTime: string;
 }
 
 export interface TeamMember {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  bio: string;
   address: string;
-  zipCode: string;
-  city: string;
-  role: string;
-  socialTwitter: string;
-  socialFacebook: string;
+  bio: string;
   currentEmployer: string;
-  startingDate: string;
+  emailAddress: string;
+  firstName: string;
+  id: number;
+  lastName: string;
+  locality: string;
+  postalCode: string;
   profilePicture: string;
+  role: string;
+  socialFacebook: string;
+  socialTwitter: string;
+  startingDate: string;
 }
 
 export type ValidityEvent =

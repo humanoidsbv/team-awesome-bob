@@ -15,7 +15,7 @@ export const Header = styled.header`
   z-index: 2;
 
   > h1 {
-    @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
+    @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
       display: none;
     }
     color: white;
@@ -26,7 +26,7 @@ export const Header = styled.header`
   }
 
   > button {
-    @media screen and (min-width: ${({ theme }) => theme.desktopBreakPoint}) {
+    @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
       display: none;
     }
     align-items: center;

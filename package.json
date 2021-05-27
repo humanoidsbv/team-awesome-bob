@@ -6,7 +6,8 @@
     "dev": "next & npm run json-server",
     "build": "next build",
     "json-server": "json-server --watch db.json --port 3004",
-    "start": "next start"
+    "start": "next start",
+    "test-lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "repository": {
     "type": "git",
@@ -41,7 +42,7 @@
   "devDependencies": {
     "@humanoids/eslint-config": "0.0.8",
     "@types/jest": "^26.0.23",
-    "@types/node": "^15.0.2",
+    "@types/node": "^15.3.0",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
     "eslint": "^7.25.0",

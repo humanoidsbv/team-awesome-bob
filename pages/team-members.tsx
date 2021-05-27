@@ -1,15 +1,15 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 
 import { ThemeProvider } from "styled-components";
 
 import { theme } from "../src/styling/theme";
 
 import Header from "../src/components/Header";
-import TeamMemberList from "../src/components/TeamMembers/TeamMemberList";
+import TeamMemberList from "../src/components/team-members/TeamMemberList";
 
 import { StoreContext } from "../src/stores/ContextLoader";
-import { getTeamMembers } from "../src/services/teamMembers/getTeamMembers";
-import NewTeamMemberForm from "../src/components/TeamMembers/NewTeamMemberForm";
+import { getTeamMembers } from "../src/services/team-members/getTeamMembers";
+import NewTeamMemberForm from "../src/components/team-members/NewTeamMemberForm";
 
 function TeamMembers() {
   const store = useContext(StoreContext);
@@ -25,7 +25,7 @@ function TeamMembers() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      <Header activePage="teammembers" />
       <NewTeamMemberForm />
       <TeamMemberList />
       {teamMembers?.length === 0 && <p>There are no team members</p>}
