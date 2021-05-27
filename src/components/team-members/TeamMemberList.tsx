@@ -1,29 +1,33 @@
-import React, { useContext } from "react";
+import React from "react";
+
+import { useStore } from "../../stores/ZustandStore";
 
 import * as Styled from "./TeamMemberList.styled";
 
 import TeamMember from "./TeamMember";
 
-import { StoreContext } from "../../stores/ContextLoader";
+interface TeamMemberListProps {
+  nameFilter: string;
+}
 
-function TeamMemberList() {
-  const store = useContext(StoreContext);
-  const [teamMembers] = store.teamMembers;
-  const [teamMemberFilter] = store.teamMemberFilter;
+function TeamMemberList({ nameFilter }: TeamMemberListProps) {
+  const teamMembers = useStore((state) => state.teamMembers);
+  const teamMemberFilter = useStore((state) => state.teamMemberFilter);
+
+  const fields = Object.keys(teamMemberFilter || {});
 
   return (
     <Styled.TeamMemberList>
       {teamMembers
-        ?.sort((a, b) => (a.lastName > b.lastName ? 1 : -1))
-        .filter((teamMember) =>
-          teamMember.locality.includes(teamMemberFilter?.locality ? teamMemberFilter.locality : ""),
+        ?.filter((teamMember) =>
+          fields.every((field) => teamMemberFilter[field] === teamMember[field]),
         )
-        .filter((teamMember) =>
-          teamMember.firstName
-            .concat(` ${teamMember.lastName}`)
-            .toLowerCase()
-            .includes(teamMemberFilter?.firstName ? teamMemberFilter.firstName.toLowerCase() : ""),
+        .filter(
+          (teamMember) =>
+            teamMember.firstName.toLowerCase().includes(nameFilter.toLowerCase()) ||
+            teamMember.lastName.toLowerCase().includes(nameFilter.toLowerCase()),
         )
+        .sort((a, b) => (a.lastName > b.lastName ? 1 : -1))
         .map((teamMember) => (
           <TeamMember key={teamMember.id} teamMember={teamMember} />
         ))}

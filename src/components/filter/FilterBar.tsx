@@ -1,44 +1,45 @@
-import React, { useContext } from "react";
+import React from "react";
 import FilterInput from "./FilterInput";
 
-import { StoreContext } from "../../stores/ContextLoader";
-import * as Type from "../../types/types";
 import * as Styled from "./FilterBar.styled";
 import FilterDropDown from "./FilterDropDown";
 
 interface FilterBarProps {
-  content: Type.TeamMember[];
+  content?: any;
   activePage: string;
-  count?: number;
+  filterFields: string[];
+  handleChange: Function;
+  handleNameFilter?: Function;
 }
 
-function FilterBar({ content, count, activePage }: FilterBarProps) {
-  const store = useContext(StoreContext);
-  const [filterOptions, setFilterOptions] = store.teamMemberFilter;
-
-  const handleChange = (event) => {
-    setFilterOptions({
-      ...filterOptions,
-      [event.target.id]: event.target.value,
-    });
-  };
-
+function FilterBar({
+  filterFields,
+  content,
+  activePage,
+  handleChange,
+  handleNameFilter,
+}: FilterBarProps) {
   return (
     <Styled.FilterBar activePage={activePage}>
       <Styled.FilterBarContent>
         <Styled.PageTitle>{activePage}</Styled.PageTitle>
         <Styled.FilterDivider />
-        <Styled.TeamMemberCount>
-          {count}
+        <Styled.ItemCount>
+          {`${content?.length} `}
           entries
-        </Styled.TeamMemberCount>
-        <FilterDropDown
-          id="locality"
-          labelValue="Locality"
-          teamMembers={content}
-          handleChange={handleChange}
-        />
-        <FilterInput id="firstName" type="select" labelValue="Name" onChange={handleChange} />
+        </Styled.ItemCount>
+
+        {filterFields.map((field) => (
+          <FilterDropDown
+            key={field}
+            id={field}
+            labelValue={field.charAt(0).toUpperCase() + field.slice(1)}
+            content={content}
+            handleChange={handleChange}
+          />
+        ))}
+
+        <FilterInput id="name" type="search" labelValue="Name" onChange={handleNameFilter} />
       </Styled.FilterBarContent>
     </Styled.FilterBar>
   );

@@ -1,29 +1,29 @@
 import React from "react";
 
-import * as Type from "../../types/types";
 import * as Styled from "./FilterDropDown.styled";
 
 interface FilterDropDownProps {
   id: string;
   labelValue: string;
-  teamMembers: Type.TeamMember[];
+  content: any;
   handleChange: Function;
 }
 
-function FilterDropDown({ id, labelValue, teamMembers, handleChange }: FilterDropDownProps) {
-  const localities = new Set<string>();
-  teamMembers?.map((teamMember) => localities.add(teamMember.locality));
+function FilterDropDown({ id, labelValue, content, handleChange }: FilterDropDownProps) {
+  const options = new Set<string>();
 
-  const localitiesArray = Array.from(localities);
+  content?.map((item) => options.add(item[id]));
+  const optionsArray = Array.from(options);
+  // console.log(optionsArray);
 
   return (
     <Styled.FilterDropDown>
       <Styled.Label htmlFor={id}>{labelValue}</Styled.Label>
-      <Styled.Select id={id} onChange={handleChange} onBlur={handleChange}>
+      <Styled.Select id={id} onChange={handleChange}>
         <Styled.Option value="">...</Styled.Option>
-        {localitiesArray.map((locality) => (
-          <Styled.Option key={locality} id={id} value={locality}>
-            {locality}
+        {optionsArray.map((option) => (
+          <Styled.Option key={option} id={option} value={option}>
+            {option}
           </Styled.Option>
         ))}
       </Styled.Select>

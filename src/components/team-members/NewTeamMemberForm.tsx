@@ -1,21 +1,20 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef } from "react";
 
 import * as Styled from "./NewTeamMemberForm.styled";
-
-import { StoreContext } from "../../stores/ContextLoader";
 
 import { addTeamMembers } from "../../services/team-members/addTeamMembers";
 
 import InputField from "../InputField";
+import { useStore } from "../../stores/ZustandStore";
 
 function NewTeamMemberForm() {
+  const teamMembers = useStore((state) => state.teamMembers);
+  const setTeamMembers = useStore((state) => state.setTeamMembers);
+
   const [isActive, setIsActive] = useState(true);
   const handleActive = () => setIsActive(!isActive);
 
   const [isFormValid, setIsFormValid] = useState(false);
-
-  const store = useContext(StoreContext);
-  const [teamMembers, setTeamMembers] = store.teamMembers;
 
   const formRef = useRef<HTMLFormElement>();
 

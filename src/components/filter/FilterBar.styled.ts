@@ -10,8 +10,9 @@ export const FilterBar = styled.div`
 `;
 
 export const FilterBarContent = styled.div`
-  /* background-color: pink; */
   display: flex;
+  justify-content: flex-end;
+  flex-flow: row wrap;
   align-items: center;
   width: clamp(0px, 90%, 1200px);
   margin: 0 auto;
@@ -26,7 +27,7 @@ export const FilterField = styled.input`
   width: auto;
 `;
 
-export const TeamMemberCount = styled.p`
+export const ItemCount = styled.p`
   font-size: 0.8rem;
   margin-right: auto;
 `;

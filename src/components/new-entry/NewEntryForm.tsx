@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef } from "react";
 
 import * as Styled from "./NewEntryForm.styled";
 
@@ -7,8 +7,7 @@ import * as Type from "../../types/types";
 import InputField from "../InputField";
 
 import { addTimeEntries } from "../../services/time-entries/addTimeEntries";
-
-import { StoreContext } from "../../stores/ContextLoader";
+import { useStore } from "../../stores/ZustandStore";
 
 interface NewEntryFormProps {
   isActive: boolean;
@@ -16,6 +15,9 @@ interface NewEntryFormProps {
 }
 
 const NewEntryForm = ({ isActive, handleActive }: NewEntryFormProps) => {
+  const timeEntries = useStore((state) => state.timeEntries);
+  const setTimeEntries = useStore((state) => state.setTimeEntries);
+
   const [isFormValid, setIsFormValid] = useState(false);
 
   const formRef = useRef<HTMLFormElement>(null);
@@ -40,8 +42,6 @@ const NewEntryForm = ({ isActive, handleActive }: NewEntryFormProps) => {
     });
     setIsFormValid(false);
   }
-  const store = useContext(StoreContext);
-  const [timeEntries, setTimeEntries] = store.timeEntries;
 
   function convertTimeEntry({ employer, activity, date, startTime, endTime }) {
     const newTimeEntry: Type.TimeEntry = {

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import { deleteTimeEntries } from "../services/time-entries/deleteTimeEntries";
 
@@ -7,11 +7,11 @@ import * as Styled from "./TimeTable.styled";
 import DateRegistry from "./DateRegistry";
 import TimeEntry from "./TimeEntry";
 
-import { StoreContext } from "../stores/ContextLoader";
+import { useStore } from "../stores/ZustandStore";
 
 function TimeTable() {
-  const store = useContext(StoreContext);
-  const [timeEntries, setTimeEntries] = store.timeEntries;
+  const timeEntries = useStore((state) => state.timeEntries);
+  const setTimeEntries = useStore((state) => state.setTimeEntries);
 
   const dateDisplay: {
     day?: "numeric" | "2-digit";
@@ -82,6 +82,7 @@ function TimeTable() {
               <p>{totalHours}</p>
             </DateRegistry>
           )}
+
           <TimeEntry
             deleteTimeEntry={deleteTimeEntry}
             id={timeEntry.id}
