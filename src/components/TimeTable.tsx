@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { deleteTimeEntries } from "../services/time-entries/deleteTimeEntries";
 
@@ -9,9 +9,19 @@ import TimeEntry from "./TimeEntry";
 
 import { useStore } from "../stores/ZustandStore";
 
+type betterTimeEntry = {
+  id: number;
+  firstChild: boolean;
+  lastChild: boolean;
+  client: string;
+  timeRegistration: string;
+  duration: string;
+};
+
 function TimeTable() {
   const timeEntries = useStore((state) => state.timeEntries);
   const setTimeEntries = useStore((state) => state.setTimeEntries);
+  const [betterTimeEntries, setBetterTimeEntries] = useState<betterTimeEntry[]>([]);
 
   const dateDisplay: {
     day?: "numeric" | "2-digit";
@@ -28,6 +38,28 @@ function TimeTable() {
     setTimeEntries(newTimeEntries);
     await deleteTimeEntries(_id);
   }
+
+  const convertToTimeRegistration = (start: string, end: string) => {
+    return start + end;
+  };
+
+  const calculateDuration = (start: string, end: string) => {
+    return start + end;
+  };
+
+  timeEntries.map((timeEntry) =>
+    setBetterTimeEntries([
+      ...betterTimeEntries,
+      {
+        id: timeEntry.id,
+        firstChild: false,
+        lastChild: false,
+        timeRegistration: convertToTimeRegistration(timeEntry.startTime, timeEntry.endTime),
+        duration: calculateDuration(timeEntry.startTime, timeEntry.endTime),
+        client: timeEntry.client,
+      },
+    ]),
+  );
 
   let previousDate = null;
 
