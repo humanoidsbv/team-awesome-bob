@@ -4,60 +4,53 @@ import React, { useState } from "react";
 import * as Styled from "./InputField.styled";
 
 interface InputFieldProps {
-  id: string;
-  type: string;
-  labelValue: string;
-  inputValue: string;
-  inputSize?: string;
-  isRequired?: boolean;
-  onChange: any;
   hasLabel?: boolean;
+  id: string;
+  inputSize?: string;
+  inputValue: string;
+  isRequired?: boolean;
+  labelValue: string;
+  onChange: any;
   socialIcon?: string;
+  type: string;
 }
 
 function InputField({
-  id,
-  type,
-  labelValue,
-  inputValue,
-  inputSize,
-  onChange,
-  isRequired,
-  socialIcon,
   hasLabel = true,
+  id,
+  inputSize,
+  inputValue,
+  isRequired,
+  labelValue,
+  onChange,
+  socialIcon,
+  type,
 }: InputFieldProps) {
   const [isValid, setIsValid] = useState(true);
 
   return (
-    <Styled.InputField
-      socialIcon={socialIcon}
-      hasLabel={hasLabel}
-      isValid={isValid}
-      type={type}
-      inputSize={inputSize}
-      htmlFor={id}
-    >
+    <Styled.InputField htmlFor={id} {...{ hasLabel, inputSize, isValid, socialIcon, type }}>
       {hasLabel && `${labelValue}`}
 
       {type === "textarea" ? (
         <textarea
           id={id}
-          value={inputValue}
-          required={isRequired}
           minLength={100}
           onBlur={(event) => setIsValid(event.target.checkValidity())}
           onChange={onChange}
+          required={isRequired}
+          value={inputValue}
         />
       ) : (
-        <div className="social">
+        <div>
           {socialIcon && <img src={socialIcon} alt="" />}
           <input
             autoComplete="off"
-            required={isRequired}
             id={id}
             minLength={2}
             onBlur={(event) => setIsValid(event.target.checkValidity())}
             onChange={onChange}
+            required={isRequired}
             type={type}
             value={inputValue}
           />

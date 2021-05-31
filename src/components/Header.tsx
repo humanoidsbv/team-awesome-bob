@@ -8,7 +8,7 @@ interface HeaderProps {
   activePage: string;
 }
 
-function Header({ activePage }: HeaderProps): React.ReactElement {
+function Header({ activePage }: HeaderProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleClick = (): void => setIsOpen(!isOpen);
 

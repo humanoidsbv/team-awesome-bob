@@ -41,12 +41,10 @@ export const InputField = styled.label`
   img {
     height: 36px;
     width: 36px;
-    /* border: solid 1px; */
     border-radius: 4px 0px 0px 4px;
     border-right: 0;
     margin-top: 10px;
     ${(props) => !props.hasLabel && "margin-top: 0;"};
-    /* border-color: ${(props) => (props.isValid ? `rgb(200, 200, 200);` : `red`)}; */
   }
 
   textarea {

@@ -15,7 +15,13 @@ function FilterInput({ id, type, labelValue, onChange, hasLabel = true }: Filter
   return (
     <Styled.InputField hasLabel={hasLabel} type={type} htmlFor={id}>
       {hasLabel && `${labelValue}`}
-      <input id={id} onChange={onChange} type={type} />
+      <input
+        autoComplete="off"
+        placeholder="Search for Name or Role"
+        id={id}
+        onChange={onChange}
+        type={type}
+      />
     </Styled.InputField>
   );
 }

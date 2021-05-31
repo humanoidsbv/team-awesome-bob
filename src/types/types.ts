@@ -1,13 +1,5 @@
 import React from "react";
 
-export interface TimeEntry {
-  activity: string;
-  client: string;
-  endTime: string;
-  id: number;
-  startTime: string;
-}
-
 export interface TeamMember {
   address: string;
   bio: string;
@@ -29,3 +21,18 @@ export type ValidityEvent =
   | React.ChangeEvent<HTMLInputElement>
   | React.ChangeEvent<HTMLTextAreaElement>
   | React.FocusEvent<HTMLInputElement>;
+
+export interface TimeEntry {
+  activity: string;
+  client: string;
+  duration: string;
+  durationAsNumber: number;
+  endDateTime: Date;
+  endTime: string;
+  firstChild: boolean;
+  id: number;
+  lastChild: boolean;
+  startDateTime: Date;
+  startTime: string;
+  timeRegistration: string;
+}

@@ -41,7 +41,7 @@ export const TimeEntry = styled.div`
     justify-content: center;
 
     p {
-      margin: 10% 0;
+      margin: 10px 0;
 
       :last-child {
         font-size: 14px;
