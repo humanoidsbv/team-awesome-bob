@@ -25,14 +25,14 @@ export type ValidityEvent =
 export interface TimeEntry {
   activity: string;
   client: string;
-  duration: string;
-  durationAsNumber: number;
-  endDateTime: Date;
+  duration?: string;
+  durationAsNumber?: number;
+  endDateTime?: Date;
   endTime: string;
-  firstChild: boolean;
+  firstChild?: boolean;
   id: number;
-  lastChild: boolean;
-  startDateTime: Date;
+  lastChild?: boolean;
+  startDateTime?: Date;
   startTime: string;
-  timeRegistration: string;
+  timeRegistration?: string;
 }
