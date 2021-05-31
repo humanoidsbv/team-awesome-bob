@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Primary = styled.button`
+export const Add = styled.button`
   background-color: ${({ theme }) => theme.activeButtonGreen};
   border-radius: 4px;
   border: solid 1px #249533;
@@ -15,7 +15,7 @@ export const Primary = styled.button`
   text-align: center;
   text-align: center;
   margin: 10px auto;
-  width: 90%;
+  width: ${(props) => props.width}px;
 
   transition: background-color 0.3s ease-out;
 
@@ -36,6 +36,6 @@ export const Primary = styled.button`
   }
 `;
 
-export const Secondary = styled(Primary)`
-  background-color: red;
+export const Cancel = styled(Add)`
+  background-color: ${({ theme }) => theme.borderGrey};
 `;

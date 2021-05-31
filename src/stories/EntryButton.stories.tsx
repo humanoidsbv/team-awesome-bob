@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { ComponentProps } from "react";
 
@@ -10,27 +11,27 @@ export default {
   component: EntryButton,
   argTypes: {
     type: {
-      options: ["Primary", "Secondary"],
+      options: ["Add", "Cancel"],
       control: { type: "select" },
     },
-    children: {
-      control: { type: "input" },
+    width: {
+      control: { type: "range", min: 100, max: 500 },
     },
   },
 } as Meta;
 
 const Template: Story<ComponentProps<typeof EntryButton>> = (args) => <EntryButton {...args} />;
 
-export const Primary = Template.bind({});
+export const Add = Template.bind({});
 
-Primary.args = {
-  type: "Primary",
+Add.args = {
+  type: "Add",
   label: "Test",
 };
 
-export const Secondary = Template.bind({});
+export const Cancel = Template.bind({});
 
-Primary.args = {
-  type: "Secondary",
+Cancel.args = {
+  type: "Cancel",
   label: "Test",
 };
