@@ -10,8 +10,6 @@ export const FilterDropDown = styled.div`
 export const Label = styled.label`
   font-size: 0.9rem;
   text-align: right;
-  /* width: 100%; */
-  /* min-width: 50px; */
   margin-left: 15px;
 `;
 
