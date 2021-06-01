@@ -7,11 +7,11 @@ import { Meta, Story } from "@storybook/react";
 import EntryButton from "../components/entrybutton/EntryButton";
 
 export default {
-  title: "EntryButton",
+  title: "EntryButtonButton",
   component: EntryButton,
   argTypes: {
     type: {
-      options: ["Add", "Cancel"],
+      options: ["AddButton", "CancelButton"],
       control: { type: "select" },
     },
     width: {
@@ -22,16 +22,16 @@ export default {
 
 const Template: Story<ComponentProps<typeof EntryButton>> = (args) => <EntryButton {...args} />;
 
-export const Add = Template.bind({});
+export const AddButton = Template.bind({});
 
-Add.args = {
-  type: "Add",
+AddButton.args = {
+  type: "AddButton",
   label: "Test",
 };
 
-export const Cancel = Template.bind({});
+export const CancelButton = Template.bind({});
 
-Cancel.args = {
-  type: "Cancel",
+CancelButton.args = {
+  type: "CancelButton",
   label: "Test",
 };

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Add = styled.button`
+export const AddButton = styled.button`
   background-color: ${({ theme }) => theme.activeButtonGreen};
   border-radius: 4px;
   border: solid 1px #249533;
@@ -36,6 +36,6 @@ export const Add = styled.button`
   }
 `;
 
-export const Cancel = styled(Add)`
+export const CancelButton = styled(AddButton)`
   background-color: ${({ theme }) => theme.borderGrey};
 `;
