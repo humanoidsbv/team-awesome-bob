@@ -34,14 +34,7 @@
       "activity": "Design",
       "startTime": "2020-06-28T07:57:34Z",
       "endTime": "2020-06-28T19:57:34Z"
-    },
-    {
-      "id": 7,
-      "client": "Port of Rotterdam",
-      "activity": "Training",
-      "startTime": "2021-03-10T03:36:48Z",
-      "endTime": "2021-03-10T12:36:48Z"
-    }
+    } 
   ],
   "team-members": [
     {
