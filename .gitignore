@@ -2,4 +2,3 @@ node_modules
 .next/
 db.json
 .env.local
-db.json
