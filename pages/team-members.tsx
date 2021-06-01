@@ -36,24 +36,24 @@ function TeamMembers() {
     }
   };
 
-  const [nameFilter, setNameFilter] = useState<string>("");
+  const [searchFilter, setSearchFilter] = useState<string>("");
 
-  const handleNameFilter = (event) => {
-    setNameFilter(event.target.value);
+  const handleSearchFilter = (event) => {
+    setSearchFilter(event.target.value);
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <Header activePage="teammembers" />
+      <Header activePage="teamMembers" />
       <FilterBar
-        handleNameFilter={handleNameFilter}
+        handleSearchFilter={handleSearchFilter}
         handleChange={handleChange}
         filterFields={["role", "locality"]}
         content={teamMembers}
         activePage="Team Members"
       />
       <NewTeamMemberForm />
-      <TeamMemberList nameFilter={nameFilter} />
+      <TeamMemberList searchFilter={searchFilter} />
       {teamMembers?.length === 0 && <p>There are no team members</p>}
     </ThemeProvider>
   );

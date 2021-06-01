@@ -3,11 +3,17 @@ import React from "react";
 import * as Styled from "./DateRegistry.styled";
 
 interface DateRegistryProps {
-  children: any;
+  date: string;
+  duration: string;
 }
 
-function DateRegistry({ children }: DateRegistryProps) {
-  return <Styled.DateRegistry>{children}</Styled.DateRegistry>;
+function DateRegistry({ date, duration }: DateRegistryProps) {
+  return (
+    <Styled.DateRegistry>
+      <p>{date}</p>
+      <p>{duration}</p>
+    </Styled.DateRegistry>
+  );
 }
 
 export default DateRegistry;

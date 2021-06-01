@@ -16,7 +16,7 @@ function MenuNavigation({ isOpen, activePage }: NavProps) {
         <Styled.MenuItem activePage={activePage === "timesheets"}>Timesheets</Styled.MenuItem>
       </Link>
       <Link href="/team-members" passHref>
-        <Styled.MenuItem activePage={activePage === "teammembers"}>TeamMembers</Styled.MenuItem>
+        <Styled.MenuItem activePage={activePage === "teamMembers"}>Team Members</Styled.MenuItem>
       </Link>
       <Link href="#" passHref>
         <Styled.MenuItem activePage={activePage === "projects"}>Projects</Styled.MenuItem>

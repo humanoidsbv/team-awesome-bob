@@ -15,7 +15,7 @@ function TeamMember({ teamMember }: TeamMemberProps) {
   };
 
   return (
-    <Styled.TeamMember>
+    <Styled.TeamMember onClick={handleClick}>
       <Styled.TeamMemberInformation isCollapsed={isCollapsed}>
         <img
           src={`${teamMember.profilePicture ? teamMember.profilePicture : "/assets/default.jpeg"}`}
@@ -25,7 +25,7 @@ function TeamMember({ teamMember }: TeamMemberProps) {
           <p>{`${teamMember.firstName} ${teamMember.lastName}`}</p>
           <p>{teamMember.role}</p>
         </div>
-        <button type="button" onClick={handleClick} aria-label="toggle-information" />
+        <div className="collapser" />
       </Styled.TeamMemberInformation>
       {isCollapsed && (
         <>

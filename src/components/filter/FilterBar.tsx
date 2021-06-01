@@ -9,7 +9,7 @@ interface FilterBarProps {
   activePage: string;
   filterFields: string[];
   handleChange: Function;
-  handleNameFilter?: Function;
+  handleSearchFilter?: Function;
 }
 
 function FilterBar({
@@ -17,7 +17,7 @@ function FilterBar({
   content,
   activePage,
   handleChange,
-  handleNameFilter,
+  handleSearchFilter,
 }: FilterBarProps) {
   return (
     <Styled.FilterBar activePage={activePage}>
@@ -39,7 +39,7 @@ function FilterBar({
           />
         ))}
 
-        <FilterInput id="name" type="search" labelValue="Name" onChange={handleNameFilter} />
+        <FilterInput id="name" type="search" labelValue="Search" onChange={handleSearchFilter} />
       </Styled.FilterBarContent>
     </Styled.FilterBar>
   );

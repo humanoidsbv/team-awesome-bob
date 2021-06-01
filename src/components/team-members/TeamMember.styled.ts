@@ -38,7 +38,7 @@ export const TeamMemberInformation = styled.div`
     margin: 0 15px 0 10px;
   }
 
-  button {
+  .collapser {
     display: block;
     background: 0;
     border: 0;

@@ -8,7 +8,7 @@ import { NewEntryButton } from "../src/components/new-entry/NewEntryButton.style
 
 import Header from "../src/components/Header";
 import NewEntryForm from "../src/components/new-entry/NewEntryForm";
-import TimeTable from "../src/components/TimeTable";
+import TimeEntries from "../src/components/TimeEntries";
 import FilterBar from "../src/components/filter/FilterBar";
 
 import { theme } from "../src/styling/theme";
@@ -18,18 +18,18 @@ function HomePage() {
   const [isActive, setIsActive] = useState<boolean>(false);
   const handleActive = (): void => setIsActive(!isActive);
 
-  const timeEntries = useStore((state) => state.timeEntries);
-  const setTimeEntries = useStore((state) => state.setTimeEntries);
+  const rawTimeEntries = useStore((state) => state.rawTimeEntries);
+  const setRawTimeEntries = useStore((state) => state.setRawTimeEntries);
 
   const timeEntryFilter = useStore((state) => state.timeEntryFilter);
   const setTimeEntryFilter = useStore((state) => state.setTimeEntryFilter);
 
-  async function fetchTimeEntries() {
-    setTimeEntries(await getTimeEntries());
+  async function fetchrawTimeEntries() {
+    setRawTimeEntries(await getTimeEntries());
   }
 
   useEffect(() => {
-    fetchTimeEntries();
+    fetchrawTimeEntries();
   }, []);
 
   const handleChange = (event) => {
@@ -54,11 +54,11 @@ function HomePage() {
       <FilterBar
         handleChange={handleChange}
         filterFields={["client", "activity"]}
-        content={timeEntries}
-        activePage="Team Members"
+        content={rawTimeEntries}
+        activePage="Timesheets"
       />
       <NewEntryForm isActive={isActive} handleActive={handleActive} />
-      <TimeTable />
+      <TimeEntries />
     </ThemeProvider>
   );
 }

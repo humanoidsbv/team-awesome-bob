@@ -25,12 +25,11 @@ export const NewTeamMemberForm = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
     background-color: transparent;
+    border-left: solid 4px ${({ theme }) => theme.teamAwesomeBlue};
+    border-top-left-radius: 0;
     display: flex;
     justify-content: flex-start;
     padding: 20px;
-
-    border-top-left-radius: 0;
-    border-left: solid 4px ${({ theme }) => theme.teamAwesomeBlue};
 
     > * {
       margin: 5px;
@@ -139,6 +138,7 @@ export const Tab = styled.div`
     border-bottom-right-radius: 0;
     margin-bottom: -2px;
     border-left: solid 4px ${({ theme }) => theme.teamAwesomeBlue};
+
     :last-of-type {
       margin-right: auto;
     }

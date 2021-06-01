@@ -14,7 +14,6 @@ function FilterDropDown({ id, labelValue, content, handleChange }: FilterDropDow
 
   content?.map((item) => options.add(item[id]));
   const optionsArray = Array.from(options);
-  // console.log(optionsArray);
 
   return (
     <Styled.FilterDropDown>

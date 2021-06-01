@@ -1,48 +1,28 @@
 import React from "react";
 
+import * as Type from "../types/types";
 import * as Styled from "./TimeEntry.styled";
 
 import DeleteButton from "./DeleteButton";
 
 interface TimeEntryProps {
-  client?: string;
-  firstChild?: boolean;
-  lastChild?: boolean;
-  isToday?: boolean;
-  timeRegistration: string;
-  duration: string;
-  children?: React.ReactElement | React.ReactElement[];
-  id: number;
+  timeEntry: Type.TimeEntry;
+  firstChild: boolean;
+  lastChild: boolean;
   deleteTimeEntry: any;
 }
 
-function TimeEntry({
-  client,
-  firstChild,
-  lastChild,
-  isToday,
-  timeRegistration,
-  duration,
-  children,
-  id,
-  deleteTimeEntry,
-}: TimeEntryProps) {
+function TimeEntry({ timeEntry, deleteTimeEntry, firstChild, lastChild }: TimeEntryProps) {
   return (
-    <Styled.TimeEntry
-      client={client}
-      firstChild={firstChild}
-      lastChild={lastChild}
-      isToday={isToday}
-    >
+    <Styled.TimeEntry client={timeEntry.client} firstChild={firstChild} lastChild={lastChild}>
       <div>
-        <p>{client}</p>
-        <DeleteButton deleteTimeEntry={deleteTimeEntry} id={id} />
+        <p>{timeEntry.client}</p>
+        <DeleteButton deleteTimeEntry={deleteTimeEntry} id={timeEntry.id} />
       </div>
       <div>
-        <p>{timeRegistration}</p>
-        <p>{duration}</p>
+        <p>{timeEntry.timeRegistration}</p>
+        <p>{timeEntry.duration}</p>
       </div>
-      {children}
     </Styled.TimeEntry>
   );
 }
