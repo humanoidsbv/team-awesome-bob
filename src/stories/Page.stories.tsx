@@ -1,11 +1,13 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable react/jsx-props-no-spreading */
+import React from "react";
+import { Story, Meta } from "@storybook/react";
 
-import { Page, PageProps } from './Page';
-import * as HeaderStories from './Header.stories';
+import { Page, PageProps } from "./Page";
+import * as HeaderStories from "./Header.stories";
 
 export default {
-  title: 'Example/Page',
+  title: "Example/Page",
   component: Page,
 } as Meta;
 

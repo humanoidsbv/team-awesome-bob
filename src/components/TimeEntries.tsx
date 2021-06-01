@@ -44,7 +44,7 @@ function TimeEntries() {
 
   useEffect(() => {
     const newTimeEntries = [];
-    rawTimeEntries.map((timeEntry) =>
+    rawTimeEntries.forEach((timeEntry) =>
       newTimeEntries.push({
         id: timeEntry.id,
         client: timeEntry.client,
