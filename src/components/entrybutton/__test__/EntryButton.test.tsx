@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+// import { mount } from "enzyme";
 import React from "react";
 import renderer from "react-test-renderer";
 
@@ -15,14 +16,11 @@ it("renders correctly", () => {
   expect(entryButtonTree).toMatchSnapshot();
 });
 
-// function mockHandleClick() {
-//   return true;
-// }
-
-// it("checks initial isVisible state", () => {
-
-//   expect(isVisible).toBe(true);
-
+// it("should update isVisible on click", () => {
+//   const state = jest.fn(() => true);
+//   const wrapper = mount(<EntryButton label="test" handleClick={state} />);
+//   const handleClick = jest.spyOn(React, "useState");
+//   handleClick.mockImplementation((isVisible) => [isVisible, setIsVisible]);
+//   wrapper.simulate("click");
+//   expect(state).toBeTruthy();
 // });
-
-// it("checks if click is handled", () => {});
