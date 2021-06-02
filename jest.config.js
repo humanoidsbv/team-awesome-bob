@@ -32,4 +32,9 @@ module.exports = {
     ".(ts|tsx)": "babel-jest",
   },
   transformIgnorePatterns: ["<rootDir>/node_modules/"],
+  globals: {
+    "ts-jest": {
+      isolatedModules: false,
+    },
+  },
 };

@@ -34,6 +34,8 @@ export const AddButton = styled.button`
   @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
     display: none;
   }
+
+  display: ${(props) => (props.isVisible ? "block" : "none")};
 `;
 
 export const CancelButton = styled(AddButton)`

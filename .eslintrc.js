@@ -7,6 +7,6 @@ module.exports = {
   },
   env: {
     jest: true,
-    cypress: true,
+    // cypress: true,
   },
 };
