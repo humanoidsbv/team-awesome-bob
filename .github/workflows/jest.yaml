@@ -7,7 +7,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install modules
         run: npm ci
-      - name: Install Jest
-        run: npm install jest --global
-      - name: Run Jest Watch
-        run: npm run test --ci
+      - name: Run Jest
+        run: npm run git-jest

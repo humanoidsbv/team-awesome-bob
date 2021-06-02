@@ -12,7 +12,8 @@
     "build-storybook": "build-storybook",
     "test": "jest --watch",
     "static-build": "next build && next export",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "git-jest": "jest --ci"
   },
   "repository": {
     "type": "git",
