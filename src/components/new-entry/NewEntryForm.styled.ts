@@ -39,19 +39,3 @@ export const DoubleInput = styled.div`
     width: calc(50% - 8px) !important;
   }
 `;
-
-export const SubmitButton = styled.button`
-  display: inline-block;
-  background-color: ${({ theme }) => theme.activeButtonGreen};
-  border: solid 1px #249533;
-  outline: 0;
-  min-height: 36px;
-  border-radius: 4px;
-  color: white;
-  min-width: 60px;
-
-  :disabled {
-    background-color: rgba(100, 100, 100);
-    border: solid 1px rgba(100, 100, 100);
-  }
-`;

@@ -31,9 +31,6 @@ export const AddButton = styled.button`
     background-color: rgba(100, 100, 100);
     border: solid 1px rgba(100, 100, 100);
   }
-  @media screen and (min-width: ${({ theme }) => theme.desktopBreakpoint}) {
-    display: none;
-  }
 
   display: ${(props) => (props.isVisible ? "block" : "none")};
 `;

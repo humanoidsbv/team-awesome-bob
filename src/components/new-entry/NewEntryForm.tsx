@@ -1,13 +1,13 @@
 import React, { useState, useRef } from "react";
 
 import * as Styled from "./NewEntryForm.styled";
-
 import * as Type from "../../types/types";
 
 import InputField from "../InputField";
 
 import { addTimeEntries } from "../../services/time-entries/addTimeEntries";
 import { useStore } from "../../stores/ZustandStore";
+import EntryButton from "../entrybutton/EntryButton";
 
 interface NewEntryFormProps {
   isActive: boolean;
@@ -27,7 +27,6 @@ const NewEntryForm = ({ isActive, handleActive }: NewEntryFormProps) => {
     date: new Date().toISOString().substr(0, 10),
     employer: "",
     endTime: "17:00",
-    id: null,
     startTime: "08:00",
   });
 
@@ -37,28 +36,28 @@ const NewEntryForm = ({ isActive, handleActive }: NewEntryFormProps) => {
       date: new Date().toISOString().substr(0, 10),
       employer: "",
       endTime: "17:00",
-      id: null,
       startTime: "08:00",
     });
     setIsFormValid(false);
   }
 
-  function convertTimeEntry({ employer, activity, date, startTime, endTime }) {
+  const convertTimeEntry = ({ employer, activity, date, startTime, endTime }) => {
     const newTimeEntry: Type.TimeEntry = {
+      id: null,
       activity,
       client: employer,
       endTime: `${date}T${endTime}:00.000Z`,
-      id: timeEntries.length + 1,
       startTime: `${date}T${startTime}:00.000Z`,
     };
+
     addTimeEntries(newTimeEntry);
     setTimeEntries([...timeEntries, newTimeEntry]);
     resetAllFields();
-  }
+  };
 
   const saveTimeEntry = (event) => {
-    handleActive();
     event.preventDefault();
+    handleActive();
     convertTimeEntry(timeEntryInput);
   };
 
@@ -115,9 +114,12 @@ const NewEntryForm = ({ isActive, handleActive }: NewEntryFormProps) => {
           onChange={updateTimeEntry}
         />
       </Styled.DoubleInput>
-      <Styled.SubmitButton isVisible disabled={!isFormValid}>
-        {isFormValid ? "Add" : "Please fill in required fields"}
-      </Styled.SubmitButton>
+      <EntryButton
+        label={isFormValid ? "Add" : "Please fill in required fields"}
+        isVisible
+        type="AddButton"
+        disabled={!isFormValid}
+      />
     </Styled.NewEntryForm>
   );
 };

@@ -3,11 +3,12 @@ import React from "react";
 import * as Styled from "./EntryButton.styled";
 
 interface EntryButtonProps {
-  handleClick: Function;
+  handleClick?: Function;
   isVisible?: boolean;
   label: string;
   type?: "AddButton" | "CancelButton";
   width?: number;
+  disabled?: boolean;
 }
 function EntryButton({
   handleClick,
@@ -15,15 +16,26 @@ function EntryButton({
   label,
   type = "AddButton",
   width = 300,
+  disabled = false,
 }: EntryButtonProps) {
   return (
     <>
       {type === "AddButton" ? (
-        <Styled.AddButton onClick={handleClick} isVisible={isVisible} width={width}>
+        <Styled.AddButton
+          disabled={disabled}
+          onClick={handleClick}
+          isVisible={isVisible}
+          width={width}
+        >
           {label}
         </Styled.AddButton>
       ) : (
-        <Styled.CancelButton onClick={handleClick} isVisible={isVisible} width={width}>
+        <Styled.CancelButton
+          disabled={disabled}
+          onClick={handleClick}
+          isVisible={isVisible}
+          width={width}
+        >
           {label}
         </Styled.CancelButton>
       )}
