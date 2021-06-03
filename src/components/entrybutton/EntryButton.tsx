@@ -4,15 +4,16 @@ import * as Styled from "./EntryButton.styled";
 
 interface EntryButtonProps {
   label: string;
-  type?: "Primary" | "Secondary";
+  type?: "AddButton" | "CancelButton";
+  width?: number;
 }
-function EntryButton({ label, type = "Primary" }: EntryButtonProps) {
+function EntryButton({ label, type = "AddButton", width = 300 }: EntryButtonProps) {
   return (
     <>
-      {type === "Primary" ? (
-        <Styled.Primary>{label}</Styled.Primary>
+      {type === "AddButton" ? (
+        <Styled.AddButton width={width}>{label}</Styled.AddButton>
       ) : (
-        <Styled.Secondary>{label}</Styled.Secondary>
+        <Styled.CancelButton width={width}>{label}</Styled.CancelButton>
       )}
     </>
   );

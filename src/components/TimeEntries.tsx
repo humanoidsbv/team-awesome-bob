@@ -43,20 +43,18 @@ function TimeEntries() {
   }
 
   useEffect(() => {
-    const newTimeEntries = [];
-    rawTimeEntries.map((timeEntry) =>
-      newTimeEntries.push({
-        id: timeEntry.id,
-        client: timeEntry.client,
-        activity: timeEntry.activity,
-        timeRegistration: convertDates(timeEntry).timeRegistration,
-        startDateTime: convertDates(timeEntry).startDateTime,
-        endDateTime: convertDates(timeEntry).startDateTime,
-        duration: calculateDuration(timeEntry).duration,
-        durationAsNumber: calculateDuration(timeEntry).durationAsNumber,
+    setTimeEntries(
+      rawTimeEntries.map((timeEntry) => {
+        return {
+          ...timeEntry,
+          timeRegistration: convertDates(timeEntry).timeRegistration,
+          startDateTime: convertDates(timeEntry).startDateTime,
+          endDateTime: convertDates(timeEntry).endDateTime,
+          duration: calculateDuration(timeEntry).duration,
+          durationAsNumber: calculateDuration(timeEntry).durationAsNumber,
+        };
       }),
     );
-    setTimeEntries(newTimeEntries);
   }, [rawTimeEntries]);
 
   const dateDisplay: {
@@ -120,42 +118,3 @@ function TimeEntries() {
 }
 
 export default TimeEntries;
-
-//  {
-//    timeEntries
-//      .filter((timeEntry) => fields.every((field) => timeEntryFilter[field] === timeEntry[field]))
-//      .map((timeEntry, index) => {
-//        let firstChild = true;
-//        let lastChild = true;
-//        const prev = index !== 0 && timeEntries[index - 1];
-//        const next = index !== timeEntries.length - 1 && timeEntries[index + 1];
-//        const date = timeEntry.startDateTime.toLocaleDateString("nl-NL", dateDisplay);
-
-//        if (
-//          prev &&
-//          prev.startDateTime.toLocaleDateString() === timeEntry.startDateTime.toLocaleDateString()
-//        ) {
-//          firstChild = false;
-//        }
-
-//        if (
-//          next &&
-//          next.startDateTime.toLocaleDateString() === timeEntry.startDateTime.toLocaleDateString()
-//        ) {
-//          lastChild = false;
-//        }
-
-//        return (
-//          <>
-//            <DateRegistry show={firstChild} date={date} duration="test" />
-//            <TimeEntry
-//              key={timeEntry.id}
-//              deleteTimeEntry={deleteTimeEntry}
-//              firstChild={firstChild}
-//              lastChild={lastChild}
-//              timeEntry={timeEntry}
-//            />
-//          </>
-//        );
-//      });
-//  }
