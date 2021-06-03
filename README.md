@@ -11,6 +11,7 @@ You can add new Time Entries and Team Members with some limitations. You can fil
 To get a demo of this front end web app, check out this repo and use
 
 ```bash
+npm i
 npm run dev
 ```
 
