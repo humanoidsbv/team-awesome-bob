@@ -1,4 +1,4 @@
-name: Test Jest CI
+name: Tests CI
 on: push
 jobs:
   build:
@@ -12,5 +12,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          config-file: /staging.json
           build: npm run build
           start: npm start
