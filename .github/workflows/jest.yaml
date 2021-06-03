@@ -9,8 +9,8 @@ jobs:
         run: npm ci
       - name: Run Jest
         run: npm run git-jest
-      - name: Run Cypress
+      - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           build: npm run build
-          run: npm run dev
+          start: npm start
