@@ -14,9 +14,18 @@ To get a demo of this front end web app, check out this repo and use
 npm run dev
 ```
 
-## Testing
+### Stack
 
+HTML, CSS, JS ...
+Made with React, styled-components, Zustand, StoryBook, Jest & Cypress
+
+## Usage
+
+```bash
+npm run storybook		// will start up storybook, to check out the usage of some components.
 ```
+
+```bash
 npm run test		// will run Jest with a Watcher.
 npm run cypress		// will fire up Cypress with some End to End test options.
 ```
