@@ -2,7 +2,8 @@
 
 exports[`renders correctly 1`] = `
 <button
-  className="EntryButtonstyled__AddButton-sc-1gp19ln-0 kIPdKW"
+  className="EntryButtonstyled__AddButton-sc-1gp19ln-0 fxKhbT"
+  disabled={false}
   onClick={[Function]}
   width={300}
 >
