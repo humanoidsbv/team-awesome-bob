@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import { getTimeEntries } from "../getTimeEntries";
 
 const mockedTimeEntries = [
