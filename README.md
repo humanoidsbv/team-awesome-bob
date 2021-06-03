@@ -2,7 +2,7 @@
 
 ## Team Awesome
 
-This project is the front end to the future Team Awesome application which will allow enterprises to track time registration of their employees.
+This project is the front end to the future Team Awesome application which will allow enterprises to keep track of the time registrations of their employees.
 
 You can add new Time Entries and Team Members with some limitations. You can filter these entries and members by some primary variables of these objects.
 
@@ -16,19 +16,39 @@ npm run dev
 
 ### Stack
 
-HTML, CSS, JS ...
-Made with React, styled-components, Zustand, StoryBook, Jest & Cypress
+Made with [Next.js](https://nextjs.org/), [styled-components](https://styled-components.com/), [Zustand](https://github.com/pmndrs/zustand), [StoryBook](https://storybook.js.org/), [Jest](https://jestjs.io/) & [Cypress](https://www.cypress.io/)
 
 ## Usage
 
+### StoryBook
+
+---
+
 ```bash
-npm run storybook		// will start up storybook, to check out the usage of some components.
+npm run storybook
 ```
+
+This will start up storybook, to check out the usage of some components.
+
+### Jest
+
+---
 
 ```bash
 npm run test		// will run Jest with a Watcher.
-npm run cypress		// will fire up Cypress with some End to End test options.
 ```
+
+This will run Jest with a Watcher.
+
+### Cypress
+
+---
+
+```bash
+npm run cypress
+```
+
+This will fire up Cypress with some End to End test options.
 
 ### Contributions
 
@@ -72,5 +92,5 @@ Would not have been able to do it without:
                          (#(/** %%##((            %%#((*  (/**. KIPRUND
                                                           .,* KIPRUND
 
-Interested in the Front End CrashCourse, check out:
+Interested in the Front-end Development Traineeship, check out:
 [Humanoids](https://humanoids.nl/training/)
