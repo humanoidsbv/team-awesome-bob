@@ -1,0 +1,17 @@
+name: Tests CI
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: npm ci
+      - name: Run Jest
+        run: npm run git-jest
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          config-file: /staging.json
+          build: npm run build
+          start: npm start

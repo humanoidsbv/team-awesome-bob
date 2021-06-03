@@ -7,11 +7,13 @@
     "build": "next build",
     "json-server": "json-server --watch db.json --port 3004",
     "start": "next start",
-    "test-lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest --watch",
-    "static-build": "next build && next export"
+    "static-build": "next build && next export",
+    "cypress": "cypress open",
+    "git-jest": "jest --ci"
   },
   "repository": {
     "type": "git",
@@ -35,14 +37,18 @@
   "homepage": "https://github.com/humanoidsbv/team-awesome-bob#readme",
   "dependencies": {
     "@humanoids/prettier-config": "0.0.3",
+    "cypress": "^7.4.0",
+    "eslint-plugin-cypress": "^2.11.3",
     "json-server": "^0.16.3",
     "next": "^10.2.3",
     "node-fetch": "^2.6.1",
     "prettier": "^2.2.1",
-    "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
+    "react": "^17.0.2",
     "styled-components": "^5.2.3",
-    "zustand": "^3.5.1"
+    "zustand": "^3.5.1",
+    "@storybook/react": "^6.2.9"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
@@ -54,14 +60,14 @@
     "@types/enzyme": "^3.10.8",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.3.0",
-    "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
+    "@types/react": "^17.0.5",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
     "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.2",
     "enzyme": "^3.11.0",
-    "eslint": "^7.25.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint": "^7.25.0",
     "jest": "^27.0.3",
     "react-test-renderer": "^17.0.2",
     "ts-jest": "^27.0.2",

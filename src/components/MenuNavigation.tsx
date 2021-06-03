@@ -11,7 +11,7 @@ interface NavProps {
 }
 function MenuNavigation({ isOpen, activePage }: NavProps) {
   return (
-    <Styled.MenuNavigation isOpen={isOpen}>
+    <Styled.MenuNavigation data-cy="menu-navigation" isOpen={isOpen}>
       <Link href="/" passHref>
         <Styled.MenuItem activePage={activePage === "timesheets"}>Timesheets</Styled.MenuItem>
       </Link>

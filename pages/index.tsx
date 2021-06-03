@@ -18,18 +18,18 @@ function HomePage() {
   const [isActive, setIsActive] = useState<boolean>(false);
   const handleActive = (): void => setIsActive(!isActive);
 
-  const rawTimeEntries = useStore((state) => state.rawTimeEntries);
-  const setRawTimeEntries = useStore((state) => state.setRawTimeEntries);
+  const timeEntries = useStore((state) => state.timeEntries);
+  const setTimeEntries = useStore((state) => state.setTimeEntries);
 
   const timeEntryFilter = useStore((state) => state.timeEntryFilter);
   const setTimeEntryFilter = useStore((state) => state.setTimeEntryFilter);
 
-  async function fetchrawTimeEntries() {
-    setRawTimeEntries(await getTimeEntries());
+  async function fetchTimeEntries() {
+    setTimeEntries(await getTimeEntries());
   }
 
   useEffect(() => {
-    fetchrawTimeEntries();
+    fetchTimeEntries();
   }, []);
 
   const handleChange = (event) => {
@@ -54,7 +54,7 @@ function HomePage() {
       <FilterBar
         handleChange={handleChange}
         filterFields={["client", "activity"]}
-        content={rawTimeEntries}
+        content={timeEntries}
         activePage="Timesheets"
       />
       <NewEntryForm isActive={isActive} handleActive={handleActive} />

@@ -17,6 +17,7 @@ module.exports = {
     "/tests/",
     "/coverage/",
     "/.storybook/",
+    "/cypress/",
   ],
   testRegex: "(/__test__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
   testURL: "http://localhost",

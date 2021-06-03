@@ -4,9 +4,7 @@ import create from "zustand";
 import * as Type from "../types/types";
 import { TimeEntry } from "../types/types";
 
-type State = {
-  rawTimeEntries: Type.TimeEntry[];
-  setRawTimeEntries: (input: Type.TimeEntry[]) => void;
+interface State {
   setTeamMemberFilter: (input: Type.TeamMember) => void;
   setTeamMembers: (input: Type.TeamMember[]) => void;
   setTimeEntries: (input: TimeEntry[]) => void;
@@ -15,11 +13,9 @@ type State = {
   teamMembers: Type.TeamMember[];
   timeEntries: Type.TimeEntry[];
   timeEntryFilter: Type.TimeEntry;
-};
+}
 
 export const useStore = create<State>((set) => ({
-  rawTimeEntries: [],
-  setRawTimeEntries: (input) => set({ rawTimeEntries: input }),
   setTeamMemberFilter: (input) => set({ teamMemberFilter: input }),
   setTeamMembers: (input) => set({ teamMembers: input }),
   setTimeEntries: (input) => set({ timeEntries: input }),
