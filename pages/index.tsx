@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { ThemeProvider } from "styled-components";
 
+import { gql, useQuery } from "@apollo/client";
 import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
 
 import { NewEntryButton } from "../src/components/new-entry/NewEntryButton.styled";
@@ -21,16 +22,35 @@ function HomePage() {
   const timeEntries = useStore((state) => state.timeEntries);
   const setTimeEntries = useStore((state) => state.setTimeEntries);
 
+  const { loading } = useQuery(
+    gql`
+      query GetTimeEntries {
+        allTimeEntries {
+          id
+          activity
+          client
+          endTime
+          startTime
+        }
+      }
+    `,
+    {
+      onCompleted: (data) => setTimeEntries(data.allTimeEntries),
+      skip: timeEntries.length > 0,
+    },
+  );
+
   const timeEntryFilter = useStore((state) => state.timeEntryFilter);
   const setTimeEntryFilter = useStore((state) => state.setTimeEntryFilter);
 
-  async function fetchTimeEntries() {
-    setTimeEntries(await getTimeEntries());
-  }
+  // async function fetchTimeEntries() {
+  // setTimeEntries(await getTimeEntries());
 
-  useEffect(() => {
-    fetchTimeEntries();
-  }, []);
+  // }
+
+  // useEffect(() => {
+  //   fetchTimeEntries();
+  // }, []);
 
   const handleChange = (event) => {
     const newTimeEntryFilter = { ...timeEntryFilter };
@@ -58,6 +78,7 @@ function HomePage() {
         activePage="Timesheets"
       />
       <NewEntryForm isActive={isActive} handleActive={handleActive} />
+      {loading && <p>loading...</p>}
       <TimeEntries />
     </ThemeProvider>
   );

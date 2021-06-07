@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 
+import { gql, useMutation } from "@apollo/client";
+
 import * as Styled from "./NewEntryForm.styled";
 import * as Type from "../../types/types";
 
@@ -9,6 +11,28 @@ import { addTimeEntries } from "../../services/time-entries/addTimeEntries";
 import { useStore } from "../../stores/ZustandStore";
 import EntryButton from "../entrybutton/EntryButton";
 
+const MUTATION = gql`
+  mutation CreateTimeEntry(
+    $activity: String!
+    $client: String!
+    $endTime: String!
+    $startTime: String!
+  ) {
+    createTimeEntry(
+      activity: $activity
+      client: $client
+      endTime: $endTime
+      startTime: $startTime
+    ) {
+      id
+      activity
+      client
+      endTime
+      startTime
+    }
+  }
+`;
+
 interface NewEntryFormProps {
   isActive: boolean;
   handleActive: Function;
@@ -17,6 +41,8 @@ interface NewEntryFormProps {
 const NewEntryForm = ({ isActive, handleActive }: NewEntryFormProps) => {
   const timeEntries = useStore((state) => state.timeEntries);
   const setTimeEntries = useStore((state) => state.setTimeEntries);
+
+  const [addTodo, { data }] = useMutation(MUTATION);
 
   const [isFormValid, setIsFormValid] = useState(false);
 
@@ -50,7 +76,21 @@ const NewEntryForm = ({ isActive, handleActive }: NewEntryFormProps) => {
       startTime: `${date}T${startTime}:00.000Z`,
     };
 
+    addTodo({
+      variables: {
+        activity: newTimeEntry.activity,
+        client: newTimeEntry.client,
+        startTime: newTimeEntry.startTime,
+        endTime: newTimeEntry.endTime,
+      },
+    });
+
+    if (data) {
+      console.log(data);
+    }
+
     addTimeEntries(newTimeEntry);
+
     setTimeEntries([...timeEntries, newTimeEntry]);
     resetAllFields();
   };

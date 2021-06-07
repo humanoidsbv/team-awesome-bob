@@ -1,5 +1,5 @@
 {
-  "time-entries": [
+  "timeEntries": [
     {
       "id": 1,
       "client": "Nationale Milieu Database",
@@ -34,9 +34,9 @@
       "activity": "Design",
       "startTime": "2020-06-28T07:57:34Z",
       "endTime": "2020-06-28T19:57:34Z"
-    } 
+    }
   ],
-  "team-members": [
+  "teamMembers": [
     {
       "id": 1,
       "firstName": "Bob",

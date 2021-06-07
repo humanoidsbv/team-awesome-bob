@@ -36,19 +36,21 @@
   },
   "homepage": "https://github.com/humanoidsbv/team-awesome-bob#readme",
   "dependencies": {
+    "@apollo/client": "^3.3.19",
     "@humanoids/prettier-config": "0.0.3",
+    "@storybook/react": "^6.2.9",
     "cypress": "^7.4.0",
     "eslint-plugin-cypress": "^2.11.3",
+    "graphql": "^15.5.0",
     "json-server": "^0.16.3",
     "next": "^10.2.3",
     "node-fetch": "^2.6.1",
     "prettier": "^2.2.1",
+    "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
-    "react": "^17.0.2",
     "styled-components": "^5.2.3",
-    "zustand": "^3.5.1",
-    "@storybook/react": "^6.2.9"
+    "zustand": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",

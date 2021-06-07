@@ -24,8 +24,9 @@ it("fetches TimeEntries from the server", () => {
   expect(
     global.fetch,
   ).toHaveBeenCalledWith(
-    "https://my-json-server.typicode.com/humanoidsbv/team-awesome-bob/time-entries?_sort=startTime&_order=desc",
-    { headers: { "Content-Type": "application/json" }, method: "GET" },
+    "https://my-json-server.typicode.com/humanoidsbv/team-awesome-bob/timeEntries?_sort=startTime&_order=desc",
+    { headers: { "Content-Type": "application/j
+		son" }, method: "GET" },
   );
 
   global.fetch = unmockedFetch;

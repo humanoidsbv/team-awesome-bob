@@ -99,6 +99,7 @@ function TimeEntries() {
           <DateRegistry date={item.dateInfo.date} duration={item.dateInfo.duration} />
           {item.timeEntryList.map((timeEntry, index) => (
             <TimeEntry
+              key={timeEntry.id}
               deleteTimeEntry={deleteTimeEntry}
               firstChild={index === 0}
               lastChild={index === item.timeEntryList.length - 1}
